@@ -25,14 +25,14 @@ export function PrivacyPage() {
             </p>
           </div>
 
-          <div className="prose prose-lg prose-invert max-w-none">
+          <div className="max-w-4xl mx-auto">
             <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 lg:p-12 border border-white/10">
               <div className="space-y-8 text-[#F4F6FF]">
                 <section>
                   <h2 className="text-2xl font-heading font-bold text-[#F4F6FF] mb-4">
                     Information We Collect
                   </h2>
-                  <p className="text-[#A7B0C8] leading-relaxed">
+                  <p className="text-[#A7B0C8] leading-relaxed mb-4">
                     We collect information you provide directly to us, such as when you create an account,
                     use our services, or contact us for support. This may include your name, email address,
                     and any content you upload or generate through our platform.
@@ -43,7 +43,7 @@ export function PrivacyPage() {
                   <h2 className="text-2xl font-heading font-bold text-[#F4F6FF] mb-4">
                     How We Use Your Information
                   </h2>
-                  <p className="text-[#A7B0C8] leading-relaxed">
+                  <p className="text-[#A7B0C8] leading-relaxed mb-4">
                     We use the information we collect to provide, maintain, and improve our services,
                     process transactions, send you technical notices and support messages, and respond
                     to your comments and questions.
@@ -54,7 +54,7 @@ export function PrivacyPage() {
                   <h2 className="text-2xl font-heading font-bold text-[#F4F6FF] mb-4">
                     Data Security
                   </h2>
-                  <p className="text-[#A7B0C8] leading-relaxed">
+                  <p className="text-[#A7B0C8] leading-relaxed mb-4">
                     We implement appropriate security measures to protect your personal information against
                     unauthorized access, alteration, disclosure, or destruction. However, no method of
                     transmission over the internet is 100% secure.
@@ -65,7 +65,7 @@ export function PrivacyPage() {
                   <h2 className="text-2xl font-heading font-bold text-[#F4F6FF] mb-4">
                     Data Sharing
                   </h2>
-                  <p className="text-[#A7B0C8] leading-relaxed">
+                  <p className="text-[#A7B0C8] leading-relaxed mb-4">
                     We do not sell, trade, or otherwise transfer your personal information to third parties
                     without your consent, except as described in this policy or as required by law.
                   </p>
@@ -75,7 +75,7 @@ export function PrivacyPage() {
                   <h2 className="text-2xl font-heading font-bold text-[#F4F6FF] mb-4">
                     Your Rights
                   </h2>
-                  <p className="text-[#A7B0C8] leading-relaxed">
+                  <p className="text-[#A7B0C8] leading-relaxed mb-4">
                     You have the right to access, update, or delete your personal information. You can
                     also opt out of certain data collection practices. Contact us if you wish to exercise
                     these rights.
@@ -86,7 +86,7 @@ export function PrivacyPage() {
                   <h2 className="text-2xl font-heading font-bold text-[#F4F6FF] mb-4">
                     Changes to This Policy
                   </h2>
-                  <p className="text-[#A7B0C8] leading-relaxed">
+                  <p className="text-[#A7B0C8] leading-relaxed mb-4">
                     We may update this privacy policy from time to time. We will notify you of any changes
                     by posting the new policy on this page and updating the "Last updated" date.
                   </p>
@@ -96,7 +96,7 @@ export function PrivacyPage() {
                   <h2 className="text-2xl font-heading font-bold text-[#F4F6FF] mb-4">
                     Contact Us
                   </h2>
-                  <p className="text-[#A7B0C8] leading-relaxed">
+                  <p className="text-[#A7B0C8] leading-relaxed mb-4">
                     If you have any questions about this privacy policy, please contact us at
                     privacy@plausch.app.
                   </p>

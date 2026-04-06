@@ -110,12 +110,12 @@ export function FooterSection() {
               >
                 Privacy
               </Link>
-              <a
-                href="#"
+              <Link
+                to="/terms"
                 className="text-[#A7B0C8] hover:text-[#F4F6FF] transition-colors text-sm"
               >
                 Terms
-              </a>
+              </Link>
               <a
                 href="#"
                 className="text-[#A7B0C8] hover:text-[#F4F6FF] transition-colors text-sm"

@@ -9,6 +9,7 @@ import { PinnedSection } from './sections/PinnedSection';
 import { PricingSection } from './sections/PricingSection';
 import { FooterSection } from './sections/FooterSection';
 import { PrivacyPage } from './sections/PrivacyPage';
+import { TermsPage } from './sections/TermsPage';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -39,6 +40,15 @@ const featureSections = [
       'Local-first options, no training on your conversations, and clear data policies.',
     cardImage: '/images/privacy_card.jpg',
     cardAlt: 'Privacy Settings Interface',
+  },
+  {
+    id: 'terms',
+    headline: 'Clear terms, ',
+    headlineAccent: 'fair usage.',
+    subheadline:
+      'Transparent terms and conditions that protect both you and our service.',
+    cardImage: '/images/team_card.jpg',
+    cardAlt: 'Terms and Conditions Interface',
   },
   {
     id: 'shortcuts',
@@ -136,6 +146,7 @@ function App() {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/privacy" element={<PrivacyPage />} />
+      <Route path="/terms" element={<TermsPage />} />
     </Routes>
   );
 }
@@ -230,6 +241,7 @@ function HomePage() {
             cardImage={section.cardImage}
             cardAlt={section.cardAlt}
             zIndex={20 + index}
+            linkTo={section.id === 'privacy' ? '/privacy' : section.id === 'terms' ? '/terms' : undefined}
           />
         ))}
 

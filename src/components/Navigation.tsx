@@ -35,45 +35,35 @@ export function Navigation() {
     >
       <div className="flex items-center justify-between px-6 lg:px-10 py-4">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2">
+        <div className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-lg bg-violet flex items-center justify-center">
             <span className="text-white font-bold text-sm">P</span>
           </div>
           <span className="font-heading font-bold text-xl text-[#F4F6FF]">
             Plausch
           </span>
-        </Link>
+        </div>
 
         {/* Nav Links */}
         <div className="hidden md:flex items-center gap-8">
-          {isHomePage && (
-            <>
-              <button
-                onClick={() => scrollToSection('features')}
-                className="text-[#A7B0C8] hover:text-[#F4F6FF] transition-colors text-sm font-medium"
-              >
-                Features
-              </button>
-              <button
-                onClick={() => scrollToSection('pricing')}
-                className="text-[#A7B0C8] hover:text-[#F4F6FF] transition-colors text-sm font-medium"
-              >
-                Pricing
-              </button>
-              <button
-                onClick={() => scrollToSection('docs')}
-                className="text-[#A7B0C8] hover:text-[#F4F6FF] transition-colors text-sm font-medium"
-              >
-                Docs
-              </button>
-            </>
-          )}
-          <Link
-            to="/privacy"
+          <button
+            onClick={() => scrollToSection('features')}
             className="text-[#A7B0C8] hover:text-[#F4F6FF] transition-colors text-sm font-medium"
           >
-            Privacy
-          </Link>
+            Features
+          </button>
+          <button
+            onClick={() => scrollToSection('pricing')}
+            className="text-[#A7B0C8] hover:text-[#F4F6FF] transition-colors text-sm font-medium"
+          >
+            Pricing
+          </button>
+          <button
+            onClick={() => scrollToSection('docs')}
+            className="text-[#A7B0C8] hover:text-[#F4F6FF] transition-colors text-sm font-medium"
+          >
+            Docs
+          </button>
           <button
             onClick={() => scrollToSection('signin')}
             className="text-[#A7B0C8] hover:text-[#F4F6FF] transition-colors text-sm font-medium"
