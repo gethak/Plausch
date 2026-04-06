@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,9 +17,11 @@ export function Navigation() {
   }, []);
 
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    if (isHomePage) {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
 
@@ -30,35 +35,45 @@ export function Navigation() {
     >
       <div className="flex items-center justify-between px-6 lg:px-10 py-4">
         {/* Logo */}
-        <div className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-lg bg-violet flex items-center justify-center">
             <span className="text-white font-bold text-sm">P</span>
           </div>
           <span className="font-heading font-bold text-xl text-[#F4F6FF]">
             Plausch
           </span>
-        </div>
+        </Link>
 
         {/* Nav Links */}
         <div className="hidden md:flex items-center gap-8">
-          <button
-            onClick={() => scrollToSection('features')}
+          {isHomePage && (
+            <>
+              <button
+                onClick={() => scrollToSection('features')}
+                className="text-[#A7B0C8] hover:text-[#F4F6FF] transition-colors text-sm font-medium"
+              >
+                Features
+              </button>
+              <button
+                onClick={() => scrollToSection('pricing')}
+                className="text-[#A7B0C8] hover:text-[#F4F6FF] transition-colors text-sm font-medium"
+              >
+                Pricing
+              </button>
+              <button
+                onClick={() => scrollToSection('docs')}
+                className="text-[#A7B0C8] hover:text-[#F4F6FF] transition-colors text-sm font-medium"
+              >
+                Docs
+              </button>
+            </>
+          )}
+          <Link
+            to="/privacy"
             className="text-[#A7B0C8] hover:text-[#F4F6FF] transition-colors text-sm font-medium"
           >
-            Features
-          </button>
-          <button
-            onClick={() => scrollToSection('pricing')}
-            className="text-[#A7B0C8] hover:text-[#F4F6FF] transition-colors text-sm font-medium"
-          >
-            Pricing
-          </button>
-          <button
-            onClick={() => scrollToSection('docs')}
-            className="text-[#A7B0C8] hover:text-[#F4F6FF] transition-colors text-sm font-medium"
-          >
-            Docs
-          </button>
+            Privacy
+          </Link>
           <button
             onClick={() => scrollToSection('signin')}
             className="text-[#A7B0C8] hover:text-[#F4F6FF] transition-colors text-sm font-medium"

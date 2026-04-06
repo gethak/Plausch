@@ -1,3 +1,4 @@
+import { Routes, Route } from 'react-router-dom';
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -7,6 +8,7 @@ import { HeroSection } from './sections/HeroSection';
 import { PinnedSection } from './sections/PinnedSection';
 import { PricingSection } from './sections/PricingSection';
 import { FooterSection } from './sections/FooterSection';
+import { PrivacyPage } from './sections/PrivacyPage';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -68,6 +70,77 @@ const featureSections = [
 ];
 
 function App() {
+  const mainRef = useRef<HTMLElement>(null);
+  const snapTriggerRef = useRef<ScrollTrigger | null>(null);
+
+  useEffect(() => {
+    // Wait for all ScrollTriggers to be created
+    const timeout = setTimeout(() => {
+      const pinned = ScrollTrigger.getAll()
+        .filter((st) => st.vars.pin)
+        .sort((a, b) => a.start - b.start);
+
+      const maxScroll = ScrollTrigger.maxScroll(window);
+      if (!maxScroll || pinned.length === 0) return;
+
+      // Build ranges and snap targets from pinned sections
+      const pinnedRanges = pinned.map((st) => ({
+        start: st.start / maxScroll,
+        end: (st.end ?? st.start) / maxScroll,
+        center: (st.start + ((st.end ?? st.start) - st.start) * 0.5) / maxScroll,
+      }));
+
+      // Create global snap
+      snapTriggerRef.current = ScrollTrigger.create({
+        snap: {
+          snapTo: (value) => {
+            // Check if within any pinned range (with small buffer)
+            const inPinned = pinnedRanges.some(
+              (r) => value >= r.start - 0.02 && value <= r.end + 0.02
+            );
+            if (!inPinned) return value; // Flowing section: free scroll
+
+            // Find nearest pinned center
+            const target = pinnedRanges.reduce(
+              (closest, r) =>
+                Math.abs(r.center - value) < Math.abs(closest - value)
+                  ? r.center
+                  : closest,
+              pinnedRanges[0]?.center ?? 0
+            );
+            return target;
+          },
+          duration: { min: 0.15, max: 0.35 },
+          delay: 0,
+          ease: 'power2.out',
+        },
+      });
+    }, 100);
+
+    return () => {
+      clearTimeout(timeout);
+      if (snapTriggerRef.current) {
+        snapTriggerRef.current.kill();
+      }
+    };
+  }, []);
+
+  // Cleanup all ScrollTriggers on unmount
+  useEffect(() => {
+    return () => {
+      ScrollTrigger.getAll().forEach((st) => st.kill());
+    };
+  }, []);
+
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/privacy" element={<PrivacyPage />} />
+    </Routes>
+  );
+}
+
+function HomePage() {
   const mainRef = useRef<HTMLElement>(null);
   const snapTriggerRef = useRef<ScrollTrigger | null>(null);
 

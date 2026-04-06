@@ -1,4 +1,5 @@
 import { useRef, useLayoutEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Github } from 'lucide-react';
 import gsap from 'gsap';
@@ -103,12 +104,12 @@ export function FooterSection() {
 
             {/* Links */}
             <div className="flex items-center gap-6">
-              <a
-                href="#"
+              <Link
+                to="/privacy"
                 className="text-[#A7B0C8] hover:text-[#F4F6FF] transition-colors text-sm"
               >
                 Privacy
-              </a>
+              </Link>
               <a
                 href="#"
                 className="text-[#A7B0C8] hover:text-[#F4F6FF] transition-colors text-sm"
