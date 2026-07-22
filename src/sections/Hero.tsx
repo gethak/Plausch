@@ -82,11 +82,11 @@ export default function Hero() {
             className="absolute inset-x-8 bottom-6 h-24 rounded-full bg-[#17130e]/20 blur-2xl"
           />
           <div className="animate-float relative" style={{ '--tilt': '0deg' } as React.CSSProperties}>
-            <div className="relative aspect-[881/1420] overflow-hidden rounded-[2.5rem] drop-shadow-2xl">
+            <div className="relative aspect-[881/1420] overflow-hidden rounded-[2.5rem] drop-shadow-2xl [transform:translateZ(0)]">
               <img
                 src={phoneSmart}
                 alt="Plausch app — smart conversation about Van Gogh's Starry Night"
-                className="absolute inset-0 h-full w-full object-cover"
+                className="absolute inset-0 h-full w-full rounded-[2.5rem] object-cover [transform:translateZ(0)]"
               />
             </div>
           </div>
