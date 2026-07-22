@@ -43,9 +43,7 @@ export default function Nav() {
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
         <a href="#top" className="flex items-center gap-3">
-          <div className="h-10 w-10 overflow-hidden rounded-full drop-shadow-sm">
-            <img src={icon} alt={t.nav.iconAlt} className="h-10 w-10 object-cover rounded-full" style={{ background: 'transparent' }} />
-          </div>
+          <img src={icon} alt={t.nav.iconAlt} className="h-10 w-10 object-contain drop-shadow-sm" style={{ background: 'transparent' }} />
           <span className="font-display text-2xl font-semibold tracking-tight">Plausch</span>
         </a>
 

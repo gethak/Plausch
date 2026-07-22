@@ -11,9 +11,7 @@ export default function Footer() {
       {/* CTA band */}
       <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 lg:py-28">
         <div className="flex flex-col items-center text-center">
-          <div className="h-24 w-24 overflow-hidden rounded-full drop-shadow-lg">
-            <img src={icon} alt={t.footer.iconAlt} className="h-24 w-24 object-cover rounded-full" style={{ background: 'transparent' }} />
-          </div>
+          <img src={icon} alt={t.footer.iconAlt} className="h-24 w-24 object-contain drop-shadow-lg" style={{ background: 'transparent' }} />
           <h2 className="font-display mt-8 text-balance text-4xl font-semibold tracking-tight sm:text-6xl">
             {t.footer.readyPrefix} <em className="font-light italic text-[#e07b39]">{t.footer.readyAccent}</em>
           </h2>
@@ -42,9 +40,7 @@ export default function Footer() {
       <div className="border-t border-[#17130e]/10">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 px-5 py-10 sm:px-8 md:flex-row">
           <div className="flex items-center gap-3">
-            <div className="h-8 w-8 overflow-hidden rounded-full drop-shadow-sm">
-              <img src={icon} alt="" className="h-8 w-8 object-cover rounded-full" style={{ background: 'transparent' }} />
-            </div>
+            <img src={icon} alt="" className="h-8 w-8 object-contain drop-shadow-sm" style={{ background: 'transparent' }} />
             <div className="leading-tight">
               <p className="font-display font-semibold">{t.footer.brand}</p>
               <p className="text-xs text-[#17130e]/50">{t.footer.byLine}</p>
