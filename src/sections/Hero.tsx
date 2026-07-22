@@ -1,23 +1,11 @@
 import { Apple, ArrowDown } from 'lucide-react'
+import { useTranslations } from '../i18n/LanguageContext'
 
 const phoneSmart = new URL('../../assets/phone-smart.png', import.meta.url).href
 
-const models = [
-  { flag: '🇫🇷', name: 'Mistral', country: 'France' },
-  { flag: '🇨🇳', name: 'DeepSeek', country: 'China' },
-  { flag: '🇺🇸', name: 'ChatGPT', country: 'USA' },
-  { flag: '🇺🇸', name: 'Claude', country: 'USA' },
-  { flag: '🇺🇸', name: 'Gemini', country: 'USA' },
-  { flag: '🇺🇸', name: 'Llama', country: 'USA' },
-  { flag: '🇨🇳', name: 'Qwen', country: 'China' },
-  { flag: '🇦🇪', name: 'Falcon', country: 'UAE' },
-  { flag: '🇮🇳', name: 'Sarvam', country: 'India' },
-  { flag: '🇨🇭', name: 'Apertus', country: 'Switzerland' },
-  { flag: '🌎', name: 'Latam-GPT', country: 'Latin America' },
-  { flag: '🌍', name: 'BLOOM', country: 'Global' },
-]
-
 export default function Hero() {
+  const t = useTranslations()
+
   return (
     <section id="top" className="paper-grain relative overflow-hidden pt-32 sm:pt-40">
       {/* soft warm glow */}
@@ -30,20 +18,20 @@ export default function Hero() {
         <div>
           <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#17130e]/15 bg-white/60 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-[#17130e]/70">
             <span className="h-1.5 w-1.5 rounded-full bg-[#e07b39]" />
-            Ein Plausch mit der schlauesten KI — egal welcher
+            {t.hero.eyebrow}
           </p>
           <h1 className="font-display text-balance text-6xl font-semibold leading-[0.95] tracking-tight sm:text-7xl lg:text-[6.5rem]">
-            Deine KI.
+            {t.hero.h1Line1}
             <br />
-            <em className="font-light italic text-[#e07b39]">Weltweit.</em>
+            <em className="font-light italic text-[#e07b39]">{t.hero.h1Line2}</em>
           </h1>
-          <p className="mt-7 max-w-xl text-lg leading-relaxed text-[#17130e]/70">
-            One app. Every world-class AI model — GPT-4o, Claude, Gemini, Mistral, DeepSeek,
-            Llama, Qwen, Falcon and more. Ask one question, compare the answers, and find the
-            model that truly fits you.
-          </p>
+          <p className="mt-7 max-w-xl text-lg leading-relaxed text-[#17130e]/70">{t.hero.body}</p>
           <p className="mt-4 max-w-xl text-sm font-medium text-[#17130e]/55">
-            Built by <a href="#socialist-ai" className="underline decoration-[#e07b39] decoration-2 underline-offset-4 hover:text-[#17130e]">Socialist&nbsp;AI</a> — because intelligence is a commons, and it belongs to everyone.
+            {t.hero.builtByPrefix}{' '}
+            <a href="#socialist-ai" className="underline decoration-[#e07b39] decoration-2 underline-offset-4 hover:text-[#17130e]">
+              {t.hero.socialistAiLabel}
+            </a>{' '}
+            {t.hero.builtBySuffix}
           </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-4">
@@ -55,24 +43,23 @@ export default function Hero() {
             >
               <Apple className="h-7 w-7" />
               <span className="text-left leading-tight">
-                <span className="block text-[10px] uppercase tracking-wider opacity-70">Download on the</span>
-                <span className="block text-lg font-semibold">App Store</span>
+                <span className="block text-[10px] uppercase tracking-wider opacity-70">{t.hero.downloadEyebrow}</span>
+                <span className="block text-lg font-semibold">{t.hero.downloadTitle}</span>
               </span>
             </a>
             <a
               href="#features"
               className="flex items-center gap-2 rounded-2xl border border-[#17130e]/20 bg-white/60 px-6 py-4 text-sm font-semibold transition-colors hover:bg-white"
             >
-              See what it does
+              {t.hero.seeWhatItDoes}
               <ArrowDown className="h-4 w-4" />
             </a>
           </div>
 
           <div className="mt-9 flex flex-wrap gap-x-6 gap-y-2 text-xs font-medium text-[#17130e]/50">
-            <span>18+ · Productivity</span>
-            <span>52.6 MB</span>
-            <span>🇪🇺 Developed in Europe</span>
-            <span>DSGVO-konform</span>
+            {t.hero.badges.map((b) => (
+              <span key={b}>{b}</span>
+            ))}
           </div>
         </div>
 
@@ -85,7 +72,7 @@ export default function Hero() {
             <div className="relative aspect-[881/1420] overflow-hidden rounded-[2.5rem] drop-shadow-2xl [transform:translateZ(0)]">
               <img
                 src={phoneSmart}
-                alt="Plausch app — smart conversation about Van Gogh's Starry Night"
+                alt={t.hero.imageAlt}
                 className="absolute inset-0 h-full w-full rounded-[2.5rem] object-cover [transform:translateZ(0)]"
               />
             </div>
@@ -97,7 +84,7 @@ export default function Hero() {
       <div className="relative border-y border-[#17130e]/10 bg-[#17130e] py-4">
         <div className="marquee-mask overflow-hidden">
           <div className="animate-marquee flex w-max items-center gap-10 pr-10">
-            {[...models, ...models].map((m, i) => (
+            {[...t.hero.marqueeModels, ...t.hero.marqueeModels].map((m, i) => (
               <span key={i} className="flex items-center gap-2.5 whitespace-nowrap text-sm font-medium text-[#faf5ec]/85">
                 <span className="text-lg">{m.flag}</span>
                 {m.name}

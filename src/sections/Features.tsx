@@ -1,8 +1,24 @@
+import type { ReactNode } from 'react'
 import { Bookmark, Globe2, Lock, MessagesSquare, ShieldCheck, EyeOff, Scale, Mail, Bot, KeyRound, Check, X } from 'lucide-react'
+import { useTranslations } from '../i18n/LanguageContext'
 
 const phoneSmart = new URL('../../assets/phone-smart.png', import.meta.url).href
 const phoneAnnotations = new URL('../../assets/phone-annotations.png', import.meta.url).href
 const phonePrivacy = new URL('../../assets/phone-privacy.png', import.meta.url).href
+
+const rowImages = [phoneSmart, phoneAnnotations, phonePrivacy]
+const rowFlips = [false, true, false]
+const rowBulletIcons = [
+  [<MessagesSquare className="h-5 w-5 text-[#e07b39]" />, <Globe2 className="h-5 w-5 text-[#e07b39]" />],
+  [<Bookmark className="h-5 w-5 text-[#e07b39]" />, <Scale className="h-5 w-5 text-[#e07b39]" />],
+  [
+    <Lock className="h-5 w-5 text-[#7c3aed]" />,
+    <KeyRound className="h-5 w-5 text-[#059669]" />,
+    <EyeOff className="h-5 w-5 text-[#d97706]" />,
+    <Globe2 className="h-5 w-5 text-[#2563eb]" />,
+    <ShieldCheck className="h-5 w-5 text-[#059669]" />,
+  ],
+]
 
 function FeatureRow({
   id,
@@ -17,10 +33,10 @@ function FeatureRow({
 }: {
   id?: string
   eyebrow: string
-  title: React.ReactNode
+  title: ReactNode
   accent: string
   body: string
-  bullets: { icon: React.ReactNode; label: string }[]
+  bullets: { icon: ReactNode; label: string }[]
   image: string
   imageAlt: string
   flip?: boolean
@@ -28,9 +44,7 @@ function FeatureRow({
   return (
     <div
       id={id}
-      className={`mx-auto grid max-w-6xl items-center gap-12 px-5 py-16 sm:px-8 lg:grid-cols-2 lg:gap-20 lg:py-24 ${
-        flip ? '' : ''
-      }`}
+      className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-16 sm:px-8 lg:grid-cols-2 lg:gap-20 lg:py-24"
     >
       <div className={flip ? 'lg:order-2' : ''}>
         <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#e07b39]">{eyebrow}</p>
@@ -69,52 +83,46 @@ function FeatureRow({
 }
 
 export default function Features() {
+  const t = useTranslations()
+
   return (
     <section id="features" className="relative">
       <FeatureRow
-        eyebrow="Smarte Gespräche"
-        title="Natural, deep —"
-        accent="always at your side."
-        body="Chat the way you think. Plausch keeps every conversation fluid and thoughtful, whether you're dreaming with Van Gogh or untangling the three-body problem. Switch models mid-conversation and feel the difference."
-        bullets={[
-          { icon: <MessagesSquare className="h-5 w-5 text-[#e07b39]" />, label: 'One continuous thread, many minds' },
-          { icon: <Globe2 className="h-5 w-5 text-[#e07b39]" />, label: 'Voice, attachments and live model switching' },
-        ]}
-        image={phoneSmart}
-        imageAlt="Plausch smart conversation screen"
+        id={t.features.rows[0].id}
+        eyebrow={t.features.rows[0].eyebrow}
+        title={t.features.rows[0].title}
+        accent={t.features.rows[0].accent}
+        body={t.features.rows[0].body}
+        bullets={t.features.rows[0].bullets.map((label, i) => ({ icon: rowBulletIcons[0][i], label }))}
+        image={rowImages[0]}
+        imageAlt={t.features.rows[0].imageAlt}
+        flip={rowFlips[0]}
       />
 
       <div className="bg-white/50">
         <FeatureRow
-          flip
-          eyebrow="Intelligente Anmerkungen"
-          title="Highlight, save,"
-          accent="organise."
-          body="Every answer becomes your knowledge base. Mark the passages that matter, keep them in your private annotations drawer, and come back to them anytime — your excerpts, only for you."
-          bullets={[
-            { icon: <Bookmark className="h-5 w-5 text-[#e07b39]" />, label: 'Colour-coded excerpts, saved in one tap' },
-            { icon: <Scale className="h-5 w-5 text-[#e07b39]" />, label: 'Compare answers across models side by side' },
-          ]}
-          image={phoneAnnotations}
-          imageAlt="Plausch intelligent annotations screen"
+          id={t.features.rows[1].id}
+          eyebrow={t.features.rows[1].eyebrow}
+          title={t.features.rows[1].title}
+          accent={t.features.rows[1].accent}
+          body={t.features.rows[1].body}
+          bullets={t.features.rows[1].bullets.map((label, i) => ({ icon: rowBulletIcons[1][i], label }))}
+          image={rowImages[1]}
+          imageAlt={t.features.rows[1].imageAlt}
+          flip={rowFlips[1]}
         />
       </div>
 
       <FeatureRow
-        id="privacy"
-        eyebrow="Sicher & privat"
-        title="Your data"
-        accent="belongs to you."
-        body="Protected to the highest standards — no compromises. Plausch processes your data securely and confidentially, fully in line with GDPR and regularly audited independently."
-        bullets={[
-          { icon: <Lock className="h-5 w-5 text-[#7c3aed]" />, label: 'End-to-end encryption of every request' },
-          { icon: <KeyRound className="h-5 w-5 text-[#059669]" />, label: 'Chat history encrypted — only your device holds the key' },
-          { icon: <EyeOff className="h-5 w-5 text-[#d97706]" />, label: 'No tracking, no data sharing with third parties' },
-          { icon: <Globe2 className="h-5 w-5 text-[#2563eb]" />, label: 'All data hosted securely in the European Union' },
-          { icon: <ShieldCheck className="h-5 w-5 text-[#059669]" />, label: 'Full transparency & control over your settings' },
-        ]}
-        image={phonePrivacy}
-        imageAlt="Plausch privacy and security screen"
+        id={t.features.rows[2].id}
+        eyebrow={t.features.rows[2].eyebrow}
+        title={t.features.rows[2].title}
+        accent={t.features.rows[2].accent}
+        body={t.features.rows[2].body}
+        bullets={t.features.rows[2].bullets.map((label, i) => ({ icon: rowBulletIcons[2][i], label }))}
+        image={rowImages[2]}
+        imageAlt={t.features.rows[2].imageAlt}
+        flip={rowFlips[2]}
       />
 
       {/* What we collect */}
@@ -122,15 +130,13 @@ export default function Features() {
         <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 lg:py-24">
           <div className="max-w-3xl">
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#e07b39]">
-              Radical data minimalism
+              {t.features.collect.eyebrow}
             </p>
             <h2 className="font-display mt-3 text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
-              What we collect — <em className="font-light italic text-[#17130e]/50">and what we never will.</em>
+              {t.features.collect.titlePrefix}{' '}
+              <em className="font-light italic text-[#17130e]/50">{t.features.collect.titleAccent}</em>
             </h2>
-            <p className="mt-5 text-lg leading-relaxed text-[#17130e]/70">
-              Plausch asks for exactly one piece of personal data: your email address.
-              Not even your name. Here is the full story — nothing hidden, no fine print.
-            </p>
+            <p className="mt-5 text-lg leading-relaxed text-[#17130e]/70">{t.features.collect.intro}</p>
           </div>
 
           <div className="mt-12 grid gap-6 lg:grid-cols-3">
@@ -138,53 +144,41 @@ export default function Features() {
               <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#e07b39]/10">
                 <Mail className="h-5 w-5 text-[#e07b39]" />
               </span>
-              <h3 className="font-display mt-4 text-2xl font-semibold">Just your email. That's it.</h3>
-              <p className="mt-2 leading-relaxed text-[#17130e]/70">
-                No name, no phone number, no contacts, no location, no date of birth. Your email
-                address is the single piece of personal information we ever store — the minimum
-                needed to run your account.
-              </p>
+              <h3 className="font-display mt-4 text-2xl font-semibold">{t.features.collect.cards[0].title}</h3>
+              <p className="mt-2 leading-relaxed text-[#17130e]/70">{t.features.collect.cards[0].body}</p>
             </div>
 
             <div className="rounded-2xl bg-white/70 p-7 shadow-sm ring-1 ring-[#17130e]/10">
               <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#e07b39]/10">
                 <Bot className="h-5 w-5 text-[#e07b39]" />
               </span>
-              <h3 className="font-display mt-4 text-2xl font-semibold">Why even that? To keep bots out.</h3>
-              <p className="mt-2 leading-relaxed text-[#17130e]/70">
-                A verified email is our only line of defence against bots, spam and abuse. It keeps
-                Plausch fast, fair and affordable for real people — and it is never used for
-                advertising, profiling or sold to anyone.
-              </p>
+              <h3 className="font-display mt-4 text-2xl font-semibold">{t.features.collect.cards[1].title}</h3>
+              <p className="mt-2 leading-relaxed text-[#17130e]/70">{t.features.collect.cards[1].body}</p>
             </div>
 
             <div className="rounded-2xl bg-white/70 p-7 shadow-sm ring-1 ring-[#17130e]/10">
               <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#e07b39]/10">
                 <KeyRound className="h-5 w-5 text-[#e07b39]" />
               </span>
-              <h3 className="font-display mt-4 text-2xl font-semibold">Your chats are sealed with your key.</h3>
-              <p className="mt-2 leading-relaxed text-[#17130e]/70">
-                Your chat history is stored fully encrypted. Even our own staff cannot read a single
-                word without your key — and that key is generated and stored on your device,
-                never on our servers. Lose the device, and the conversations stay sealed forever.
-              </p>
+              <h3 className="font-display mt-4 text-2xl font-semibold">{t.features.collect.cards[2].title}</h3>
+              <p className="mt-2 leading-relaxed text-[#17130e]/70">{t.features.collect.cards[2].body}</p>
             </div>
           </div>
 
           <div className="mt-10 grid gap-4 sm:grid-cols-2">
             <div className="rounded-2xl bg-[#17130e] p-6 text-[#faf5ec]">
-              <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#faf5ec]/60">We collect</p>
+              <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#faf5ec]/60">{t.features.collect.weCollectLabel}</p>
               <ul className="mt-3 space-y-2">
                 <li className="flex items-center gap-2.5 font-medium">
                   <Check className="h-4 w-4 shrink-0 text-[#7bc47f]" />
-                  Your email address — nothing else
+                  {t.features.collect.weCollectItem}
                 </li>
               </ul>
             </div>
             <div className="rounded-2xl bg-white/70 p-6 ring-1 ring-[#17130e]/10">
-              <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#17130e]/60">We never see</p>
+              <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#17130e]/60">{t.features.collect.weNeverSeeLabel}</p>
               <ul className="mt-3 space-y-2 text-[#17130e]/80">
-                {['Your name, contacts or location', 'Readable chat contents — encrypted with your key', 'Trackers, advertising profiles or analytics on you'].map((item) => (
+                {t.features.collect.weNeverSeeItems.map((item) => (
                   <li key={item} className="flex items-center gap-2.5 font-medium">
                     <X className="h-4 w-4 shrink-0 text-[#c0392b]" />
                     {item}
