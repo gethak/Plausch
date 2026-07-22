@@ -54,11 +54,11 @@ function FeatureRow({
           aria-hidden
           className="absolute inset-x-10 bottom-4 h-20 rounded-full bg-[#17130e]/20 blur-2xl"
         />
-        <div className="relative overflow-hidden rounded-[2.5rem] drop-shadow-2xl [transform:translateZ(0)]">
+        <div className="relative drop-shadow-2xl">
           <img
             src={image}
             alt={imageAlt}
-            className="relative w-full block object-cover rounded-[2.5rem] [transform:translateZ(0)]"
+            className="relative w-full block"
             loading="lazy"
             style={{ background: 'transparent' }}
           />
