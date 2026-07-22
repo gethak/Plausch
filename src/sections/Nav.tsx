@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { Apple, Menu, X } from 'lucide-react'
 
+const icon = new URL('../../assets/icon.png', import.meta.url).href
+
 const links = [
   { label: 'Features', href: '#features' },
   { label: 'Models', href: '#models' },
@@ -26,7 +28,9 @@ export default function Nav() {
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
         <a href="#top" className="flex items-center gap-3">
-          <img src="/assets/icon.png" alt="Plausch app icon" className="h-10 w-10 drop-shadow-sm" />
+          <div className="h-10 w-10 overflow-hidden rounded-full drop-shadow-sm">
+            <img src={icon} alt="Plausch app icon" className="h-10 w-10 object-cover rounded-full" style={{ background: 'transparent' }} />
+          </div>
           <span className="font-display text-2xl font-semibold tracking-tight">Plausch</span>
         </a>
 

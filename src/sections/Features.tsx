@@ -1,5 +1,9 @@
 import { Bookmark, Globe2, Lock, MessagesSquare, ShieldCheck, EyeOff, Scale, Mail, Bot, KeyRound, Check, X } from 'lucide-react'
 
+const phoneSmart = new URL('../../assets/phone-smart.png', import.meta.url).href
+const phoneAnnotations = new URL('../../assets/phone-annotations.png', import.meta.url).href
+const phonePrivacy = new URL('../../assets/phone-privacy.png', import.meta.url).href
+
 function FeatureRow({
   id,
   eyebrow,
@@ -50,12 +54,15 @@ function FeatureRow({
           aria-hidden
           className="absolute inset-x-10 bottom-4 h-20 rounded-full bg-[#17130e]/20 blur-2xl"
         />
-        <img
-          src={image}
-          alt={imageAlt}
-          className="relative w-full rounded-[2.5rem] drop-shadow-2xl"
-          loading="lazy"
-        />
+        <div className="relative overflow-hidden rounded-[2.5rem] drop-shadow-2xl">
+          <img
+            src={image}
+            alt={imageAlt}
+            className="relative w-full block object-cover rounded-[2.5rem]"
+            loading="lazy"
+            style={{ background: 'transparent' }}
+          />
+        </div>
       </div>
     </div>
   )
@@ -73,7 +80,7 @@ export default function Features() {
           { icon: <MessagesSquare className="h-5 w-5 text-[#e07b39]" />, label: 'One continuous thread, many minds' },
           { icon: <Globe2 className="h-5 w-5 text-[#e07b39]" />, label: 'Voice, attachments and live model switching' },
         ]}
-        image="/assets/phone-smart.png"
+        image={phoneSmart}
         imageAlt="Plausch smart conversation screen"
       />
 
@@ -88,7 +95,7 @@ export default function Features() {
             { icon: <Bookmark className="h-5 w-5 text-[#e07b39]" />, label: 'Colour-coded excerpts, saved in one tap' },
             { icon: <Scale className="h-5 w-5 text-[#e07b39]" />, label: 'Compare answers across models side by side' },
           ]}
-          image="/assets/phone-annotations.png"
+          image={phoneAnnotations}
           imageAlt="Plausch intelligent annotations screen"
         />
       </div>
@@ -106,7 +113,7 @@ export default function Features() {
           { icon: <Globe2 className="h-5 w-5 text-[#2563eb]" />, label: 'All data hosted securely in the European Union' },
           { icon: <ShieldCheck className="h-5 w-5 text-[#059669]" />, label: 'Full transparency & control over your settings' },
         ]}
-        image="/assets/phone-privacy.png"
+        image={phonePrivacy}
         imageAlt="Plausch privacy and security screen"
       />
 

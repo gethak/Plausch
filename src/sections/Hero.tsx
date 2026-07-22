@@ -1,5 +1,7 @@
 import { Apple, ArrowDown } from 'lucide-react'
 
+const phoneSmart = new URL('../../assets/phone-smart.png', import.meta.url).href
+
 const models = [
   { flag: '🇫🇷', name: 'Mistral', country: 'France' },
   { flag: '🇨🇳', name: 'DeepSeek', country: 'China' },
@@ -80,11 +82,13 @@ export default function Hero() {
             className="absolute inset-x-8 bottom-6 h-24 rounded-full bg-[#17130e]/20 blur-2xl"
           />
           <div className="animate-float relative" style={{ '--tilt': '0deg' } as React.CSSProperties}>
-            <img
-              src="/assets/phone-smart.png"
-              alt="Plausch app — smart conversation about Van Gogh's Starry Night"
-              className="relative w-full rounded-[2.5rem] drop-shadow-2xl"
-            />
+            <div className="relative aspect-[881/1420] overflow-hidden rounded-[2.5rem] drop-shadow-2xl">
+              <img
+                src={phoneSmart}
+                alt="Plausch app — smart conversation about Van Gogh's Starry Night"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+            </div>
           </div>
         </div>
       </div>

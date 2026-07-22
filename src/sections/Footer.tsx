@@ -1,12 +1,16 @@
 import { Apple, ArrowUpRight } from 'lucide-react'
 
+const icon = new URL('../../assets/icon.png', import.meta.url).href
+
 export default function Footer() {
   return (
     <footer className="paper-grain bg-[#faf5ec]">
       {/* CTA band */}
       <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 lg:py-28">
         <div className="flex flex-col items-center text-center">
-          <img src="/assets/icon.png" alt="Plausch app icon" className="h-24 w-24 drop-shadow-lg" />
+          <div className="h-24 w-24 overflow-hidden rounded-full drop-shadow-lg">
+            <img src={icon} alt="Plausch app icon" className="h-24 w-24 object-cover rounded-full" style={{ background: 'transparent' }} />
+          </div>
           <h2 className="font-display mt-8 text-balance text-4xl font-semibold tracking-tight sm:text-6xl">
             Ready for a <em className="font-light italic text-[#e07b39]">Plausch?</em>
           </h2>
@@ -39,7 +43,9 @@ export default function Footer() {
       <div className="border-t border-[#17130e]/10">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 px-5 py-10 sm:px-8 md:flex-row">
           <div className="flex items-center gap-3">
-            <img src="/assets/icon.png" alt="" className="h-8 w-8" />
+            <div className="h-8 w-8 overflow-hidden rounded-full drop-shadow-sm">
+              <img src={icon} alt="" className="h-8 w-8 object-cover rounded-full" style={{ background: 'transparent' }} />
+            </div>
             <div className="leading-tight">
               <p className="font-display font-semibold">Plausch</p>
               <p className="text-xs text-[#17130e]/50">by Hakkim Akbarali Alavudeen</p>
