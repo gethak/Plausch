@@ -42,8 +42,8 @@ export default function Footer() {
           <div className="flex items-center gap-3">
             <img src={icon} alt="" className="h-8 w-8 object-contain drop-shadow-sm" style={{ background: 'transparent' }} />
             <div className="leading-tight">
-              <p className="font-display font-semibold">{t.footer.brand}</p>
-              <p className="text-xs text-[#17130e]/50">{t.footer.byLine}</p>
+              <p className="font-display font-semibold">Plausch</p>
+              <p className="text-xs text-[#17130e]/50">by Socalist AI</p>
             </div>
           </div>
 
