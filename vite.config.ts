@@ -17,7 +17,7 @@ export default defineConfig({
       display: 'standalone',
       background_color: '#faf5ec',
       icons: [
-        { src: '/assets/icon-DUBy8XHd.png', sizes: '192x192', type: 'image/png' }
+        { src: '/assets/icon-CVsXhW9O.png', sizes: '192x192', type: 'image/png' }
       ]
     },
     workbox: {
