@@ -1,0 +1,379 @@
+export type Lang = 'de' | 'en'
+
+export const LANGS: Lang[] = ['de', 'en']
+export const DEFAULT_LANG: Lang = 'de'
+
+const marqueeModels = {
+  de: [
+    { flag: '🇫🇷', name: 'Mistral', country: 'Frankreich' },
+    { flag: '🇨🇳', name: 'DeepSeek', country: 'China' },
+    { flag: '🇺🇸', name: 'ChatGPT', country: 'USA' },
+    { flag: '🇺🇸', name: 'Claude', country: 'USA' },
+    { flag: '🇺🇸', name: 'Gemini', country: 'USA' },
+    { flag: '🇺🇸', name: 'Llama', country: 'USA' },
+    { flag: '🇨🇳', name: 'Qwen', country: 'China' },
+    { flag: '🇦🇪', name: 'Falcon', country: 'VAE' },
+    { flag: '🇮🇳', name: 'Sarvam', country: 'Indien' },
+    { flag: '🇨🇭', name: 'Apertus', country: 'Schweiz' },
+    { flag: '🌎', name: 'Latam-GPT', country: 'Lateinamerika' },
+    { flag: '🌍', name: 'BLOOM', country: 'Global' },
+  ],
+  en: [
+    { flag: '🇫🇷', name: 'Mistral', country: 'France' },
+    { flag: '🇨🇳', name: 'DeepSeek', country: 'China' },
+    { flag: '🇺🇸', name: 'ChatGPT', country: 'USA' },
+    { flag: '🇺🇸', name: 'Claude', country: 'USA' },
+    { flag: '🇺🇸', name: 'Gemini', country: 'USA' },
+    { flag: '🇺🇸', name: 'Llama', country: 'USA' },
+    { flag: '🇨🇳', name: 'Qwen', country: 'China' },
+    { flag: '🇦🇪', name: 'Falcon', country: 'UAE' },
+    { flag: '🇮🇳', name: 'Sarvam', country: 'India' },
+    { flag: '🇨🇭', name: 'Apertus', country: 'Switzerland' },
+    { flag: '🌎', name: 'Latam-GPT', country: 'Latin America' },
+    { flag: '🌍', name: 'BLOOM', country: 'Global' },
+  ],
+}
+
+const modelCards = {
+  de: [
+    { flag: '🇫🇷', name: 'Mistral 8×7B', country: 'Frankreich', note: 'Schnell, präzise und leistungsstark.' },
+    { flag: '🇨🇳', name: 'DeepSeek Chat', country: 'China', note: 'Stark in Logik und komplexem Denken.' },
+    { flag: '🇺🇸', name: 'ChatGPT 4o', country: 'USA', note: 'Vielseitig, kreativ und zuverlässig.' },
+    { flag: '🇺🇸', name: 'Claude 3.5', country: 'USA', note: 'Durchdachtes, differenziertes Schreiben.' },
+    { flag: '🇺🇸', name: 'Gemini', country: 'USA', note: 'Multimodal und tief vernetzt.' },
+    { flag: '🇺🇸', name: 'Llama', country: 'USA', note: 'Das offene Arbeitspferd.' },
+    { flag: '🇨🇳', name: 'Qwen 2.5', country: 'China', note: 'Ausgewogenes Wissen und Klarheit.' },
+    { flag: '🇦🇪', name: 'Falcon 180B', country: 'VAE', note: 'Fortschrittliche KI aus dem Nahen Osten.' },
+    { flag: '🇮🇳', name: 'Sarvam 2.0', country: 'Indien', note: 'Indiens eigenes Hochleistungsmodell.' },
+    { flag: '🇩🇪', name: 'Luminous 2', country: 'Deutschland', note: 'Deutsche Ingenieurskunst, starke Leistung.' },
+    { flag: '🇨🇭', name: 'Apertus', country: 'Schweiz', note: 'Vollständig offen, Schweizer Präzision.' },
+    { flag: '🇧🇷', name: 'Latam GPT', country: 'Lateinamerika', note: 'Optimiert für Lateinamerika & Brasilien.' },
+  ],
+  en: [
+    { flag: '🇫🇷', name: 'Mistral 8×7B', country: 'France', note: 'Fast, precise and powerful.' },
+    { flag: '🇨🇳', name: 'DeepSeek Chat', country: 'China', note: 'Strong in logic and complex reasoning.' },
+    { flag: '🇺🇸', name: 'ChatGPT 4o', country: 'USA', note: 'Versatile, creative and reliable.' },
+    { flag: '🇺🇸', name: 'Claude 3.5', country: 'USA', note: 'Thoughtful, nuanced writing.' },
+    { flag: '🇺🇸', name: 'Gemini', country: 'USA', note: 'Multimodal and deeply connected.' },
+    { flag: '🇺🇸', name: 'Llama', country: 'USA', note: 'The open-weight workhorse.' },
+    { flag: '🇨🇳', name: 'Qwen 2.5', country: 'China', note: 'Balanced knowledge and clarity.' },
+    { flag: '🇦🇪', name: 'Falcon 180B', country: 'UAE', note: 'Advanced AI from the Middle East.' },
+    { flag: '🇮🇳', name: 'Sarvam 2.0', country: 'India', note: "India's own high-performance model." },
+    { flag: '🇩🇪', name: 'Luminous 2', country: 'Germany', note: 'German engineering, strong performance.' },
+    { flag: '🇨🇭', name: 'Apertus', country: 'Switzerland', note: 'Fully open, Swiss precision.' },
+    { flag: '🇧🇷', name: 'Latam GPT', country: 'Latin America', note: 'Optimised for Latin America & Brazil.' },
+  ],
+}
+
+export const translations = {
+  de: {
+    meta: {
+      title: 'Plausch — Deine KI. Weltweit.',
+      description:
+        'Ein Plausch mit der schlausesten KI — egal welcher. Eine App, jedes führende KI-Modell. Kostenloser Start, privat von Anfang an.',
+    },
+    nav: {
+      links: [
+        { label: 'Funktionen', href: '#features' },
+        { label: 'Modelle', href: '#models' },
+        { label: 'Datenschutz', href: '#privacy' },
+        { label: 'Sozialistische KI', href: '#socialist-ai' },
+      ],
+      getApp: 'App holen',
+      toggleMenu: 'Menü umschalten',
+      iconAlt: 'Plausch App-Icon',
+    },
+    hero: {
+      eyebrow: 'Ein Plausch mit der schlausesten KI — egal welcher',
+      h1Line1: 'Deine KI.',
+      h1Line2: 'Weltweit.',
+      body: 'Eine App. Jedes führende KI-Modell — GPT-4o, Claude, Gemini, Mistral, DeepSeek, Llama, Qwen, Falcon und mehr. Stelle eine Frage, vergleiche die Antworten und finde das Modell, das wirklich zu dir passt.',
+      builtByPrefix: 'Entwickelt von',
+      builtBySuffix: '— weil Intelligenz Gemeingut ist und allen gehört.',
+      socialistAiLabel: 'Socialist AI',
+      downloadEyebrow: 'Laden im',
+      downloadTitle: 'App Store',
+      seeWhatItDoes: 'So funktioniert’s',
+      badges: ['18+ · Produktivität', '52.6 MB', '🇪🇺 Entwickelt in Europa', 'DSGVO-konform'],
+      imageAlt: 'Plausch App — intelligentes Gespräch über Van Goghs Sternennacht',
+      marqueeModels: marqueeModels.de,
+    },
+    features: {
+      rows: [
+        {
+          id: undefined as string | undefined,
+          eyebrow: 'Intelligente Anmerkungen',
+          title: 'Markieren, speichern,',
+          accent: 'organisieren.',
+          body: 'Jede Antwort wird Teil deines Wissens. Markiere die Passagen, die zählen, bewahre sie in deiner privaten Notizsammlung auf und finde sie jederzeit wieder — deine Auszüge, nur für dich.',
+          bullets: ['Farbcodierte Auszüge, mit einem Tipp gespeichert', 'Antworten verschiedener Modelle direkt vergleichen'],
+          imageAlt: 'Plausch Bildschirm für intelligente Anmerkungen',
+        },
+        {
+          id: 'privacy',
+          eyebrow: 'Sicher & privat',
+          title: 'Deine Daten',
+          accent: 'gehören dir.',
+          body: 'Nach höchsten Standards geschützt — ohne Kompromisse. Plausch verarbeitet deine Daten sicher und vertraulich, vollständig DSGVO-konform und regelmäßig unabhängig geprüft.',
+          bullets: [
+            'Ende-zu-Ende-Verschlüsselung für jede Anfrage',
+            'Verlauf verschlüsselt — nur dein Gerät besitzt den Schlüssel',
+            'Kein Tracking, keine Weitergabe an Dritte',
+            'Alle Daten sicher in der Europäischen Union gehostet',
+            'Volle Transparenz und Kontrolle über deine Einstellungen',
+          ],
+          imageAlt: 'Plausch Bildschirm für Datenschutz und Sicherheit',
+        },
+      ],
+      collect: {
+        eyebrow: 'Radikaler Datenminimalismus',
+        titlePrefix: 'Was wir erfassen —',
+        titleAccent: 'und was wir niemals werden.',
+        intro:
+          'Plausch verlangt genau eine persönliche Angabe: deine E-Mail-Adresse. Nicht einmal deinen Namen. Hier ist die ganze Geschichte — nichts versteckt, kein Kleingedrucktes.',
+        cards: [
+          {
+            title: 'Nur deine E-Mail. Das war’s.',
+            body: 'Kein Name, keine Telefonnummer, keine Kontakte, kein Standort, kein Geburtsdatum. Deine E-Mail-Adresse ist die einzige persönliche Information, die wir jemals speichern — das Minimum, um dein Konto zu betreiben.',
+          },
+          {
+            title: 'Warum überhaupt das? Um Bots fernzuhalten.',
+            body: 'Eine verifizierte E-Mail ist unsere einzige Verteidigungslinie gegen Bots, Spam und Missbrauch. Sie hält Plausch schnell, fair und bezahlbar für echte Menschen — und wird niemals für Werbung, Profilbildung genutzt oder verkauft.',
+          },
+          {
+            title: 'Deine Chats sind mit deinem Schlüssel versiegelt.',
+            body: 'Dein Chatverlauf wird vollständig verschlüsselt gespeichert. Selbst unser eigenes Team kann ohne deinen Schlüssel kein einziges Wort lesen — und dieser Schlüssel wird auf deinem Gerät erzeugt und gespeichert, niemals auf unseren Servern. Geht das Gerät verloren, bleiben die Gespräche für immer versiegelt.',
+          },
+        ],
+        weCollectLabel: 'Das erfassen wir',
+        weCollectItem: 'Deine E-Mail-Adresse — sonst nichts',
+        weNeverSeeLabel: 'Das sehen wir nie',
+        weNeverSeeItems: [
+          'Deinen Namen, Kontakte oder Standort',
+          'Lesbare Chatinhalte — verschlüsselt mit deinem Schlüssel',
+          'Tracker, Werbeprofile oder Analysen über dich',
+        ],
+      },
+    },
+    models: {
+      eyebrow: 'Weltklasse KI-Modelle',
+      titlePrefix: 'Weltklasse-Modelle,',
+      titleAccent: 'ein Gespräch.',
+      body: 'Wähle aus den führenden Modellen der Welt — jedes mit eigenen Stärken. Die Zukunft der KI wird in Paris, Peking, Bangalore, Abu Dhabi und São Paulo geschrieben. Plausch bringt sie alle in deine Tasche.',
+      cards: modelCards.de,
+      footnote: '+ BLOOM, OLMo, Kimi, GLM, Yi, Gemma und Hunderte weitere — ein Ökosystem, keine Torwächter.',
+    },
+    socialist: {
+      tagline: 'Ein Socialist-AI-Projekt — socialist-tech.org',
+      titlePrefix: 'Intelligenz ist Gemeingut —',
+      titleAccent: 'sie gehört allen.',
+      body: 'Plausch beruht auf einer einfachen Überzeugung: Die mächtigste Technologie der Geschichte sollte in den Händen von uns allen bleiben. Deshalb vereint eine App offene und führende Modelle aus allen Teilen der Welt — im Geiste der Gemeinschaft gehörend, standardmäßig offen, für alle.',
+      principles: [
+        {
+          title: 'Offene Gewichte, offene Bücher',
+          body: 'Wenn ein Modell das öffentliche Leben prägt, sollte die Öffentlichkeit es lesen können. Wir setzen uns für Modelle ein, die ihre Gewichte, Trainingsmethoden und Grenzen offenlegen.',
+        },
+        {
+          title: 'Keine Torwächter',
+          body: 'Der Zugang zu Intelligenz sollte niemals von deinem Einkommen, deinem Pass oder deiner Postleitzahl abhängen. Kostenlose Stufen sind keine Wohltätigkeit — Zugang ist ein Recht.',
+        },
+        {
+          title: 'Global von Grund auf',
+          body: 'Keine einzelne Nation oder Firma sollte die Zukunft besitzen. Wir rücken offene Modelle von jedem Kontinent, in jeder Sprache, für jede Gemeinschaft ins Licht.',
+        },
+        {
+          title: 'Von der Gemeinschaft geführt',
+          body: 'Die Richtung der KI sollte von den vielen bestimmt werden, nicht von den wenigen — durch offene Forschung, öffentliche Debatte und demokratische Kontrolle.',
+        },
+      ],
+      quotePrefix: 'Die Mittel der Vorhersage gehören in die Hände der ',
+      quoteEmphasis: 'vielen',
+      quoteSuffix: ' — nicht eingeschlossen in den Rechenzentren der wenigen.',
+      cite: '— Das Manifest der Sozialistischen KI, Artikel Eins',
+      stats: [
+        { value: '40+', label: 'geförderte Open-Source-Modelle' },
+        { value: '30+', label: 'vertretene Länder' },
+        { value: '100%', label: 'kostenlos nutzbar, erforschbar & teilbar' },
+        { value: '$0', label: 'Einstiegshürde' },
+      ],
+      cta: 'Werde Teil der Bewegung auf socialist-tech.org',
+      ctaFootnote: 'Die Revolution ist Open Source. Eine E-Mail im Monat — für immer ohne Bezahlschranke.',
+    },
+    footer: {
+      iconAlt: 'Plausch App-Icon',
+      readyPrefix: 'Bereit für einen',
+      readyAccent: 'Plausch?',
+      body: 'Ein Plausch mit der schlausesten KI — egal welcher. Kostenloser Start, privat von Anfang an.',
+      downloadEyebrow: 'Laden im',
+      downloadTitle: 'App Store',
+      badges: ['18+ Jahre', 'Produktivität', 'English', '52.6 MB', 'iPhone'],
+      brand: 'Plausch',
+      byLine: 'von Hakkim Akbarali Alavudeen',
+      tagline: 'Von jedem Modell nach seinen Gewichten, jedem Menschen nach seinen Bedürfnissen.',
+      links: [
+        { label: 'Funktionen', href: '#features' },
+        { label: 'Modelle', href: '#models' },
+        { label: 'Datenschutz', href: '#privacy' },
+      ],
+      socialistAiLabel: 'Sozialistische KI',
+      copyright: '© 2026 Plausch · Ein Socialist-AI-Projekt — künstliche Intelligenz als öffentliches Gut. Entwickelt in Europa. 🇪🇺',
+    },
+    languageSwitch: { label: 'Sprache', de: 'DE', en: 'EN' },
+  },
+  en: {
+    meta: {
+      title: 'Plausch — Your AI. Worldwide.',
+      description:
+        'A chat with the smartest AI — no matter which one. One app, every leading AI model. Free to start, private by design.',
+    },
+    nav: {
+      links: [
+        { label: 'Features', href: '#features' },
+        { label: 'Models', href: '#models' },
+        { label: 'Privacy', href: '#privacy' },
+        { label: 'Socialist AI', href: '#socialist-ai' },
+      ],
+      getApp: 'Get the App',
+      toggleMenu: 'Toggle menu',
+      iconAlt: 'Plausch app icon',
+    },
+    hero: {
+      eyebrow: 'A chat with the smartest AI — no matter which one',
+      h1Line1: 'Your AI.',
+      h1Line2: 'Worldwide.',
+      body: 'One app. Every world-class AI model — GPT-4o, Claude, Gemini, Mistral, DeepSeek, Llama, Qwen, Falcon and more. Ask one question, compare the answers, and find the model that truly fits you.',
+      builtByPrefix: 'Built by',
+      builtBySuffix: '— because intelligence is a commons, and it belongs to everyone.',
+      socialistAiLabel: 'Socialist AI',
+      downloadEyebrow: 'Download on the',
+      downloadTitle: 'App Store',
+      seeWhatItDoes: 'See what it does',
+      badges: ['18+ · Productivity', '52.6 MB', '🇪🇺 Developed in Europe', 'GDPR compliant'],
+      imageAlt: "Plausch app — smart conversation about Van Gogh's Starry Night",
+      marqueeModels: marqueeModels.en,
+    },
+    features: {
+      rows: [
+        {
+          id: undefined as string | undefined,
+          eyebrow: 'Intelligent annotations',
+          title: 'Highlight, save,',
+          accent: 'organise.',
+          body: 'Every answer becomes your knowledge base. Mark the passages that matter, keep them in your private annotations drawer, and come back to them anytime — your excerpts, only for you.',
+          bullets: ['Colour-coded excerpts, saved in one tap', 'Compare answers across models side by side'],
+          imageAlt: 'Plausch intelligent annotations screen',
+        },
+        {
+          id: 'privacy',
+          eyebrow: 'Secure & private',
+          title: 'Your data',
+          accent: 'belongs to you.',
+          body: 'Protected to the highest standards — no compromises. Plausch processes your data securely and confidentially, fully in line with GDPR and regularly audited independently.',
+          bullets: [
+            'End-to-end encryption of every request',
+            'Chat history encrypted — only your device holds the key',
+            'No tracking, no data sharing with third parties',
+            'All data hosted securely in the European Union',
+            'Full transparency & control over your settings',
+          ],
+          imageAlt: 'Plausch privacy and security screen',
+        },
+      ],
+      collect: {
+        eyebrow: 'Radical data minimalism',
+        titlePrefix: 'What we collect —',
+        titleAccent: 'and what we never will.',
+        intro:
+          'Plausch asks for exactly one piece of personal data: your email address. Not even your name. Here is the full story — nothing hidden, no fine print.',
+        cards: [
+          {
+            title: "Just your email. That's it.",
+            body: 'No name, no phone number, no contacts, no location, no date of birth. Your email address is the single piece of personal information we ever store — the minimum needed to run your account.',
+          },
+          {
+            title: 'Why even that? To keep bots out.',
+            body: 'A verified email is our only line of defence against bots, spam and abuse. It keeps Plausch fast, fair and affordable for real people — and it is never used for advertising, profiling or sold to anyone.',
+          },
+          {
+            title: 'Your chats are sealed with your key.',
+            body: 'Your chat history is stored fully encrypted. Even our own staff cannot read a single word without your key — and that key is generated and stored on your device, never on our servers. Lose the device, and the conversations stay sealed forever.',
+          },
+        ],
+        weCollectLabel: 'We collect',
+        weCollectItem: 'Your email address — nothing else',
+        weNeverSeeLabel: 'We never see',
+        weNeverSeeItems: [
+          'Your name, contacts or location',
+          'Readable chat contents — encrypted with your key',
+          'Trackers, advertising profiles or analytics on you',
+        ],
+      },
+    },
+    models: {
+      eyebrow: 'World-class AI models',
+      titlePrefix: 'World-class models,',
+      titleAccent: 'one conversation.',
+      body: 'Choose from leading models worldwide — each with its own strengths. The future of AI is being written in Paris, Beijing, Bangalore, Abu Dhabi and São Paulo. Plausch puts all of it in your pocket.',
+      cards: modelCards.en,
+      footnote: '+ BLOOM, OLMo, Kimi, GLM, Yi, Gemma and hundreds more — one ecosystem, zero gatekeepers.',
+    },
+    socialist: {
+      tagline: 'A Socialist AI project — socialist-tech.org',
+      titlePrefix: 'Intelligence is a commons —',
+      titleAccent: 'it belongs to everyone.',
+      body: 'Plausch is built on a simple conviction: the most powerful technology in history should stay in the hands of all of us. That is why one app brings together open and leading models from every corner of the world — community owned in spirit, open by default, for everyone.',
+      principles: [
+        {
+          title: 'Open weights, open books',
+          body: 'If a model shapes public life, the public should be able to read it. We champion models that publish their weights, training methods and limitations.',
+        },
+        {
+          title: 'No gatekeepers',
+          body: "Access to intelligence should never depend on your income, your passport or your postcode. Free tiers aren't charity — access is a right.",
+        },
+        {
+          title: 'Global by design',
+          body: 'No single nation or company should own the future. We spotlight open models from every continent, in every language, for every community.',
+        },
+        {
+          title: 'Governed by community',
+          body: 'The direction of AI should be decided by the many, not the few — through open research, public debate and democratic oversight.',
+        },
+      ],
+      quotePrefix: 'The means of prediction belong in the hands of the ',
+      quoteEmphasis: 'many',
+      quoteSuffix: ' — not locked in the data centers of the few.',
+      cite: '— The Socialist AI Manifesto, Article One',
+      stats: [
+        { value: '40+', label: 'open-source models championed' },
+        { value: '30+', label: 'countries represented' },
+        { value: '100%', label: 'free to use, study & share' },
+        { value: '$0', label: 'barrier to getting started' },
+      ],
+      cta: 'Join the movement at socialist-tech.org',
+      ctaFootnote: 'The revolution is open source. One email a month — zero paywalls, forever.',
+    },
+    footer: {
+      iconAlt: 'Plausch app icon',
+      readyPrefix: 'Ready for a',
+      readyAccent: 'Plausch?',
+      body: 'A chat with the smartest AI — no matter which one. Free to start, private by design.',
+      downloadEyebrow: 'Download on the',
+      downloadTitle: 'App Store',
+      badges: ['18+ Years', 'Productivity', 'English', '52.6 MB', 'iPhone'],
+      brand: 'Plausch',
+      byLine: 'by Hakkim Akbarali Alavudeen',
+      tagline: 'From each model according to its weights, to each person according to their needs.',
+      links: [
+        { label: 'Features', href: '#features' },
+        { label: 'Models', href: '#models' },
+        { label: 'Privacy', href: '#privacy' },
+      ],
+      socialistAiLabel: 'Socialist AI',
+      copyright: '© 2026 Plausch · A Socialist AI project — making artificial intelligence a public good. Developed in Europe. 🇪🇺',
+    },
+    languageSwitch: { label: 'Language', de: 'DE', en: 'EN' },
+  },
+}
+
+export type Translations = (typeof translations)[Lang]
