@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
-import { Apple, Menu, X } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import { useLang, useTranslations } from '../i18n/LanguageContext'
 import { LANGS } from '../i18n/translations'
+import { AppleLogo } from '../components/brand-icons'
 
 const icon = new URL('../../assets/icon.png', import.meta.url).href
 
@@ -64,7 +65,7 @@ export default function Nav() {
             rel="noreferrer"
             className="group flex items-center gap-2 rounded-full bg-[#17130e] px-5 py-2.5 text-sm font-semibold text-[#faf5ec] transition-transform hover:scale-[1.03] active:scale-95"
           >
-            <Apple className="h-4 w-4" />
+            <AppleLogo className="h-4 w-4" />
             {t.nav.getApp}
           </a>
         </nav>
@@ -98,7 +99,7 @@ export default function Nav() {
               rel="noreferrer"
               className="mt-2 flex w-fit items-center gap-2 rounded-full bg-[#17130e] px-5 py-2.5 text-sm font-semibold text-[#faf5ec]"
             >
-              <Apple className="h-4 w-4" />
+              <AppleLogo className="h-4 w-4" />
               {t.nav.getApp}
             </a>
           </div>
