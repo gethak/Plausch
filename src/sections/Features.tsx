@@ -1,15 +1,13 @@
 import type { ReactNode } from 'react'
-import { Bookmark, Globe2, Lock, MessagesSquare, ShieldCheck, EyeOff, Scale, Mail, Bot, KeyRound, Check, X } from 'lucide-react'
+import { Bookmark, Globe2, Lock, ShieldCheck, EyeOff, Scale, Mail, Bot, KeyRound, Check, X } from 'lucide-react'
 import { useTranslations } from '../i18n/LanguageContext'
 
-const phoneSmart = new URL('../../assets/phone-smart.png', import.meta.url).href
 const phoneAnnotations = new URL('../../assets/phone-annotations.png', import.meta.url).href
 const phonePrivacy = new URL('../../assets/phone-privacy.png', import.meta.url).href
 
-const rowImages = [phoneSmart, phoneAnnotations, phonePrivacy]
-const rowFlips = [false, true, false]
+const rowImages = [phoneAnnotations, phonePrivacy]
+const rowFlips = [true, false]
 const rowBulletIcons = [
-  [<MessagesSquare className="h-5 w-5 text-[#e07b39]" />, <Globe2 className="h-5 w-5 text-[#e07b39]" />],
   [<Bookmark className="h-5 w-5 text-[#e07b39]" />, <Scale className="h-5 w-5 text-[#e07b39]" />],
   [
     <Lock className="h-5 w-5 text-[#7c3aed]" />,
@@ -87,42 +85,30 @@ export default function Features() {
 
   return (
     <section id="features" className="relative">
-      <FeatureRow
-        id={t.features.rows[0].id}
-        eyebrow={t.features.rows[0].eyebrow}
-        title={t.features.rows[0].title}
-        accent={t.features.rows[0].accent}
-        body={t.features.rows[0].body}
-        bullets={t.features.rows[0].bullets.map((label, i) => ({ icon: rowBulletIcons[0][i], label }))}
-        image={rowImages[0]}
-        imageAlt={t.features.rows[0].imageAlt}
-        flip={rowFlips[0]}
-      />
-
       <div className="bg-white/50">
         <FeatureRow
-          id={t.features.rows[1].id}
-          eyebrow={t.features.rows[1].eyebrow}
-          title={t.features.rows[1].title}
-          accent={t.features.rows[1].accent}
-          body={t.features.rows[1].body}
-          bullets={t.features.rows[1].bullets.map((label, i) => ({ icon: rowBulletIcons[1][i], label }))}
-          image={rowImages[1]}
-          imageAlt={t.features.rows[1].imageAlt}
-          flip={rowFlips[1]}
+          id={t.features.rows[0].id}
+          eyebrow={t.features.rows[0].eyebrow}
+          title={t.features.rows[0].title}
+          accent={t.features.rows[0].accent}
+          body={t.features.rows[0].body}
+          bullets={t.features.rows[0].bullets.map((label, i) => ({ icon: rowBulletIcons[0][i], label }))}
+          image={rowImages[0]}
+          imageAlt={t.features.rows[0].imageAlt}
+          flip={rowFlips[0]}
         />
       </div>
 
       <FeatureRow
-        id={t.features.rows[2].id}
-        eyebrow={t.features.rows[2].eyebrow}
-        title={t.features.rows[2].title}
-        accent={t.features.rows[2].accent}
-        body={t.features.rows[2].body}
-        bullets={t.features.rows[2].bullets.map((label, i) => ({ icon: rowBulletIcons[2][i], label }))}
-        image={rowImages[2]}
-        imageAlt={t.features.rows[2].imageAlt}
-        flip={rowFlips[2]}
+        id={t.features.rows[1].id}
+        eyebrow={t.features.rows[1].eyebrow}
+        title={t.features.rows[1].title}
+        accent={t.features.rows[1].accent}
+        body={t.features.rows[1].body}
+        bullets={t.features.rows[1].bullets.map((label, i) => ({ icon: rowBulletIcons[1][i], label }))}
+        image={rowImages[1]}
+        imageAlt={t.features.rows[1].imageAlt}
+        flip={rowFlips[1]}
       />
 
       {/* What we collect */}

@@ -102,15 +102,6 @@ export const translations = {
       rows: [
         {
           id: undefined as string | undefined,
-          eyebrow: 'Smarte Gespräche',
-          title: 'Natürlich, tiefgründig —',
-          accent: 'immer an deiner Seite.',
-          body: 'Chatte so, wie du denkst. Plausch hält jedes Gespräch fließend und durchdacht — ob du mit Van Gogh träumst oder das Dreikörperproblem entwirrst. Wechsle mitten im Gespräch das Modell und spüre den Unterschied.',
-          bullets: ['Ein durchgehender Gesprächsfaden, viele Denker', 'Sprache, Anhänge und Modellwechsel in Echtzeit'],
-          imageAlt: 'Plausch Bildschirm für smarte Gespräche',
-        },
-        {
-          id: undefined as string | undefined,
           eyebrow: 'Intelligente Anmerkungen',
           title: 'Markieren, speichern,',
           accent: 'organisieren.',
@@ -263,15 +254,6 @@ export const translations = {
     },
     features: {
       rows: [
-        {
-          id: undefined as string | undefined,
-          eyebrow: 'Smart conversations',
-          title: 'Natural, deep —',
-          accent: 'always at your side.',
-          body: "Chat the way you think. Plausch keeps every conversation fluid and thoughtful, whether you're dreaming with Van Gogh or untangling the three-body problem. Switch models mid-conversation and feel the difference.",
-          bullets: ['One continuous thread, many minds', 'Voice, attachments and live model switching'],
-          imageAlt: 'Plausch smart conversation screen',
-        },
         {
           id: undefined as string | undefined,
           eyebrow: 'Intelligent annotations',
