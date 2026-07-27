@@ -48,27 +48,32 @@ export default function Nav() {
           <span className="font-display text-2xl font-semibold tracking-tight">Plausch</span>
         </a>
 
-        <nav className="hidden items-center gap-8 md:flex">
-          {t.nav.links.map((l) => (
+        <div className="hidden flex-1 items-center justify-between md:ml-12 md:flex">
+          <nav className="flex items-center gap-8">
+            {t.nav.links.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                className="text-sm font-medium text-[#17130e]/70 transition-colors hover:text-[#17130e]"
+              >
+                {l.label}
+              </a>
+            ))}
+          </nav>
+
+          <div className="flex items-center gap-4">
+            {switcher('flex items-center gap-1 rounded-full border border-[#17130e]/15 bg-white/60 p-1')}
             <a
-              key={l.href}
-              href={l.href}
-              className="text-sm font-medium text-[#17130e]/70 transition-colors hover:text-[#17130e]"
+              href="https://www.apple.com/us/search/plausch?src=globalnav"
+              target="_blank"
+              rel="noreferrer"
+              className="group flex items-center gap-2 rounded-full bg-[#17130e] px-5 py-2.5 text-sm font-semibold text-[#faf5ec] transition-transform hover:scale-[1.03] active:scale-95"
             >
-              {l.label}
+              <AppleLogo className="h-4 w-4" />
+              {t.nav.getApp}
             </a>
-          ))}
-          {switcher('flex items-center gap-1 rounded-full border border-[#17130e]/15 bg-white/60 p-1')}
-          <a
-            href="https://www.apple.com/us/search/plausch?src=globalnav"
-            target="_blank"
-            rel="noreferrer"
-            className="group flex items-center gap-2 rounded-full bg-[#17130e] px-5 py-2.5 text-sm font-semibold text-[#faf5ec] transition-transform hover:scale-[1.03] active:scale-95"
-          >
-            <AppleLogo className="h-4 w-4" />
-            {t.nav.getApp}
-          </a>
-        </nav>
+          </div>
+        </div>
 
         <button
           className="rounded-lg p-2 md:hidden"
