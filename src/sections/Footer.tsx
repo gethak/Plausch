@@ -19,7 +19,7 @@ export default function Footer() {
           <p className="mt-4 max-w-md text-lg text-[#17130e]/65">{t.footer.body}</p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <a
-              href="https://www.apple.com/us/search/plausch?src=globalnav"
+              href="https://sidekick-llm.fly.dev/l/website?a=home&s=footer&p=ios"
               target="_blank"
               rel="noreferrer"
               className="flex items-center gap-3 rounded-2xl bg-[#17130e] px-7 py-4 text-[#faf5ec] transition-transform hover:scale-[1.04] active:scale-95"
@@ -30,9 +30,10 @@ export default function Footer() {
                 <span className="block text-xl font-semibold">{t.footer.downloadTitle}</span>
               </span>
             </a>
-            {/* TODO: point at the real Google Play listing once Plausch is published there */}
             <a
-              href="#"
+              href="https://sidekick-llm.fly.dev/l/website?a=home&s=footer&p=android"
+              target="_blank"
+              rel="noreferrer"
               className="flex items-center gap-3 rounded-2xl bg-[#17130e] px-7 py-4 text-[#faf5ec] transition-transform hover:scale-[1.04] active:scale-95"
             >
               <GooglePlayLogo className="h-8 w-8" />

@@ -37,7 +37,7 @@ export default function Hero() {
 
           <div className="mt-9 flex flex-wrap items-center gap-4">
             <a
-              href="https://www.apple.com/us/search/plausch?src=globalnav"
+              href="https://sidekick-llm.fly.dev/l/website?a=home&s=hero&p=ios"
               target="_blank"
               rel="noreferrer"
               className="flex items-center gap-3 rounded-2xl bg-[#17130e] px-6 py-3.5 text-[#faf5ec] transition-transform hover:scale-[1.03] active:scale-95"
@@ -48,9 +48,10 @@ export default function Hero() {
                 <span className="block text-lg font-semibold">{t.hero.downloadTitle}</span>
               </span>
             </a>
-            {/* TODO: point at the real Google Play listing once Plausch is published there */}
             <a
-              href="#"
+              href="https://sidekick-llm.fly.dev/l/website?a=home&s=hero&p=android"
+              target="_blank"
+              rel="noreferrer"
               className="flex items-center gap-3 rounded-2xl bg-[#17130e] px-6 py-3.5 text-[#faf5ec] transition-transform hover:scale-[1.03] active:scale-95"
             >
               <GooglePlayLogo className="h-7 w-7" />
