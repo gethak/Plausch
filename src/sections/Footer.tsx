@@ -1,3 +1,4 @@
+import { ArrowUpRight } from 'lucide-react'
 import { useTranslations } from '../i18n/LanguageContext'
 import { AppleLogo, GooglePlayLogo } from '../components/brand-icons'
 
@@ -56,6 +57,7 @@ export default function Footer() {
             <img src={icon} alt="" className="h-8 w-8 object-contain drop-shadow-sm" style={{ background: 'transparent' }} />
             <div className="leading-tight">
               <p className="font-display font-semibold">Plausch</p>
+              <p className="text-xs text-[#17130e]/50">by Socalist AI</p>
             </div>
           </div>
 
@@ -67,8 +69,15 @@ export default function Footer() {
                 {l.label}
               </a>
             ))}
-            {/* "Socialist AI" link to socialist-tech.org temporarily removed —
-                translation key footer.socialistAiLabel is still in translations.ts */}
+            <a
+              href="https://socialist-tech.org/"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-1 text-[#8f1d1d] hover:underline"
+            >
+              {t.footer.socialistAiLabel}
+              <ArrowUpRight className="h-3.5 w-3.5" />
+            </a>
           </div>
         </div>
         <div className="mx-auto max-w-6xl px-5 pb-8 sm:px-8">

@@ -27,8 +27,13 @@ export default function Hero() {
             <em className="font-light italic text-[#e07b39]">{t.hero.h1Line2}</em>
           </h1>
           <p className="mt-7 max-w-xl text-lg leading-relaxed text-[#17130e]/70">{t.hero.body}</p>
-          {/* "Built by Socialist AI" line temporarily removed — translation keys
-              (hero.builtByPrefix/socialistAiLabel/builtBySuffix) are still in translations.ts */}
+          <p className="mt-4 max-w-xl text-sm font-medium text-[#17130e]/55">
+            {t.hero.builtByPrefix}{' '}
+            <a href="#socialist-ai" className="underline decoration-[#e07b39] decoration-2 underline-offset-4 hover:text-[#17130e]">
+              {t.hero.socialistAiLabel}
+            </a>{' '}
+            {t.hero.builtBySuffix}
+          </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-4">
             <a
