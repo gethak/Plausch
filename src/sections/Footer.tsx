@@ -1,5 +1,6 @@
-import { Apple, ArrowUpRight } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
 import { useTranslations } from '../i18n/LanguageContext'
+import { AppleLogo, GooglePlayLogo } from '../components/brand-icons'
 
 const icon = new URL('../../assets/icon.png', import.meta.url).href
 
@@ -16,18 +17,32 @@ export default function Footer() {
             {t.footer.readyPrefix} <em className="font-light italic text-[#e07b39]">{t.footer.readyAccent}</em>
           </h2>
           <p className="mt-4 max-w-md text-lg text-[#17130e]/65">{t.footer.body}</p>
-          <a
-            href="https://www.apple.com/us/search/plausch?src=globalnav"
-            target="_blank"
-            rel="noreferrer"
-            className="mt-8 flex items-center gap-3 rounded-2xl bg-[#17130e] px-7 py-4 text-[#faf5ec] transition-transform hover:scale-[1.04] active:scale-95"
-          >
-            <Apple className="h-8 w-8" />
-            <span className="text-left leading-tight">
-              <span className="block text-[10px] uppercase tracking-wider opacity-70">{t.footer.downloadEyebrow}</span>
-              <span className="block text-xl font-semibold">{t.footer.downloadTitle}</span>
-            </span>
-          </a>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+            <a
+              href="https://sidekick-llm.fly.dev/l/website?a=home&s=footer&p=ios"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-3 rounded-2xl bg-[#17130e] px-7 py-4 text-[#faf5ec] transition-transform hover:scale-[1.04] active:scale-95"
+            >
+              <AppleLogo className="h-8 w-8" />
+              <span className="text-left leading-tight">
+                <span className="block text-[10px] uppercase tracking-wider opacity-70">{t.footer.downloadEyebrow}</span>
+                <span className="block text-xl font-semibold">{t.footer.downloadTitle}</span>
+              </span>
+            </a>
+            <a
+              href="https://sidekick-llm.fly.dev/l/website?a=home&s=footer&p=android"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-3 rounded-2xl bg-[#17130e] px-7 py-4 text-[#faf5ec] transition-transform hover:scale-[1.04] active:scale-95"
+            >
+              <GooglePlayLogo className="h-8 w-8" />
+              <span className="text-left leading-tight">
+                <span className="block text-[10px] uppercase tracking-wider opacity-70">{t.footer.playStoreEyebrow}</span>
+                <span className="block text-xl font-semibold">{t.footer.playStoreTitle}</span>
+              </span>
+            </a>
+          </div>
           <div className="mt-6 flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs font-medium text-[#17130e]/50">
             {t.footer.badges.map((b) => (
               <span key={b}>{b}</span>
@@ -42,8 +57,8 @@ export default function Footer() {
           <div className="flex items-center gap-3">
             <img src={icon} alt="" className="h-8 w-8 object-contain drop-shadow-sm" style={{ background: 'transparent' }} />
             <div className="leading-tight">
-              <p className="font-display font-semibold">{t.footer.brand}</p>
-              <p className="text-xs text-[#17130e]/50">{t.footer.byLine}</p>
+              <p className="font-display font-semibold">Plausch</p>
+              <p className="text-xs text-[#17130e]/50">by Socalist AI</p>
             </div>
           </div>
 

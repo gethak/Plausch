@@ -1,5 +1,6 @@
-import { Apple, ArrowDown } from 'lucide-react'
+import { ChevronDown } from 'lucide-react'
 import { useTranslations } from '../i18n/LanguageContext'
+import { AppleLogo, GooglePlayLogo } from '../components/brand-icons'
 
 const phoneSmart = new URL('../../assets/phone-smart.png', import.meta.url).href
 
@@ -36,15 +37,27 @@ export default function Hero() {
 
           <div className="mt-9 flex flex-wrap items-center gap-4">
             <a
-              href="https://www.apple.com/us/search/plausch?src=globalnav"
+              href="https://sidekick-llm.fly.dev/l/website?a=home&s=hero&p=ios"
               target="_blank"
               rel="noreferrer"
               className="flex items-center gap-3 rounded-2xl bg-[#17130e] px-6 py-3.5 text-[#faf5ec] transition-transform hover:scale-[1.03] active:scale-95"
             >
-              <Apple className="h-7 w-7" />
+              <AppleLogo className="h-7 w-7" />
               <span className="text-left leading-tight">
                 <span className="block text-[10px] uppercase tracking-wider opacity-70">{t.hero.downloadEyebrow}</span>
                 <span className="block text-lg font-semibold">{t.hero.downloadTitle}</span>
+              </span>
+            </a>
+            <a
+              href="https://sidekick-llm.fly.dev/l/website?a=home&s=hero&p=android"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-3 rounded-2xl bg-[#17130e] px-6 py-3.5 text-[#faf5ec] transition-transform hover:scale-[1.03] active:scale-95"
+            >
+              <GooglePlayLogo className="h-7 w-7" />
+              <span className="text-left leading-tight">
+                <span className="block text-[10px] uppercase tracking-wider opacity-70">{t.hero.playStoreEyebrow}</span>
+                <span className="block text-lg font-semibold">{t.hero.playStoreTitle}</span>
               </span>
             </a>
             <a
@@ -52,7 +65,7 @@ export default function Hero() {
               className="flex items-center gap-2 rounded-2xl border border-[#17130e]/20 bg-white/60 px-6 py-4 text-sm font-semibold transition-colors hover:bg-white"
             >
               {t.hero.seeWhatItDoes}
-              <ArrowDown className="h-4 w-4" />
+              <ChevronDown className="h-4 w-4" />
             </a>
           </div>
 
