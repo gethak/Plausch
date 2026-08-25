@@ -29,6 +29,16 @@ export default function OneAppCard() {
       </div>
       <p className="mt-4 max-w-[95%] text-[15px] leading-relaxed text-[#17130e]/70">{t.oneApp.body}</p>
 
+      <div className="mt-4 rounded-2xl bg-[#e07b39]/10 p-3.5">
+        <p className="text-[13px] font-medium leading-relaxed text-[#17130e]/75">
+          {t.hero.builtByPrefix}{' '}
+          <a href="#socialist-ai" className="font-semibold text-[#e07b39] underline decoration-[#e07b39]/60 underline-offset-2">
+            {t.hero.socialistAiLabel}
+          </a>{' '}
+          {t.hero.builtBySuffix}
+        </p>
+      </div>
+
       <div className="relative mt-6">
         <div className="grid w-[52%] grid-cols-2 gap-x-3 gap-y-4">
           {modelTiles.map((m) => (

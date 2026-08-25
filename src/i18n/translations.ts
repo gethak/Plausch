@@ -231,6 +231,8 @@ export const translations = {
       imageAlt: 'Kufiya — palästinensisches Tuch',
       mobileBody: 'Wir glauben, dass mächtige KI allen zugänglich sein sollte — nicht nur wenigen Privilegierten.',
       mobileCta: 'Unsere Mission',
+      standWithPrefix: 'Wir stehen an der Seite ',
+      standWithEmphasis: 'Palästinas',
       flagAlt: 'Kufiya und palästinensische Flagge',
     },
     oneApp: {
@@ -412,6 +414,8 @@ export const translations = {
       imageAlt: 'Keffiyeh — Palestinian scarf',
       mobileBody: 'We believe powerful AI should be accessible to all, not just a privileged few.',
       mobileCta: 'Our mission',
+      standWithPrefix: 'We stand with ',
+      standWithEmphasis: 'Palestine',
       flagAlt: 'Keffiyeh and Palestinian flag',
     },
     oneApp: {

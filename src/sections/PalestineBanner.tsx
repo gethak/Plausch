@@ -13,9 +13,9 @@ export default function PalestineBanner() {
       <div className="md:hidden">
         <div className="relative px-6 pt-8">
           <h2 className="font-display text-[27px] font-semibold leading-snug tracking-tight text-[#17130e]">
-            {t.palestine.subPrefix}
-            <em className="font-medium italic text-[#e07b39]">{t.palestine.subEmphasis}</em>
-            {t.palestine.subSuffix}
+            {t.palestine.standWithPrefix}
+            <em className="font-medium italic text-[#e07b39]">{t.palestine.standWithEmphasis}</em>
+            .
           </h2>
           <p className="mt-2 max-w-sm text-sm leading-relaxed text-[#17130e]/70">{t.palestine.mobileBody}</p>
           <a
@@ -32,7 +32,7 @@ export default function PalestineBanner() {
           src={flag}
           alt={t.palestine.flagAlt}
           loading="lazy"
-          className="pointer-events-none mt-5 h-auto w-full select-none [mask-image:linear-gradient(to_bottom,transparent,black_12%)]"
+          className="pointer-events-none mt-5 h-auto w-full select-none"
         />
       </div>
 

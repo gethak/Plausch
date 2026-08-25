@@ -26,29 +26,21 @@ export default function Hero() {
         aria-hidden
         className="pointer-events-none absolute right-0 top-16 w-[72vw] max-w-[400px] select-none md:hidden"
       />
-      <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-5 pb-10 sm:px-8 md:pb-16 lg:grid-cols-[1.15fr_0.85fr] lg:pb-24">
+
+      {/* desktop hero */}
+      <div className="relative mx-auto hidden max-w-6xl grid-cols-1 items-center gap-14 px-5 pb-16 sm:px-8 md:grid lg:grid-cols-[1.15fr_0.85fr] lg:pb-24">
         <div>
-          <p className="mb-5 hidden items-center gap-2 rounded-full border border-[#17130e]/15 bg-white/60 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-[#17130e]/70 md:inline-flex">
+          <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#17130e]/15 bg-white/60 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-[#17130e]/70">
             <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#e07b39]" />
             <span>{t.hero.eyebrow}</span>
           </p>
-          <h1 className="font-display text-balance text-5xl font-semibold leading-[0.95] tracking-tight sm:text-7xl lg:text-[6.5rem]">
+          <h1 className="font-display text-balance text-6xl font-semibold leading-[0.95] tracking-tight sm:text-7xl lg:text-[6.5rem]">
             {t.hero.h1Line1}
             <br />
             <em className="font-light italic text-[#e07b39]">{t.hero.h1Line2}</em>
           </h1>
-          <p className="mt-7 hidden max-w-xl text-lg leading-relaxed text-[#17130e]/70 md:block">{t.hero.body}</p>
-          {/* built-by: chip card on mobile, plain line on desktop */}
-          <div className="mt-6 max-w-md rounded-2xl bg-[#e07b39]/10 p-4 md:hidden">
-            <p className="text-sm font-medium leading-relaxed text-[#17130e]/75">
-              {t.hero.builtByPrefix}{' '}
-              <a href="#socialist-ai" className="font-semibold text-[#e07b39] underline decoration-[#e07b39]/60 underline-offset-2">
-                {t.hero.socialistAiLabel}
-              </a>{' '}
-              {t.hero.builtBySuffix}
-            </p>
-          </div>
-          <p className="mt-4 hidden max-w-xl text-sm font-medium text-[#17130e]/55 md:block">
+          <p className="mt-7 max-w-xl text-lg leading-relaxed text-[#17130e]/70">{t.hero.body}</p>
+          <p className="mt-4 max-w-xl text-sm font-medium text-[#17130e]/55">
             {t.hero.builtByPrefix}{' '}
             <a href="#socialist-ai" className="underline decoration-[#e07b39] decoration-2 underline-offset-4 hover:text-[#17130e]">
               {t.hero.socialistAiLabel}
@@ -56,48 +48,48 @@ export default function Hero() {
             {t.hero.builtBySuffix}
           </p>
 
-          <div className="mt-7 flex flex-wrap items-center gap-3 md:mt-9 md:gap-4">
+          <div className="mt-9 flex flex-wrap items-center gap-4">
             <a
               href="https://sidekick-llm.fly.dev/l/website?a=home&s=hero&p=ios"
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-2 rounded-xl bg-[#17130e] px-3.5 py-2.5 text-[#faf5ec] transition-transform hover:scale-[1.03] active:scale-95 md:gap-3 md:rounded-2xl md:px-6 md:py-3.5"
+              className="flex items-center gap-3 rounded-2xl bg-[#17130e] px-6 py-3.5 text-[#faf5ec] transition-transform hover:scale-[1.03] active:scale-95"
             >
-              <AppleLogo className="h-5 w-5 md:h-7 md:w-7" />
+              <AppleLogo className="h-7 w-7" />
               <span className="text-left leading-tight">
-                <span className="block text-[8px] uppercase tracking-wider opacity-70 md:text-[10px]">{t.hero.downloadEyebrow}</span>
-                <span className="block text-sm font-semibold md:text-lg">{t.hero.downloadTitle}</span>
+                <span className="block text-[10px] uppercase tracking-wider opacity-70">{t.hero.downloadEyebrow}</span>
+                <span className="block text-lg font-semibold">{t.hero.downloadTitle}</span>
               </span>
             </a>
             <a
               href="https://sidekick-llm.fly.dev/l/website?a=home&s=hero&p=android"
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-2 rounded-xl bg-[#17130e] px-3.5 py-2.5 text-[#faf5ec] transition-transform hover:scale-[1.03] active:scale-95 md:gap-3 md:rounded-2xl md:px-6 md:py-3.5"
+              className="flex items-center gap-3 rounded-2xl bg-[#17130e] px-6 py-3.5 text-[#faf5ec] transition-transform hover:scale-[1.03] active:scale-95"
             >
-              <GooglePlayLogo className="h-5 w-5 md:h-7 md:w-7" />
+              <GooglePlayLogo className="h-7 w-7" />
               <span className="text-left leading-tight">
-                <span className="block text-[8px] uppercase tracking-wider opacity-70 md:text-[10px]">{t.hero.playStoreEyebrow}</span>
-                <span className="block text-sm font-semibold md:text-lg">{t.hero.playStoreTitle}</span>
+                <span className="block text-[10px] uppercase tracking-wider opacity-70">{t.hero.playStoreEyebrow}</span>
+                <span className="block text-lg font-semibold">{t.hero.playStoreTitle}</span>
               </span>
             </a>
             <a
               href="#features"
-              className="hidden items-center gap-2 rounded-2xl border border-[#17130e]/20 bg-white/60 px-6 py-4 text-sm font-semibold transition-colors hover:bg-white md:flex"
+              className="flex items-center gap-2 rounded-2xl border border-[#17130e]/20 bg-white/60 px-6 py-4 text-sm font-semibold transition-colors hover:bg-white"
             >
               {t.hero.seeWhatItDoes}
               <ChevronDown className="h-4 w-4" />
             </a>
           </div>
 
-          <div className="mt-9 hidden flex-wrap gap-x-6 gap-y-2 text-xs font-medium text-[#17130e]/50 md:flex">
+          <div className="mt-9 flex flex-wrap gap-x-6 gap-y-2 text-xs font-medium text-[#17130e]/50">
             {t.hero.badges.map((b) => (
               <span key={b}>{b}</span>
             ))}
           </div>
         </div>
 
-        <div className="relative mx-auto hidden w-full max-w-[320px] md:block lg:max-w-[360px]">
+        <div className="relative mx-auto w-full max-w-[320px] lg:max-w-[360px]">
           <div
             aria-hidden
             className="absolute inset-x-8 bottom-6 h-24 rounded-full bg-[#17130e]/20 blur-2xl"
@@ -114,9 +106,29 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* mobile: one-app showcase + privacy band */}
+      {/* mobile hero: one-app showcase leads, then store buttons and privacy band */}
       <div className="relative mx-auto max-w-6xl space-y-4 px-5 pb-10 md:hidden">
         <OneAppCard />
+        <div className="flex items-center justify-center gap-3">
+          <a
+            href="https://sidekick-llm.fly.dev/l/website?a=home&s=hero&p=ios"
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center gap-2 rounded-xl bg-[#17130e] px-4 py-2.5 text-[#faf5ec] transition-transform active:scale-95"
+          >
+            <AppleLogo className="h-4 w-4" />
+            <span className="text-sm font-semibold">{t.hero.downloadTitle}</span>
+          </a>
+          <a
+            href="https://sidekick-llm.fly.dev/l/website?a=home&s=hero&p=android"
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center gap-2 rounded-xl bg-[#17130e] px-4 py-2.5 text-[#faf5ec] transition-transform active:scale-95"
+          >
+            <GooglePlayLogo className="h-4 w-4" />
+            <span className="text-sm font-semibold">{t.hero.playStoreTitle}</span>
+          </a>
+        </div>
         <PrivacyBand />
       </div>
 
