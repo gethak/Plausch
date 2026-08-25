@@ -28,19 +28,18 @@ export default function Hero() {
       />
       <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-5 pb-10 sm:px-8 md:pb-16 lg:grid-cols-[1.15fr_0.85fr] lg:pb-24">
         <div>
-          <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#17130e]/15 bg-white/60 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-[#17130e]/70">
+          <p className="mb-5 hidden items-center gap-2 rounded-full border border-[#17130e]/15 bg-white/60 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-[#17130e]/70 md:inline-flex">
             <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#e07b39]" />
-            <span className="max-w-[70vw]">{t.hero.eyebrow}</span>
+            <span>{t.hero.eyebrow}</span>
           </p>
-          <h1 className="font-display text-balance text-6xl font-semibold leading-[0.95] tracking-tight sm:text-7xl lg:text-[6.5rem]">
+          <h1 className="font-display text-balance text-5xl font-semibold leading-[0.95] tracking-tight sm:text-7xl lg:text-[6.5rem]">
             {t.hero.h1Line1}
             <br />
             <em className="font-light italic text-[#e07b39]">{t.hero.h1Line2}</em>
           </h1>
-          <p className="mt-6 max-w-xl text-lg leading-relaxed text-[#17130e]/70 md:hidden">{t.hero.bodyShort}</p>
           <p className="mt-7 hidden max-w-xl text-lg leading-relaxed text-[#17130e]/70 md:block">{t.hero.body}</p>
           {/* built-by: chip card on mobile, plain line on desktop */}
-          <div className="mt-5 max-w-md rounded-2xl bg-[#e07b39]/10 p-4 md:hidden">
+          <div className="mt-6 max-w-md rounded-2xl bg-[#e07b39]/10 p-4 md:hidden">
             <p className="text-sm font-medium leading-relaxed text-[#17130e]/75">
               {t.hero.builtByPrefix}{' '}
               <a href="#socialist-ai" className="font-semibold text-[#e07b39] underline decoration-[#e07b39]/60 underline-offset-2">
