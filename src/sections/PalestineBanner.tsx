@@ -28,12 +28,12 @@ export default function PalestineBanner() {
             {t.palestine.mobileCta}
           </a>
         </div>
-        <div className="mt-6 h-36 w-full">
+        <div className="mt-5 h-44 w-full">
           <img
             src={flag}
             alt={t.palestine.flagAlt}
             loading="lazy"
-            className="pointer-events-none h-full w-full select-none object-cover object-[30%_25%] [mask-image:linear-gradient(to_bottom,transparent,black_45%)]"
+            className="pointer-events-none h-full w-full select-none object-cover object-[30%_35%] [mask-image:linear-gradient(to_bottom,transparent,black_18%)]"
           />
         </div>
       </div>

@@ -6,14 +6,13 @@ import OneAppCard from './OneAppCard'
 import PrivacyBand from './PrivacyBand'
 
 const phoneSmart = new URL('../../assets/phone-smart.png', import.meta.url).href
-const icon = new URL('../../assets/icon.png', import.meta.url).href
 const globe = new URL('../../assets/globe.png', import.meta.url).href
 
 export default function Hero() {
   const t = useTranslations()
 
   return (
-    <section id="top" className="paper-grain relative overflow-hidden pt-28 sm:pt-40">
+    <section id="top" className="paper-grain relative overflow-hidden pt-24 sm:pt-40">
       {/* soft warm glow */}
       <div
         aria-hidden
@@ -29,9 +28,8 @@ export default function Hero() {
       />
       <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-5 pb-10 sm:px-8 md:pb-16 lg:grid-cols-[1.15fr_0.85fr] lg:pb-24">
         <div>
-          <p className="mb-5 inline-flex items-center gap-2.5 rounded-full border border-[#17130e]/15 bg-white/60 py-1.5 pl-2 pr-4 text-xs font-semibold uppercase tracking-[0.14em] text-[#17130e]/70 md:gap-2 md:px-4">
-            <img src={icon} alt="" className="h-6 w-6 object-contain md:hidden" />
-            <span className="hidden h-1.5 w-1.5 rounded-full bg-[#e07b39] md:inline-block" />
+          <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#17130e]/15 bg-white/60 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-[#17130e]/70">
+            <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#e07b39]" />
             <span className="max-w-[70vw]">{t.hero.eyebrow}</span>
           </p>
           <h1 className="font-display text-balance text-6xl font-semibold leading-[0.95] tracking-tight sm:text-7xl lg:text-[6.5rem]">
@@ -39,10 +37,10 @@ export default function Hero() {
             <br />
             <em className="font-light italic text-[#e07b39]">{t.hero.h1Line2}</em>
           </h1>
-          <p className="mt-7 max-w-xl text-lg leading-relaxed text-[#17130e]/70">{t.hero.body}</p>
+          <p className="mt-6 max-w-xl text-lg leading-relaxed text-[#17130e]/70 md:hidden">{t.hero.bodyShort}</p>
+          <p className="mt-7 hidden max-w-xl text-lg leading-relaxed text-[#17130e]/70 md:block">{t.hero.body}</p>
           {/* built-by: chip card on mobile, plain line on desktop */}
-          <div className="mt-5 flex max-w-md items-start gap-3 rounded-2xl bg-[#e07b39]/10 p-4 md:hidden">
-            <img src={icon} alt="" className="h-10 w-10 shrink-0 object-contain" />
+          <div className="mt-5 max-w-md rounded-2xl bg-[#e07b39]/10 p-4 md:hidden">
             <p className="text-sm font-medium leading-relaxed text-[#17130e]/75">
               {t.hero.builtByPrefix}{' '}
               <a href="#socialist-ai" className="font-semibold text-[#e07b39] underline decoration-[#e07b39]/60 underline-offset-2">
@@ -64,24 +62,24 @@ export default function Hero() {
               href="https://sidekick-llm.fly.dev/l/website?a=home&s=hero&p=ios"
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-2.5 rounded-2xl bg-[#17130e] px-4 py-3 text-[#faf5ec] transition-transform hover:scale-[1.03] active:scale-95 md:gap-3 md:px-6 md:py-3.5"
+              className="flex items-center gap-2 rounded-xl bg-[#17130e] px-3.5 py-2.5 text-[#faf5ec] transition-transform hover:scale-[1.03] active:scale-95 md:gap-3 md:rounded-2xl md:px-6 md:py-3.5"
             >
-              <AppleLogo className="h-6 w-6 md:h-7 md:w-7" />
+              <AppleLogo className="h-5 w-5 md:h-7 md:w-7" />
               <span className="text-left leading-tight">
-                <span className="block text-[9px] uppercase tracking-wider opacity-70 md:text-[10px]">{t.hero.downloadEyebrow}</span>
-                <span className="block text-base font-semibold md:text-lg">{t.hero.downloadTitle}</span>
+                <span className="block text-[8px] uppercase tracking-wider opacity-70 md:text-[10px]">{t.hero.downloadEyebrow}</span>
+                <span className="block text-sm font-semibold md:text-lg">{t.hero.downloadTitle}</span>
               </span>
             </a>
             <a
               href="https://sidekick-llm.fly.dev/l/website?a=home&s=hero&p=android"
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-2.5 rounded-2xl bg-[#17130e] px-4 py-3 text-[#faf5ec] transition-transform hover:scale-[1.03] active:scale-95 md:gap-3 md:px-6 md:py-3.5"
+              className="flex items-center gap-2 rounded-xl bg-[#17130e] px-3.5 py-2.5 text-[#faf5ec] transition-transform hover:scale-[1.03] active:scale-95 md:gap-3 md:rounded-2xl md:px-6 md:py-3.5"
             >
-              <GooglePlayLogo className="h-6 w-6 md:h-7 md:w-7" />
+              <GooglePlayLogo className="h-5 w-5 md:h-7 md:w-7" />
               <span className="text-left leading-tight">
-                <span className="block text-[9px] uppercase tracking-wider opacity-70 md:text-[10px]">{t.hero.playStoreEyebrow}</span>
-                <span className="block text-base font-semibold md:text-lg">{t.hero.playStoreTitle}</span>
+                <span className="block text-[8px] uppercase tracking-wider opacity-70 md:text-[10px]">{t.hero.playStoreEyebrow}</span>
+                <span className="block text-sm font-semibold md:text-lg">{t.hero.playStoreTitle}</span>
               </span>
             </a>
             <a
