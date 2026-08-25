@@ -1,6 +1,7 @@
 import { ChevronDown } from 'lucide-react'
 import { useTranslations } from '../i18n/LanguageContext'
 import { AppleLogo, GooglePlayLogo } from '../components/brand-icons'
+import PalestineBanner from './PalestineBanner'
 
 const phoneSmart = new URL('../../assets/phone-smart.png', import.meta.url).href
 
@@ -91,6 +92,11 @@ export default function Hero() {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Palestine solidarity banner */}
+      <div className="relative mx-auto max-w-6xl px-5 pb-16 sm:px-8 lg:pb-20">
+        <PalestineBanner />
       </div>
 
       {/* model marquee */}
