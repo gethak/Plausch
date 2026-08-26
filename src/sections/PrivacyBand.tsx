@@ -1,7 +1,5 @@
-import { ShieldCheck } from 'lucide-react'
+import { Lock, ShieldCheck } from 'lucide-react'
 import { useTranslations } from '../i18n/LanguageContext'
-
-const icon = new URL('../../assets/icon.png', import.meta.url).href
 
 export default function PrivacyBand() {
   const t = useTranslations()
@@ -10,7 +8,7 @@ export default function PrivacyBand() {
     <div className="rounded-3xl bg-[#17130e] px-5 py-4 text-[#faf5ec] shadow-sm">
       <div className="flex items-center gap-3">
         <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#faf5ec]/10 ring-1 ring-[#faf5ec]/15">
-          <img src={icon} alt="" className="h-7 w-7 rounded-md object-contain" />
+          <Lock className="h-5 w-5 text-[#faf5ec]" />
         </span>
         <div>
           <p className="font-display text-[15px] font-semibold leading-snug">{t.privacyBand.heading}</p>

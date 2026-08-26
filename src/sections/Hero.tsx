@@ -1,4 +1,4 @@
-import { ChevronDown } from 'lucide-react'
+import { ArrowRight, ChevronDown, Globe2, Lock, ShieldCheck, Sparkles, Star, Users } from 'lucide-react'
 import { useTranslations } from '../i18n/LanguageContext'
 import { AppleLogo, GooglePlayLogo } from '../components/brand-icons'
 import PalestineBanner from './PalestineBanner'
@@ -7,6 +7,14 @@ import PrivacyBand from './PrivacyBand'
 
 const phoneSmart = new URL('../../assets/phone-smart.png', import.meta.url).href
 const globe = new URL('../../assets/globe.png', import.meta.url).href
+
+const trustIcons = [
+  <ShieldCheck className="h-3.5 w-3.5 text-[#059669]" />,
+  <Lock className="h-3.5 w-3.5 text-[#e07b39]" />,
+  <Star className="h-3.5 w-3.5 text-[#7c3aed]" />,
+  <span className="text-[13px] leading-none">🇪🇺</span>,
+  <Globe2 className="h-3.5 w-3.5 text-[#2563eb]" />,
+]
 
 export default function Hero() {
   const t = useTranslations()
@@ -106,30 +114,79 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* mobile hero: one-app showcase leads, then store buttons and privacy band */}
-      <div className="relative mx-auto max-w-6xl space-y-4 px-5 pb-10 md:hidden">
-        <OneAppCard />
-        <div className="flex items-center justify-center gap-3">
+      {/* mobile hero */}
+      <div className="relative mx-auto max-w-6xl px-5 pb-10 md:hidden">
+        <p className="inline-flex items-center gap-2 rounded-full border border-[#17130e]/15 bg-white/60 px-3.5 py-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-[#17130e]/70">
+          <Sparkles className="h-3.5 w-3.5 shrink-0 text-[#e07b39]" />
+          <span>{t.hero.eyebrow2}</span>
+        </p>
+        <h1 className="font-display mt-5 text-balance text-5xl font-semibold leading-[1.02] tracking-tight">
+          {t.hero.h1Line1}
+          <br />
+          <em className="font-light italic text-[#e07b39]">{t.hero.h1Line2}</em>
+        </h1>
+        <p className="mt-5 max-w-md text-[15px] leading-relaxed text-[#17130e]/70">{t.hero.body2}</p>
+
+        <div className="mt-5 flex max-w-md items-start gap-3 rounded-2xl bg-[#e07b39]/10 p-4">
+          <Users className="mt-0.5 h-5 w-5 shrink-0 text-[#e07b39]" />
+          <p className="text-[13px] font-medium leading-relaxed text-[#17130e]/75">
+            {t.hero.usersPrefix}
+            <strong className="font-bold text-[#17130e]">{t.hero.usersBold}</strong>{' '}
+            <span className="font-semibold text-[#e07b39]">{t.hero.usersAccent}</span>
+            {t.hero.usersSuffix}
+          </p>
+        </div>
+
+        <div className="mt-5 flex flex-wrap items-center gap-3">
           <a
             href="https://sidekick-llm.fly.dev/l/website?a=home&s=hero&p=ios"
             target="_blank"
             rel="noreferrer"
-            className="flex items-center gap-2 rounded-xl bg-[#17130e] px-4 py-2.5 text-[#faf5ec] transition-transform active:scale-95"
+            className="flex items-center gap-2.5 rounded-xl bg-[#17130e] px-4 py-2.5 text-[#faf5ec] transition-transform active:scale-95"
           >
-            <AppleLogo className="h-4 w-4" />
-            <span className="text-sm font-semibold">{t.hero.downloadTitle}</span>
+            <AppleLogo className="h-6 w-6" />
+            <span className="text-left leading-tight">
+              <span className="block text-[8px] uppercase tracking-wider opacity-70">{t.hero.downloadEyebrow}</span>
+              <span className="block text-sm font-semibold">{t.hero.downloadTitle}</span>
+            </span>
           </a>
           <a
             href="https://sidekick-llm.fly.dev/l/website?a=home&s=hero&p=android"
             target="_blank"
             rel="noreferrer"
-            className="flex items-center gap-2 rounded-xl bg-[#17130e] px-4 py-2.5 text-[#faf5ec] transition-transform active:scale-95"
+            className="flex items-center gap-2.5 rounded-xl bg-[#17130e] px-4 py-2.5 text-[#faf5ec] transition-transform active:scale-95"
           >
-            <GooglePlayLogo className="h-4 w-4" />
-            <span className="text-sm font-semibold">{t.hero.playStoreTitle}</span>
+            <GooglePlayLogo className="h-6 w-6" />
+            <span className="text-left leading-tight">
+              <span className="block text-[8px] uppercase tracking-wider opacity-70">{t.hero.playStoreEyebrow}</span>
+              <span className="block text-sm font-semibold">{t.hero.playStoreTitle}</span>
+            </span>
           </a>
         </div>
-        <PrivacyBand />
+
+        <a
+          href="#features"
+          className="mt-3 inline-flex items-center gap-2.5 rounded-full bg-[#e07b39] py-2.5 pl-5 pr-2.5 text-sm font-bold text-white transition-transform active:scale-95"
+        >
+          {t.hero.exploreCta}
+          <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#17130e]/20">
+            <ArrowRight className="h-3.5 w-3.5" />
+          </span>
+        </a>
+
+        <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 text-[11px] font-medium text-[#17130e]/60">
+          {t.hero.trust.map((label, i) => (
+            <span key={label} className="flex items-center gap-1.5">
+              {trustIcons[i]}
+              {label}
+            </span>
+          ))}
+        </div>
+
+        <div className="mt-6 space-y-4">
+          <OneAppCard />
+          <PrivacyBand />
+        </div>
       </div>
 
       {/* Palestine solidarity banner */}

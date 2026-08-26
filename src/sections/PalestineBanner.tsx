@@ -8,32 +8,32 @@ export default function PalestineBanner() {
   const t = useTranslations()
 
   return (
-    <div className="relative overflow-hidden rounded-[2rem] bg-[#faf4ed] shadow-sm ring-1 ring-[#17130e]/10 md:bg-[#f5efe3]">
-      {/* Mobile: heading and mission on top, keffiyeh + Palestinian flag band along the bottom */}
+    <div className="relative overflow-hidden rounded-[2rem] bg-[#f2f1ef] shadow-sm ring-1 ring-[#17130e]/10 md:bg-[#f5efe3]">
+      {/* Mobile: heading and mission left, keffiyeh + Palestinian flag draping from the top right */}
       <div className="md:hidden">
-        <div className="relative px-6 pt-8">
-          <h2 className="font-display text-[27px] font-semibold leading-snug tracking-tight text-[#17130e]">
-            {t.palestine.standWithPrefix}
-            <em className="font-medium italic text-[#e07b39]">{t.palestine.standWithEmphasis}</em>
-            .
+        <img
+          src={flag}
+          alt={t.palestine.flagAlt}
+          loading="lazy"
+          className="pointer-events-none absolute right-0 top-0 w-[44%] select-none"
+        />
+        <div className="relative px-6 py-7">
+          <h2 className="font-display max-w-[70%] text-[24px] font-semibold leading-snug tracking-tight text-[#17130e]">
+            {t.palestine.subPrefix}
+            <em className="font-medium italic text-[#e07b39]">{t.palestine.subEmphasis}</em>
+            {t.palestine.subSuffix}
           </h2>
-          <p className="mt-2 max-w-sm text-sm leading-relaxed text-[#17130e]/70">{t.palestine.mobileBody}</p>
+          <p className="mt-2 max-w-[62%] text-[13px] leading-relaxed text-[#17130e]/70">{t.palestine.mobileBody}</p>
           <a
             href="https://www.pcrf.net/"
             target="_blank"
             rel="noreferrer"
-            className="mt-5 inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-bold text-[#17130e] shadow-sm ring-1 ring-[#17130e]/5 transition-transform active:scale-95"
+            className="mt-4 inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-bold text-[#17130e] shadow-sm ring-1 ring-[#17130e]/5 transition-transform active:scale-95"
           >
             <Heart className="h-4 w-4 text-[#e07b39]" strokeWidth={2} />
             {t.palestine.mobileCta}
           </a>
         </div>
-        <img
-          src={flag}
-          alt={t.palestine.flagAlt}
-          loading="lazy"
-          className="pointer-events-none mt-5 h-auto w-full select-none"
-        />
       </div>
 
       {/* Desktop: text left with vertical ornament, scarf draping from the right */}
