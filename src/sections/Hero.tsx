@@ -2,8 +2,7 @@ import { ArrowRight, ChevronDown, Globe2, Lock, ShieldCheck, Sparkles, Star, Use
 import { useTranslations } from '../i18n/LanguageContext'
 import { AppleLogo, GooglePlayLogo } from '../components/brand-icons'
 import PalestineBanner from './PalestineBanner'
-import OneAppCard from './OneAppCard'
-import PrivacyBand from './PrivacyBand'
+import MobileValues from './MobileValues'
 
 const phoneSmart = new URL('../../assets/phone-smart.png', import.meta.url).href
 const globe = new URL('../../assets/globe.png', import.meta.url).href
@@ -183,14 +182,13 @@ export default function Hero() {
           ))}
         </div>
 
-        <div className="mt-6 space-y-4">
-          <OneAppCard />
-          <PrivacyBand />
+        <div className="mt-6">
+          <MobileValues />
         </div>
       </div>
 
-      {/* Palestine solidarity banner */}
-      <div className="relative mx-auto max-w-6xl px-5 pb-14 sm:px-8 lg:pb-20">
+      {/* Palestine solidarity banner (desktop; on mobile it lives in the values accordion) */}
+      <div className="relative mx-auto hidden max-w-6xl px-5 pb-14 sm:px-8 md:block lg:pb-20">
         <PalestineBanner />
       </div>
 
