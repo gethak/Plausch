@@ -255,6 +255,16 @@ export const translations = {
       body: 'Deine Daten sind privat, verschlüsselt und werden nie zum Training von Modellen genutzt. Du hast die volle Kontrolle.',
       cta: 'Mehr zu unserem Datenschutz',
     },
+    values: {
+      bestAnswerBody: 'Wir vergleichen Antworten mehrerer führender KIs und finden die beste für dich.',
+      items: [
+        { pre: 'Keine Halluzinationen mehr. Hol dir die ', accent: 'beste Antwort', post: ' der besten KIs.' },
+        { pre: 'ChatGPT, Claude, Gemini, Mistral, Kimi, Qwen, ', accent: 'und und und …', post: '' },
+        { pre: 'Deine Chats gehören ', accent: '100 % dir', post: '.' },
+        { pre: 'Anmerken. Notieren. Erinnern.', accent: '', post: '' },
+        { pre: 'Ethisch. Sozialistisch. Pro-humanitär.', accent: '', post: '' },
+      ],
+    },
     languageSwitch: { label: 'Sprache', de: 'DE', en: 'EN' },
   },
   en: {
@@ -445,6 +455,16 @@ export const translations = {
       heading: 'Your privacy. Our priority.',
       body: "Your data is private, encrypted, and never used to train models. You're in full control.",
       cta: 'Learn about our privacy',
+    },
+    values: {
+      bestAnswerBody: 'We compare answers from multiple leading AIs and find the best one for you.',
+      items: [
+        { pre: 'No more hallucinations. Get the ', accent: 'best answer', post: ' of the best AIs.' },
+        { pre: 'ChatGPT, Claude, Gemini, Mistral, Kimi, Qwen, ', accent: 'and and and…', post: '' },
+        { pre: 'Your chats are ', accent: '100% yours', post: '.' },
+        { pre: 'Annotate. Note. Remember.', accent: '', post: '' },
+        { pre: 'Ethical. Socialist. Pro-humanitarian.', accent: '', post: '' },
+      ],
     },
     languageSwitch: { label: 'Language', de: 'DE', en: 'EN' },
   },
