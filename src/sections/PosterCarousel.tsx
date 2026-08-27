@@ -84,14 +84,18 @@ export default function PosterCarousel() {
       >
         <div aria-hidden className="w-2 shrink-0 sm:w-[9vw]" />
         {posterKeys.map((key, i) => (
-          <div key={key} data-poster-card className="w-[84%] shrink-0 snap-center sm:w-[420px]">
+          <div
+            key={key}
+            data-poster-card
+            className="aspect-[900/1260] w-[84%] shrink-0 snap-center overflow-hidden rounded-3xl bg-[#f3ede2] shadow-sm ring-1 ring-[#17130e]/10 sm:w-[420px]"
+          >
             <img
               src={posterSrc[lang][key]}
               alt={alts[lang][key]}
               loading={i === 0 ? 'eager' : 'lazy'}
               fetchPriority={i === 0 ? 'high' : 'auto'}
               decoding="async"
-              className="h-auto w-full select-none rounded-3xl shadow-sm ring-1 ring-[#17130e]/10"
+              className="h-full w-full select-none object-contain"
             />
           </div>
         ))}

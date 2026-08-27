@@ -10,7 +10,7 @@ export default function Hero() {
   const t = useTranslations()
 
   return (
-    <section id="top" className="paper-grain relative overflow-hidden pt-24 sm:pt-40">
+    <section id="top" className="paper-grain relative overflow-hidden pt-16 sm:pt-40">
       {/* soft warm glow */}
       <div
         aria-hidden
@@ -97,7 +97,7 @@ export default function Hero() {
       </div>
 
       {/* mobile hero: store buttons, then the swipeable poster carousel leads the page */}
-      <div className="relative mx-auto max-w-6xl px-5 pb-6 pt-2 md:hidden">
+      <div className="relative mx-auto max-w-6xl px-5 pb-6 md:hidden">
         <div className="flex flex-wrap items-center gap-3">
           <a
             href="https://sidekick-llm.fly.dev/l/website?a=home&s=hero&p=ios"
