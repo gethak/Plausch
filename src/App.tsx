@@ -8,6 +8,7 @@ export default function App() {
       <Route path="/" element={<Navigate to={`/${DEFAULT_LANG}`} replace />} />
       <Route path="/de" element={<Home lang="de" />} />
       <Route path="/en" element={<Home lang="en" />} />
+      <Route path="/es" element={<Home lang="es" />} />
       <Route path="*" element={<Navigate to={`/${DEFAULT_LANG}`} replace />} />
     </Routes>
   )

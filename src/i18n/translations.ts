@@ -1,6 +1,6 @@
-export type Lang = 'de' | 'en'
+export type Lang = 'de' | 'en' | 'es'
 
-export const LANGS: Lang[] = ['de', 'en']
+export const LANGS: Lang[] = ['de', 'en', 'es']
 export const DEFAULT_LANG: Lang = 'de'
 
 const marqueeModels = {
@@ -30,6 +30,20 @@ const marqueeModels = {
     { flag: '🇮🇳', name: 'Sarvam', country: 'India' },
     { flag: '🇨🇭', name: 'Apertus', country: 'Switzerland' },
     { flag: '🌎', name: 'Latam-GPT', country: 'Latin America' },
+    { flag: '🌍', name: 'BLOOM', country: 'Global' },
+  ],
+  es: [
+    { flag: '🇫🇷', name: 'Mistral', country: 'Francia' },
+    { flag: '🇨🇳', name: 'DeepSeek', country: 'China' },
+    { flag: '🇺🇸', name: 'ChatGPT', country: 'EE. UU.' },
+    { flag: '🇺🇸', name: 'Claude', country: 'EE. UU.' },
+    { flag: '🇺🇸', name: 'Gemini', country: 'EE. UU.' },
+    { flag: '🇺🇸', name: 'Llama', country: 'EE. UU.' },
+    { flag: '🇨🇳', name: 'Qwen', country: 'China' },
+    { flag: '🇦🇪', name: 'Falcon', country: 'EAU' },
+    { flag: '🇮🇳', name: 'Sarvam', country: 'India' },
+    { flag: '🇨🇭', name: 'Apertus', country: 'Suiza' },
+    { flag: '🌎', name: 'Latam-GPT', country: 'Latinoamérica' },
     { flag: '🌍', name: 'BLOOM', country: 'Global' },
   ],
 }
@@ -62,6 +76,20 @@ const modelCards = {
     { flag: '🇩🇪', name: 'Luminous 2', country: 'Germany', note: 'German engineering, strong performance.' },
     { flag: '🇨🇭', name: 'Apertus', country: 'Switzerland', note: 'Fully open, Swiss precision.' },
     { flag: '🇧🇷', name: 'Latam GPT', country: 'Latin America', note: 'Optimised for Latin America & Brazil.' },
+  ],
+  es: [
+    { flag: '🇫🇷', name: 'Mistral 8×7B', country: 'Francia', note: 'Rápido, preciso y potente.' },
+    { flag: '🇨🇳', name: 'DeepSeek Chat', country: 'China', note: 'Fuerte en lógica y razonamiento complejo.' },
+    { flag: '🇺🇸', name: 'ChatGPT 4o', country: 'EE. UU.', note: 'Versátil, creativo y fiable.' },
+    { flag: '🇺🇸', name: 'Claude 3.5', country: 'EE. UU.', note: 'Escritura reflexiva y matizada.' },
+    { flag: '🇺🇸', name: 'Gemini', country: 'EE. UU.', note: 'Multimodal y profundamente conectado.' },
+    { flag: '🇺🇸', name: 'Llama', country: 'EE. UU.', note: 'El caballo de batalla de peso abierto.' },
+    { flag: '🇨🇳', name: 'Qwen 2.5', country: 'China', note: 'Conocimiento equilibrado y claridad.' },
+    { flag: '🇦🇪', name: 'Falcon 180B', country: 'EAU', note: 'IA avanzada de Oriente Medio.' },
+    { flag: '🇮🇳', name: 'Sarvam 2.0', country: 'India', note: 'El modelo de alto rendimiento propio de la India.' },
+    { flag: '🇩🇪', name: 'Luminous 2', country: 'Alemania', note: 'Ingeniería alemana, gran rendimiento.' },
+    { flag: '🇨🇭', name: 'Apertus', country: 'Suiza', note: 'Totalmente abierto, precisión suiza.' },
+    { flag: '🇧🇷', name: 'Latam GPT', country: 'Latinoamérica', note: 'Optimizado para Latinoamérica y Brasil.' },
   ],
 }
 
@@ -255,17 +283,7 @@ export const translations = {
       body: 'Deine Daten sind privat, verschlüsselt und werden nie zum Training von Modellen genutzt. Du hast die volle Kontrolle.',
       cta: 'Mehr zu unserem Datenschutz',
     },
-    values: {
-      bestAnswerBody: 'Wir vergleichen Antworten mehrerer führender KIs und finden die beste für dich.',
-      items: [
-        { pre: 'Keine Halluzinationen mehr. Hol dir die ', accent: 'beste Antwort', post: ' der besten KIs.' },
-        { pre: 'ChatGPT, Claude, Gemini, Mistral, Kimi, Qwen, ', accent: 'und und und …', post: '' },
-        { pre: 'Deine Chats gehören ', accent: '100 % dir', post: '.' },
-        { pre: 'Anmerken. Notieren. Erinnern.', accent: '', post: '' },
-        { pre: 'Ethisch. Sozialistisch. Pro-humanitär.', accent: '', post: '' },
-      ],
-    },
-    languageSwitch: { label: 'Sprache', de: 'DE', en: 'EN' },
+    languageSwitch: { label: 'Sprache', de: 'DE', en: 'EN', es: 'ES' },
   },
   en: {
     meta: {
@@ -456,17 +474,198 @@ export const translations = {
       body: "Your data is private, encrypted, and never used to train models. You're in full control.",
       cta: 'Learn about our privacy',
     },
-    values: {
-      bestAnswerBody: 'We compare answers from multiple leading AIs and find the best one for you.',
-      items: [
-        { pre: 'No more hallucinations. Get the ', accent: 'best answer', post: ' of the best AIs.' },
-        { pre: 'ChatGPT, Claude, Gemini, Mistral, Kimi, Qwen, ', accent: 'and and and…', post: '' },
-        { pre: 'Your chats are ', accent: '100% yours', post: '.' },
-        { pre: 'Annotate. Note. Remember.', accent: '', post: '' },
-        { pre: 'Ethical. Socialist. Pro-humanitarian.', accent: '', post: '' },
-      ],
+    languageSwitch: { label: 'Language', de: 'DE', en: 'EN', es: 'ES' },
+  },
+  es: {
+    meta: {
+      title: 'Plausch — Tu IA. Mundial.',
+      description:
+        'Una charla con la IA más inteligente — sin importar cuál. Una app, todos los modelos de IA líderes. Gratis para empezar, privado desde el principio.',
     },
-    languageSwitch: { label: 'Language', de: 'DE', en: 'EN' },
+    nav: {
+      links: [
+        { label: 'Funciones', href: '#features' },
+        { label: 'Modelos', href: '#models' },
+        { label: 'Privacidad', href: '#privacy' },
+        { label: 'IA Socialista', href: '#socialist-ai' },
+      ],
+      getApp: 'Obtener la app',
+      toggleMenu: 'Alternar menú',
+      iconAlt: 'Icono de la app Plausch',
+    },
+    hero: {
+      eyebrow: 'Una charla con la IA más inteligente — sin importar cuál',
+      h1Line1: 'Tu IA.',
+      h1Line2: 'Mundial.',
+      body: 'Una app. Todos los modelos de IA líderes — GPT-4o, Claude, Gemini, Mistral, DeepSeek, Llama, Qwen, Falcon y más. Encuentra el modelo que realmente se adapta a ti.',
+      builtByPrefix: 'Desarrollado por',
+      builtBySuffix: '— porque la inteligencia es un bien común y pertenece a todos.',
+      socialistAiLabel: 'Socialist AI',
+      downloadEyebrow: 'Descarga en',
+      downloadTitle: 'App Store',
+      playStoreEyebrow: 'Disponible en',
+      playStoreTitle: 'Google Play',
+      seeWhatItDoes: 'Cómo funciona',
+      badges: ['18+ · Productividad', '52.6 MB', '🇪🇺 Desarrollado en Europa', 'Conforme con el RGPD'],
+      eyebrow2: 'IA que pone a la humanidad en el centro del progreso',
+      body2: 'Intercambia, aprende y crea en más de 180 países. Chatea en más de 140 idiomas. Basado en OpenAI, Claude, Gemini y más. Une voces. Desata tu futuro.',
+      usersPrefix: 'Más de ',
+      usersBold: '25 M+ usuarios',
+      usersAccent: 'en todo el mundo',
+      usersSuffix: ' — en una sola plataforma para conectar, crecer y construir un mañana mejor.',
+      exploreCta: 'Explorar funciones',
+      trust: ['Seguro', 'Privacidad por diseño', '25 M+ usuarios', 'Conforme con normativa de la UE', 'Soporte humano 24/7'],
+      imageAlt: 'App Plausch — conversación inteligente sobre La noche estrellada de Van Gogh',
+      marqueeModels: marqueeModels.es,
+    },
+    features: {
+      rows: [
+        {
+          id: undefined as string | undefined,
+          eyebrow: 'Anotaciones inteligentes',
+          title: 'Resalta, guarda,',
+          accent: 'organiza.',
+          body: 'Cada respuesta se convierte en parte de tu conocimiento. Marca los pasajes que importan, guárdalos en tu cajón privado de anotaciones y vuelve a ellos cuando quieras — tus extractos, solo para ti.',
+          bullets: ['Extractos codificados por color, guardados con un toque', 'Compara respuestas de distintos modelos en paralelo'],
+          imageAlt: 'Pantalla de anotaciones inteligentes de Plausch',
+        },
+        {
+          id: 'privacy',
+          eyebrow: 'Segura y privada',
+          title: 'Tus datos',
+          accent: 'te pertenecen.',
+          body: 'Protegidos con los más altos estándares — sin concesiones. Plausch procesa tus datos de forma segura y confidencial, totalmente conforme con el RGPD y auditado de forma independiente con regularidad.',
+          bullets: [
+            'Cifrado de extremo a extremo en cada solicitud',
+            'Historial cifrado — solo tu dispositivo tiene la clave',
+            'Sin rastreo, sin compartir datos con terceros',
+            'Todos los datos alojados de forma segura en la Unión Europea',
+            'Transparencia y control total sobre tu configuración',
+          ],
+          imageAlt: 'Pantalla de privacidad y seguridad de Plausch',
+        },
+      ],
+      collect: {
+        eyebrow: 'Minimalismo de datos radical',
+        titlePrefix: 'Lo que recopilamos —',
+        titleAccent: 'y lo que nunca haremos.',
+        intro:
+          'Plausch te pide exactamente un dato personal: tu dirección de correo electrónico. Ni siquiera tu nombre. Aquí está toda la historia — sin nada oculto, sin letra pequeña.',
+        cards: [
+          {
+            title: 'Solo tu correo. Eso es todo.',
+            body: 'Sin nombre, sin número de teléfono, sin contactos, sin ubicación, sin fecha de nacimiento. Tu dirección de correo es el único dato personal que almacenamos — el mínimo necesario para gestionar tu cuenta.',
+          },
+          {
+            title: '¿Por qué siquiera eso? Para mantener alejados a los bots.',
+            body: 'Un correo verificado es nuestra única línea de defensa contra bots, spam y abusos. Mantiene Plausch rápido, justo y accesible para personas reales — y nunca se usa para publicidad, perfilado ni se vende a nadie.',
+          },
+          {
+            title: 'Tus chats están sellados con tu clave.',
+            body: 'Tu historial de chat se almacena completamente cifrado. Ni siquiera nuestro propio equipo puede leer una sola palabra sin tu clave — y esa clave se genera y se guarda en tu dispositivo, nunca en nuestros servidores. Si pierdes el dispositivo, las conversaciones quedan selladas para siempre.',
+          },
+        ],
+        weCollectLabel: 'Esto recopilamos',
+        weCollectItem: 'Tu dirección de correo — nada más',
+        weNeverSeeLabel: 'Esto nunca vemos',
+        weNeverSeeItems: [
+          'Tu nombre, contactos o ubicación',
+          'Contenido de chat legible — cifrado con tu clave',
+          'Rastreadores, perfiles publicitarios o analíticas sobre ti',
+        ],
+      },
+    },
+    models: {
+      eyebrow: 'Modelos de IA de primer nivel',
+      titlePrefix: 'Modelos de primer nivel,',
+      titleAccent: 'una sola conversación.',
+      body: 'Elige entre los modelos líderes del mundo — cada uno con sus propias fortalezas. El futuro de la IA se está escribiendo en París, Pekín, Bangalore, Abu Dabi y São Paulo. Plausch lo pone todo en tu bolsillo.',
+      cards: modelCards.es,
+      footnote: '+ BLOOM, OLMo, Kimi, GLM, Yi, Gemma y cientos más — un ecosistema, sin guardianes.',
+    },
+    socialist: {
+      tagline: 'Un proyecto de Socialist AI — socialist-tech.org',
+      titlePrefix: 'La inteligencia es un bien común —',
+      titleAccent: 'pertenece a todos.',
+      body: 'Plausch se basa en una convicción simple: la tecnología más poderosa de la historia debe permanecer en manos de todos nosotros. Por eso una sola app reúne modelos abiertos y líderes de todos los rincones del mundo — de espíritu comunitario, abierta por defecto, para todos.',
+      principles: [
+        {
+          title: 'Pesos abiertos, libros abiertos',
+          body: 'Si un modelo da forma a la vida pública, el público debería poder examinarlo. Defendemos los modelos que publican sus pesos, métodos de entrenamiento y limitaciones.',
+        },
+        {
+          title: 'Sin guardianes',
+          body: 'El acceso a la inteligencia nunca debería depender de tus ingresos, tu pasaporte o tu código postal. Los niveles gratuitos no son caridad — el acceso es un derecho.',
+        },
+        {
+          title: 'Global desde el diseño',
+          body: 'Ninguna nación o empresa debería poseer el futuro en solitario. Damos visibilidad a modelos abiertos de cada continente, en cada idioma, para cada comunidad.',
+        },
+        {
+          title: 'Gobernada por la comunidad',
+          body: 'El rumbo de la IA debería decidirlo la mayoría, no unos pocos — mediante investigación abierta, debate público y supervisión democrática.',
+        },
+      ],
+      quotePrefix: 'Los medios de predicción deben estar en manos de ',
+      quoteEmphasis: 'las mayorías',
+      quoteSuffix: ' — no encerrados en los centros de datos de las minorías.',
+      cite: '— El Manifiesto de la IA Socialista, Artículo Uno',
+      stats: [
+        { value: '40+', label: 'modelos de código abierto impulsados' },
+        { value: '30+', label: 'países representados' },
+        { value: '100%', label: 'gratis para usar, estudiar y compartir' },
+        { value: '$0', label: 'barrera de entrada' },
+      ],
+      cta: 'Únete al movimiento en socialist-tech.org',
+      ctaFootnote: 'La revolución es de código abierto. Un correo al mes — sin muros de pago, para siempre.',
+    },
+    footer: {
+      iconAlt: 'Icono de la app Plausch',
+      readyPrefix: '¿Listo para un',
+      readyAccent: 'Plausch?',
+      body: 'Una charla con la IA más inteligente — sin importar cuál. Gratis para empezar, privado desde el principio.',
+      downloadEyebrow: 'Descarga en',
+      downloadTitle: 'App Store',
+      playStoreEyebrow: 'Disponible en',
+      playStoreTitle: 'Google Play',
+      badges: ['18+ años', 'Productividad', 'English', '52.6 MB', 'iPhone'],
+      brand: 'Plausch',
+      byLine: 'por Hakkim Akbarali Alavudeen',
+      tagline: 'De cada modelo según sus pesos, a cada persona según sus necesidades.',
+      links: [
+        { label: 'Funciones', href: '#features' },
+        { label: 'Modelos', href: '#models' },
+        { label: 'Privacidad', href: '#privacy' },
+      ],
+      socialistAiLabel: 'IA Socialista',
+      copyright: '© 2026 Plausch · Un proyecto de Socialist AI — haciendo de la inteligencia artificial un bien público. Desarrollado en Europa. 🇪🇺',
+    },
+    palestine: {
+      heading: 'Con Palestina.',
+      subPrefix: 'Por ',
+      subEmphasis: 'la dignidad, la libertad',
+      subSuffix: ' y la humanidad.',
+      cta: 'Saber más',
+      imageAlt: 'Kufiya — pañuelo palestino',
+      mobileBody: 'Creemos que el progreso en la IA debería ser accesible para todos, no solo para unos pocos privilegiados.',
+      mobileCta: 'Nuestra misión',
+      standWithPrefix: 'Estamos con ',
+      standWithEmphasis: 'Palestina',
+      flagAlt: 'Kufiya y bandera palestina',
+    },
+    oneApp: {
+      heading1: 'Una app.',
+      heading2: 'Inteligencia sin límites.',
+      body: 'Habla con los mejores modelos del mundo en un solo lugar. Obtén respuestas, crea, traduce, escribe, planifica y más — más rápido, más profundo, más inteligente.',
+      moreLabel: 'Más modelos',
+      phoneAlt: 'App Plausch — selector de modelos',
+    },
+    privacyBand: {
+      heading: 'Tu privacidad. Nuestra prioridad.',
+      body: 'Tus datos son privados, están cifrados y nunca se usan para entrenar modelos. Tienes el control total.',
+      cta: 'Conoce nuestra privacidad',
+    },
+    languageSwitch: { label: 'Idioma', de: 'DE', en: 'EN', es: 'ES' },
   },
 }
 
