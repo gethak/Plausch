@@ -42,38 +42,40 @@ function FeatureRow({
   return (
     <div
       id={id}
-      className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-16 sm:px-8 lg:grid-cols-2 lg:gap-20 lg:py-24"
+      className="mx-5 my-4 rounded-3xl bg-[#fdf7ef] p-6 shadow-sm ring-1 ring-[#17130e]/10 md:mx-0 md:my-0 md:rounded-none md:bg-transparent md:p-0 md:shadow-none md:ring-0"
     >
-      <div className={flip ? 'lg:order-2' : ''}>
-        <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#e07b39]">{eyebrow}</p>
-        <h2 className="font-display mt-3 text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
-          {title} <em className="font-light italic text-[#17130e]/50">{accent}</em>
-        </h2>
-        <p className="mt-5 max-w-lg text-lg leading-relaxed text-[#17130e]/70">{body}</p>
-        <ul className="mt-8 space-y-4">
-          {bullets.map((b, i) => (
-            <li key={i} className="flex items-center gap-4">
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white shadow-sm ring-1 ring-[#17130e]/10">
-                {b.icon}
-              </span>
-              <span className="font-medium text-[#17130e]/85">{b.label}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div className={`relative mx-auto w-full max-w-[340px] ${flip ? 'lg:order-1' : ''}`}>
-        <div
-          aria-hidden
-          className="absolute inset-x-10 bottom-4 h-20 rounded-full bg-[#17130e]/20 blur-2xl"
-        />
-        <div className="relative overflow-hidden rounded-[2.5rem] drop-shadow-2xl [transform:translateZ(0)]">
-          <img
-            src={image}
-            alt={imageAlt}
-            className="relative w-full block object-cover rounded-[2.5rem] [transform:translateZ(0)]"
-            loading="lazy"
-            style={{ background: 'transparent' }}
+      <div className="mx-auto grid items-center gap-8 md:max-w-6xl md:gap-12 md:px-5 md:py-16 lg:grid-cols-2 lg:gap-20 lg:px-8 lg:py-24">
+        <div className={flip ? 'lg:order-2' : ''}>
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#e07b39]">{eyebrow}</p>
+          <h2 className="font-display mt-3 text-3xl font-semibold leading-tight tracking-tight sm:text-4xl md:text-5xl">
+            {title} <em className="font-light italic text-[#17130e]/50">{accent}</em>
+          </h2>
+          <p className="mt-4 max-w-lg text-base leading-relaxed text-[#17130e]/70 md:mt-5 md:text-lg">{body}</p>
+          <ul className="mt-6 space-y-4 md:mt-8">
+            {bullets.map((b, i) => (
+              <li key={i} className="flex items-center gap-4">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white shadow-sm ring-1 ring-[#17130e]/10">
+                  {b.icon}
+                </span>
+                <span className="font-medium text-[#17130e]/85">{b.label}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className={`relative mx-auto w-full max-w-[340px] ${flip ? 'lg:order-1' : ''}`}>
+          <div
+            aria-hidden
+            className="absolute inset-x-10 bottom-4 h-20 rounded-full bg-[#17130e]/20 blur-2xl"
           />
+          <div className="relative overflow-hidden rounded-[2.5rem] drop-shadow-2xl [transform:translateZ(0)]">
+            <img
+              src={image}
+              alt={imageAlt}
+              className="relative w-full block object-cover rounded-[2.5rem] [transform:translateZ(0)]"
+              loading="lazy"
+              style={{ background: 'transparent' }}
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -85,7 +87,7 @@ export default function Features() {
 
   return (
     <section id="features" className="relative">
-      <div className="bg-white/50">
+      <div className="md:bg-white/50">
         <FeatureRow
           id={t.features.rows[0].id}
           eyebrow={t.features.rows[0].eyebrow}
