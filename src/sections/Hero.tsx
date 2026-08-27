@@ -2,7 +2,7 @@ import { ChevronDown } from 'lucide-react'
 import { useTranslations } from '../i18n/LanguageContext'
 import { AppleLogo, GooglePlayLogo } from '../components/brand-icons'
 import PalestineBanner from './PalestineBanner'
-import MobileValues from './MobileValues'
+import PosterCarousel from './PosterCarousel'
 
 const phoneSmart = new URL('../../assets/phone-smart.png', import.meta.url).href
 
@@ -96,8 +96,8 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* mobile hero: just the store buttons, then the values accordion (item 1 open) leads the page */}
-      <div className="relative mx-auto max-w-6xl px-5 pb-10 pt-2 md:hidden">
+      {/* mobile hero: store buttons, then the swipeable poster carousel leads the page */}
+      <div className="relative mx-auto max-w-6xl px-5 pb-6 pt-2 md:hidden">
         <div className="flex flex-wrap items-center gap-3">
           <a
             href="https://sidekick-llm.fly.dev/l/website?a=home&s=hero&p=ios"
@@ -124,13 +124,14 @@ export default function Hero() {
             </span>
           </a>
         </div>
-
-        <div className="mt-5">
-          <MobileValues />
-        </div>
       </div>
 
-      {/* Palestine solidarity banner (desktop; on mobile it lives in the values accordion) */}
+      {/* full-bleed so the next card peeks past the viewport edge */}
+      <div className="relative pb-10 md:hidden">
+        <PosterCarousel />
+      </div>
+
+      {/* Palestine solidarity banner (desktop only; on mobile the "Humanitarian AI" poster in the carousel covers this) */}
       <div className="relative mx-auto hidden max-w-6xl px-5 pb-14 sm:px-8 md:block lg:pb-20">
         <PalestineBanner />
       </div>

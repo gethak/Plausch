@@ -4,7 +4,7 @@ import { useTranslations } from '../i18n/LanguageContext'
 const keffiyeh = new URL('../../assets/keffiyeh.png', import.meta.url).href
 
 // Desktop-only band: text left with vertical ornament, scarf draping from the right.
-// On mobile this content lives in the MobileValues accordion instead.
+// On mobile this content is covered by the "Humanitarian AI" poster in the swipeable carousel instead.
 export default function PalestineBanner() {
   const t = useTranslations()
 
