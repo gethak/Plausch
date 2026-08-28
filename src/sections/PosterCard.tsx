@@ -1,5 +1,11 @@
 import { PosterNote, PosterArrow, PosterOutcome, Highlight } from '../components/poster-ui'
 
+const keyPhoto = new URL('../../assets/posters/cutouts/key.png', import.meta.url).href
+const peopleHeart = new URL('../../assets/posters/cutouts/people-heart.png', import.meta.url).href
+const iconLine = new URL('../../assets/posters/cutouts/icon-line.png', import.meta.url).href
+
+export type PosterKey = 'hallucinate' | 'noclutter' | 'private' | 'notes' | 'humanitarian'
+
 export type PosterContent = {
   headline: readonly string[]
   subheadPre: string
@@ -16,14 +22,25 @@ export type PosterContent = {
 
 const tileRotations = [-2, 2, 2, -2]
 
+// Per-poster marks on the tile grid, matching the ink marks in the original
+// artwork (AI 1 crossed out, AI 3 questioned, in the reference "hallucinate" poster).
+const tileMarks: Partial<Record<PosterKey, Partial<Record<number, 'x' | 'question'>>>> = {
+  hallucinate: { 0: 'x', 2: 'question' },
+}
+
 /**
  * Shared poster shell — every poster (hallucinate, noclutter, private, notes,
  * humanitarian) renders through this same structure: headline, subhead with a
  * red-underlined caution word, a 2x2 grid of note tiles converging into a
- * green-circled outcome, a bold statement, a body sentence with a
- * green-underlined reassurance phrase, and a small tagline.
+ * checkmark outcome, a bold statement, a body sentence with a
+ * green-underlined reassurance phrase, and a small tagline. Where the
+ * original poster had a real photo or illustration (the brass key, the
+ * Plausch heart-gear mark, the people-and-heart drawing), that same cutout
+ * is reused here instead of a redrawn approximation.
  */
-export default function PosterCard({ content }: { content: PosterContent }) {
+export default function PosterCard({ posterKey, content }: { posterKey: PosterKey; content: PosterContent }) {
+  const marks = tileMarks[posterKey] ?? {}
+
   return (
     <div className="flex h-full w-full flex-col justify-between px-6 py-7">
       <div>
@@ -42,13 +59,31 @@ export default function PosterCard({ content }: { content: PosterContent }) {
       <div className="my-5">
         <div className="grid grid-cols-2 gap-2.5">
           {content.tiles.map((tile, i) => (
-            <PosterNote key={i} rotate={tileRotations[i] ?? 0}>
-              {tile}
+            <PosterNote key={i} rotate={tileRotations[i] ?? 0} mark={marks[i]}>
+              {posterKey === 'private' && i === 1 ? (
+                <span className="flex flex-col items-center gap-1.5 text-center">
+                  <img src={keyPhoto} alt="" aria-hidden className="h-9 w-auto select-none object-contain" />
+                  {tile}
+                </span>
+              ) : (
+                tile
+              )}
             </PosterNote>
           ))}
         </div>
         <PosterArrow />
-        <PosterOutcome>{content.outcome}</PosterOutcome>
+        <PosterOutcome
+          extra={
+            posterKey === 'humanitarian' ? (
+              <img src={peopleHeart} alt="" aria-hidden className="mx-auto mt-2 h-7 w-auto select-none object-contain" />
+            ) : undefined
+          }
+        >
+          {posterKey === 'notes' && (
+            <img src={iconLine} alt="" aria-hidden className="mx-auto mb-1.5 h-6 w-auto select-none object-contain" />
+          )}
+          {content.outcome}
+        </PosterOutcome>
       </div>
 
       <div>

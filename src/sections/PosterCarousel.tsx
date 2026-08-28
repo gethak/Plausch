@@ -58,7 +58,7 @@ export default function PosterCarousel() {
             data-poster-card
             className="aspect-[900/1260] w-[84%] shrink-0 snap-center overflow-hidden rounded-3xl bg-[#f3ede2] shadow-sm ring-1 ring-[#17130e]/10 sm:w-[420px]"
           >
-            <PosterCard content={t.posters[key]} />
+            <PosterCard posterKey={key} content={t.posters[key]} />
           </div>
         ))}
         <div aria-hidden className="w-2 shrink-0 sm:w-[9vw]" />
