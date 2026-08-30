@@ -42,7 +42,7 @@ export default function Nav() {
         scrolled ? 'bg-[#faf5ec]/85 shadow-[0_1px_0_rgba(23,19,14,0.08)] backdrop-blur-md' : 'bg-transparent'
       }`}
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-2.5 sm:px-8 md:py-4">
         <a href="#top" className="flex items-center gap-3">
           <img src={icon} alt={t.nav.iconAlt} className="h-10 w-10 object-contain drop-shadow-sm" style={{ background: 'transparent' }} />
           <span className="font-display text-2xl font-semibold tracking-tight">Plausch</span>

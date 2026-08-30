@@ -2,6 +2,7 @@ import { ChevronDown } from 'lucide-react'
 import { useTranslations } from '../i18n/LanguageContext'
 import { AppleLogo, GooglePlayLogo } from '../components/brand-icons'
 import PalestineBanner from './PalestineBanner'
+import PosterCarousel from './PosterCarousel'
 
 const phoneSmart = new URL('../../assets/phone-smart.png', import.meta.url).href
 
@@ -9,18 +10,19 @@ export default function Hero() {
   const t = useTranslations()
 
   return (
-    <section id="top" className="paper-grain relative overflow-hidden pt-32 sm:pt-40">
+    <section id="top" className="paper-grain relative overflow-hidden pt-16 sm:pt-40">
       {/* soft warm glow */}
       <div
         aria-hidden
         className="pointer-events-none absolute -top-40 right-[-15%] h-[560px] w-[560px] rounded-full opacity-60 blur-3xl"
         style={{ background: 'radial-gradient(circle, rgba(224,123,57,0.28), transparent 65%)' }}
       />
-      <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-5 pb-16 sm:px-8 lg:grid-cols-[1.15fr_0.85fr] lg:pb-24">
+      {/* desktop hero */}
+      <div className="relative mx-auto hidden max-w-6xl grid-cols-1 items-center gap-14 px-5 pb-16 sm:px-8 md:grid lg:grid-cols-[1.15fr_0.85fr] lg:pb-24">
         <div>
           <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#17130e]/15 bg-white/60 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-[#17130e]/70">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#e07b39]" />
-            {t.hero.eyebrow}
+            <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#e07b39]" />
+            <span>{t.hero.eyebrow}</span>
           </p>
           <h1 className="font-display text-balance text-6xl font-semibold leading-[0.95] tracking-tight sm:text-7xl lg:text-[6.5rem]">
             {t.hero.h1Line1}
@@ -94,8 +96,43 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Palestine solidarity banner */}
-      <div className="relative mx-auto max-w-6xl px-5 pb-16 sm:px-8 lg:pb-20">
+      {/* mobile hero: store buttons, then the swipeable poster carousel leads the page */}
+      <div className="relative mx-auto max-w-6xl px-5 pb-6 md:hidden">
+        <div className="flex flex-wrap items-center gap-3">
+          <a
+            href="https://sidekick-llm.fly.dev/l/website?a=home&s=hero&p=ios"
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center gap-2.5 rounded-xl bg-[#17130e] px-4 py-2.5 text-[#faf5ec] transition-transform active:scale-95"
+          >
+            <AppleLogo className="h-6 w-6" />
+            <span className="text-left leading-tight">
+              <span className="block text-[8px] uppercase tracking-wider opacity-70">{t.hero.downloadEyebrow}</span>
+              <span className="block text-sm font-semibold">{t.hero.downloadTitle}</span>
+            </span>
+          </a>
+          <a
+            href="https://sidekick-llm.fly.dev/l/website?a=home&s=hero&p=android"
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center gap-2.5 rounded-xl bg-[#17130e] px-4 py-2.5 text-[#faf5ec] transition-transform active:scale-95"
+          >
+            <GooglePlayLogo className="h-6 w-6" />
+            <span className="text-left leading-tight">
+              <span className="block text-[8px] uppercase tracking-wider opacity-70">{t.hero.playStoreEyebrow}</span>
+              <span className="block text-sm font-semibold">{t.hero.playStoreTitle}</span>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      {/* full-bleed so the next card peeks past the viewport edge */}
+      <div className="relative pb-10 md:hidden">
+        <PosterCarousel />
+      </div>
+
+      {/* Palestine solidarity banner (desktop only; on mobile the "Humanitarian AI" poster in the carousel covers this) */}
+      <div className="relative mx-auto hidden max-w-6xl px-5 pb-14 sm:px-8 md:block lg:pb-20">
         <PalestineBanner />
       </div>
 
