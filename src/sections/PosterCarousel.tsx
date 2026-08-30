@@ -15,12 +15,12 @@ type Artwork = { ratio: string; src: Record<PosterKey, string>; alt: Record<Post
 // stay whole literal class strings so Tailwind's scanner emits them.
 const FALLBACK_RATIO = 'aspect-[2/3]'
 
-// Real poster artwork, per language. A language listed here renders the
-// designed posters; any language without artwork falls back to the HTML
+// Real poster artwork, per language. Every language the site ships today has
+// its own designed posters; a language without artwork falls back to the HTML
 // PosterCard recreation, so the carousel always has all five slides.
 //
-// To add English: drop the five images into assets/posters/en/ and add one
-// block below with their ratio — nothing else changes.
+// To add a language: drop its five images into assets/posters/<lang>/ and add
+// one block below with their ratio — nothing else changes.
 const posterArtwork: Partial<Record<Lang, Artwork>> = {
   de: {
     ratio: 'aspect-[2/3]',
@@ -42,6 +42,28 @@ const posterArtwork: Partial<Record<Lang, Artwork>> = {
         'All-in-One-KI-Notizen. Ein Ort für Notizen aus allen KIs. Erstelle Anmerkungen und Notizen direkt aus deinen Gesprächen, während du chattest.',
       humanitarian:
         'Humanitäre KI. Wir stehen an der Seite Palästinas. Wir spenden Gewinne für humanitäre Hilfe an UNRWA, Ärzte ohne Grenzen, Medical Aid for Palestinians, den Palestine Children’s Relief Fund, den Palästinensischen Roten Halbmond und Islamic Relief Palestine. Ethisch. Sozial. Pro-humanitär.',
+    },
+  },
+  en: {
+    ratio: 'aspect-[2/3]',
+    src: {
+      hallucinate: new URL('../../assets/posters/en/hallucinate.jpg', import.meta.url).href,
+      noclutter: new URL('../../assets/posters/en/noclutter.jpg', import.meta.url).href,
+      private: new URL('../../assets/posters/en/private.jpg', import.meta.url).href,
+      notes: new URL('../../assets/posters/en/notes.jpg', import.meta.url).href,
+      humanitarian: new URL('../../assets/posters/en/humanitarian.jpg', import.meta.url).href,
+    },
+    alt: {
+      hallucinate:
+        'AIs hallucinate. Good for surrealism, less good for answers. Four AI answers on whether tap water in Spain is drinkable — three wrong, one right. Ask once: we compare answers from multiple AIs and find the best one for you.',
+      noclutter:
+        'No app-chaos. A universe of AI models in just one app. ChatGPT, Claude, Gemini, Mistral, Kimi, Qwen and more in one place. Download once.',
+      private:
+        'Strong private chats. Only you can see your chats. Your question is stored encrypted with your password. We never collect or sell any data, and we are strictly GDPR-compliant and audited.',
+      notes:
+        'All-in-one AI notes. A place for notes from all AIs. Create annotations and notes directly from your conversations while you chat.',
+      humanitarian:
+        'Humanitarian AI. We stand with Palestine. We donate profits to humanitarian aid for Palestine: UNRWA, Doctors Without Borders, Medical Aid for Palestinians (MAP), Palestine Children’s Relief Fund (PCRF), Palestinian Red Crescent and Islamic Relief Palestine. Ethical. Social. Pro-humanitarian.',
     },
   },
   es: {
