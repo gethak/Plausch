@@ -5,16 +5,25 @@ import PosterCard, { type PosterKey } from './PosterCard'
 
 const posterKeys = ['hallucinate', 'noclutter', 'private', 'notes', 'humanitarian'] as const
 
-type Artwork = { src: Record<PosterKey, string>; alt: Record<PosterKey, string> }
+type Artwork = { ratio: string; src: Record<PosterKey, string>; alt: Record<PosterKey, string> }
+
+// Aspect ratio travels with each artwork set rather than being shared across
+// the carousel: the German posters are 2:3 and the Spanish ones 4:5, so a
+// single shared ratio would crop ~17% off the sides of one set and cut text
+// off the posters. Each set gets a card shaped to its own artwork, which
+// still leaves all five cards identical within any one language. These must
+// stay whole literal class strings so Tailwind's scanner emits them.
+const FALLBACK_RATIO = 'aspect-[2/3]'
 
 // Real poster artwork, per language. A language listed here renders the
 // designed posters; any language without artwork falls back to the HTML
 // PosterCard recreation, so the carousel always has all five slides.
 //
-// To add English or Spanish: drop the five 2:3 images into
-// assets/posters/<lang>/ and add one block below — nothing else changes.
+// To add English: drop the five images into assets/posters/en/ and add one
+// block below with their ratio — nothing else changes.
 const posterArtwork: Partial<Record<Lang, Artwork>> = {
   de: {
+    ratio: 'aspect-[2/3]',
     src: {
       hallucinate: new URL('../../assets/posters/de/hallucinate.jpg', import.meta.url).href,
       noclutter: new URL('../../assets/posters/de/noclutter.jpg', import.meta.url).href,
@@ -33,6 +42,28 @@ const posterArtwork: Partial<Record<Lang, Artwork>> = {
         'All-in-One-KI-Notizen. Ein Ort für Notizen aus allen KIs. Erstelle Anmerkungen und Notizen direkt aus deinen Gesprächen, während du chattest.',
       humanitarian:
         'Humanitäre KI. Wir stehen an der Seite Palästinas. Wir spenden Gewinne für humanitäre Hilfe an UNRWA, Ärzte ohne Grenzen, Medical Aid for Palestinians, den Palestine Children’s Relief Fund, den Palästinensischen Roten Halbmond und Islamic Relief Palestine. Ethisch. Sozial. Pro-humanitär.',
+    },
+  },
+  es: {
+    ratio: 'aspect-[4/5]',
+    src: {
+      hallucinate: new URL('../../assets/posters/es/hallucinate.jpg', import.meta.url).href,
+      noclutter: new URL('../../assets/posters/es/noclutter.jpg', import.meta.url).href,
+      private: new URL('../../assets/posters/es/private.jpg', import.meta.url).href,
+      notes: new URL('../../assets/posters/es/notes.jpg', import.meta.url).href,
+      humanitarian: new URL('../../assets/posters/es/humanitarian.jpg', import.meta.url).href,
+    },
+    alt: {
+      hallucinate:
+        'Las IA alucinan. Genial para el surrealismo, menos genial para las respuestas. Cuatro respuestas de IA sobre si el casero puede subir el alquiler — tres incorrectas, una correcta. Pregunta una vez: comparamos respuestas de varias IA y encontramos la mejor para ti.',
+      noclutter:
+        'Sin caos de apps. Un universo de modelos de IA en una sola app. ChatGPT, Claude, Gemini, Mistral, Kimi, Qwen y más en un solo lugar. Descárgala una vez.',
+      private:
+        'Chats estrictamente privados. Solo tú puedes ver tus chats. Tu pregunta se guarda cifrada con tu contraseña. Nunca recopilamos ni vendemos ningún dato, cumplimos estrictamente el RGPD y estamos auditados.',
+      notes:
+        'Notas de IA todo-en-uno. Un lugar para notas de todas las IA. Crea anotaciones y notas directamente desde tus conversaciones mientras chateas.',
+      humanitarian:
+        'IA humanitaria. Estamos con Palestina. Donamos beneficios a la ayuda humanitaria para Palestina: UNRWA, Médicos Sin Fronteras, Ayuda Médica para Palestina (MAP), Fondo de Ayuda para la Infancia Palestina (PCRF), Media Luna Roja Palestina e Islamic Relief Palestina. Ética. Social. Prohumanitaria.',
     },
   },
 }
@@ -91,7 +122,7 @@ export default function PosterCarousel() {
           <div
             key={key}
             data-poster-card
-            className="aspect-[2/3] w-[84%] shrink-0 snap-center overflow-hidden rounded-3xl bg-[#f3ede2] shadow-sm ring-1 ring-[#17130e]/10 sm:w-[420px]"
+            className={`${artwork?.ratio ?? FALLBACK_RATIO} w-[84%] shrink-0 snap-center overflow-hidden rounded-3xl bg-[#f3ede2] shadow-sm ring-1 ring-[#17130e]/10 sm:w-[420px]`}
           >
             {artwork ? (
               <img
