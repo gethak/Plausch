@@ -59,7 +59,7 @@ const posterArtwork: Partial<Record<Lang, Artwork>> = {
       noclutter:
         'No app-chaos. A universe of AI models in just one app. ChatGPT, Claude, Gemini, Mistral, Kimi, Qwen and more in one place. Download once.',
       private:
-        'Strong private chats. Only you can see your chats. Your question is stored encrypted with your password. We never collect or sell any data, and we are strictly GDPR-compliant and audited.',
+        'Strictly private chats. Only you can see your chats. Your question is stored encrypted with your password. We never collect or sell any data, and we are strictly GDPR-compliant and audited.',
       notes:
         'All-in-one AI notes. A place for notes from all AIs. Create annotations and notes directly from your conversations while you chat.',
       humanitarian:
