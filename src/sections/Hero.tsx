@@ -98,12 +98,12 @@ export default function Hero() {
 
       {/* mobile hero: store buttons, then the swipeable poster carousel leads the page */}
       <div className="relative mx-auto max-w-6xl px-5 pb-6 md:hidden">
-        <div className="flex flex-wrap items-center gap-3">
+        <div className="flex flex-wrap items-center justify-center gap-3">
           <a
             href="https://sidekick-llm.fly.dev/l/website?a=home&s=hero&p=ios"
             target="_blank"
             rel="noreferrer"
-            className="flex items-center gap-2.5 rounded-xl bg-[#17130e] px-4 py-2.5 text-[#faf5ec] transition-transform active:scale-95"
+            className="flex items-center gap-2.5 rounded-full bg-[#17130e] px-4 py-2.5 text-[#faf5ec] transition-transform active:scale-95"
           >
             <AppleLogo className="h-6 w-6" />
             <span className="text-left leading-tight">
@@ -115,7 +115,7 @@ export default function Hero() {
             href="https://sidekick-llm.fly.dev/l/website?a=home&s=hero&p=android"
             target="_blank"
             rel="noreferrer"
-            className="flex items-center gap-2.5 rounded-xl bg-[#17130e] px-4 py-2.5 text-[#faf5ec] transition-transform active:scale-95"
+            className="flex items-center gap-2.5 rounded-full bg-[#17130e] px-4 py-2.5 text-[#faf5ec] transition-transform active:scale-95"
           >
             <GooglePlayLogo className="h-6 w-6" />
             <span className="text-left leading-tight">
