@@ -135,9 +135,15 @@ export default function PosterCarousel() {
 
   return (
     <div>
+      {/*
+        py-1, not pb-1: overflow-x-auto makes overflow-y compute to auto, so this
+        track is a scroll container and clips at its padding box. The cards' ring
+        and shadow are drawn outside their border box, so on any side without
+        padding they get sliced off — which cut the top border off every card.
+      */}
       <div
         ref={trackRef}
-        className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        className="flex snap-x snap-mandatory gap-4 overflow-x-auto py-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
         <div aria-hidden className="w-2 shrink-0 sm:w-[9vw]" />
         {posterKeys.map((key, i) => (
