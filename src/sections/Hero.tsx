@@ -97,30 +97,32 @@ export default function Hero() {
       </div>
 
       {/* mobile hero: store buttons, then the swipeable poster carousel leads the page */}
-      <div className="relative mx-auto max-w-6xl px-5 pb-6 md:hidden">
-        <div className="flex flex-wrap items-center justify-center gap-3">
+      {/* px-[8%] lines the button row up with the poster carousel below it: the
+          cards are w-[84%] and snap centred, which leaves exactly 8% either side. */}
+      <div className="relative mx-auto max-w-6xl px-[8%] pb-6 md:hidden">
+        <div className="flex items-center gap-2">
           <a
             href="https://sidekick-llm.fly.dev/l/website?a=home&s=hero&p=ios"
             target="_blank"
             rel="noreferrer"
-            className="flex items-center gap-2.5 rounded-full bg-[#17130e] px-4 py-2.5 text-[#faf5ec] transition-transform active:scale-95"
+            className="flex flex-auto items-center justify-center gap-2 rounded-full bg-[#17130e] px-3 py-2.5 text-[#faf5ec] transition-transform active:scale-95"
           >
             <AppleLogo className="h-6 w-6" />
             <span className="text-left leading-tight">
               <span className="block text-[8px] uppercase tracking-wider opacity-70">{t.hero.downloadEyebrow}</span>
-              <span className="block text-sm font-semibold">{t.hero.downloadTitle}</span>
+              <span className="block whitespace-nowrap text-sm font-semibold">{t.hero.downloadTitle}</span>
             </span>
           </a>
           <a
             href="https://sidekick-llm.fly.dev/l/website?a=home&s=hero&p=android"
             target="_blank"
             rel="noreferrer"
-            className="flex items-center gap-2.5 rounded-full bg-[#17130e] px-4 py-2.5 text-[#faf5ec] transition-transform active:scale-95"
+            className="flex flex-auto items-center justify-center gap-2 rounded-full bg-[#17130e] px-3 py-2.5 text-[#faf5ec] transition-transform active:scale-95"
           >
             <GooglePlayLogo className="h-6 w-6" />
             <span className="text-left leading-tight">
               <span className="block text-[8px] uppercase tracking-wider opacity-70">{t.hero.playStoreEyebrow}</span>
-              <span className="block text-sm font-semibold">{t.hero.playStoreTitle}</span>
+              <span className="block whitespace-nowrap text-sm font-semibold">{t.hero.playStoreTitle}</span>
             </span>
           </a>
         </div>

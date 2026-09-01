@@ -145,7 +145,10 @@ export default function PosterCarousel() {
         ref={trackRef}
         className="flex snap-x snap-mandatory gap-4 overflow-x-auto py-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
-        <div aria-hidden className="w-2 shrink-0 sm:w-[9vw]" />
+        {/* Spacer = 8% - gap, so the first and last cards come to rest exactly
+            where the middle ones snap to (w-[84%] centred = 8% either side),
+            and in line with the store buttons above. */}
+        <div aria-hidden className="w-[calc(8%-1rem)] shrink-0 sm:w-[9vw]" />
         {posterKeys.map((key, i) => (
           <div
             key={key}
@@ -166,7 +169,10 @@ export default function PosterCarousel() {
             )}
           </div>
         ))}
-        <div aria-hidden className="w-2 shrink-0 sm:w-[9vw]" />
+        {/* Spacer = 8% - gap, so the first and last cards come to rest exactly
+            where the middle ones snap to (w-[84%] centred = 8% either side),
+            and in line with the store buttons above. */}
+        <div aria-hidden className="w-[calc(8%-1rem)] shrink-0 sm:w-[9vw]" />
       </div>
 
       <div className="mt-4 flex items-center justify-center gap-2">
