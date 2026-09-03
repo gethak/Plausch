@@ -195,10 +195,15 @@ export default function PosterCarousel() {
             className={`${artwork?.ratio ?? FALLBACK_RATIO} w-[var(--poster-w)] shrink-0 snap-center overflow-hidden rounded-3xl bg-[#f3ede2] shadow-sm ring-1 ring-[#17130e]/10`}
           >
             {artwork ? (
+              /* All lazy, including the first: the carousel is display:none
+                 from md up, and an eager image is fetched anyway, so desktop
+                 was downloading a poster it never shows. On mobile the first
+                 card is in the viewport, so lazy still fetches it straight
+                 away, and fetchPriority keeps it ahead of the queue. */
               <img
                 src={artwork.src[key]}
                 alt={artwork.alt[key]}
-                loading={i === 0 ? 'eager' : 'lazy'}
+                loading="lazy"
                 fetchPriority={i === 0 ? 'high' : 'auto'}
                 decoding="async"
                 className="h-full w-full select-none object-cover"

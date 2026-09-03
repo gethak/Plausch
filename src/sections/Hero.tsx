@@ -95,9 +95,18 @@ export default function Hero() {
           />
           <div className="animate-float relative" style={{ '--tilt': '0deg' } as React.CSSProperties}>
             <div className="relative aspect-[881/1420] overflow-hidden rounded-[2.5rem] drop-shadow-2xl [transform:translateZ(0)]">
+              {/* lazy even though this is above the fold on desktop: the
+                  wrapper is display:none below md, and an eager image is
+                  fetched regardless of that, so mobile was downloading a
+                  screenshot it never shows. Lazy images already in the
+                  viewport load immediately, and fetchPriority keeps desktop's
+                  request at the front of the queue. */}
               <img
                 src={screenshot(lang, 'smart')}
                 alt={t.hero.imageAlt}
+                loading="lazy"
+                fetchPriority="high"
+                decoding="async"
                 className="absolute inset-0 h-full w-full rounded-[2.5rem] object-cover [transform:translateZ(0)]"
               />
             </div>

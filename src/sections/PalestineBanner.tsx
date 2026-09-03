@@ -1,8 +1,8 @@
 import { ArrowRight, Heart } from 'lucide-react'
 import { useTranslations } from '../i18n/LanguageContext'
 
-const keffiyeh = new URL('../../assets/keffiyeh.png', import.meta.url).href
-const flag = new URL('../../assets/flag.png', import.meta.url).href
+const keffiyeh = new URL('../../assets/keffiyeh.webp', import.meta.url).href
+const flag = new URL('../../assets/flag.webp', import.meta.url).href
 
 /**
  * Compact solidarity card for mobile.

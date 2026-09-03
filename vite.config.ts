@@ -16,8 +16,10 @@ export default defineConfig({
       start_url: '/',
       display: 'standalone',
       background_color: '#faf5ec',
+      // Served from public/ so the URL is stable. It used to name a hashed
+      // bundle file, which silently broke the moment the icon was re-exported.
       icons: [
-        { src: '/assets/icon-CN27k1iq.png', sizes: '192x192', type: 'image/png' }
+        { src: '/icon.png', sizes: '512x512', type: 'image/png' }
       ]
     },
     workbox: {

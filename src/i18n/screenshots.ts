@@ -9,8 +9,11 @@ export type Shot = 'smart' | 'annotations' | 'privacy'
  * export rather than translated text laid over one shared image. A language
  * without a set falls back to German, so the pages stay complete meanwhile.
  *
- * To add one: drop phone-smart.png, phone-annotations.png and
- * phone-privacy.png into assets/screenshots/<lang>/ and copy a block below.
+ * To add one: drop phone-smart, phone-annotations and phone-privacy into
+ * assets/screenshots/<lang>/ and copy a block below. Save them as WebP — as
+ * PNG these run over a megabyte each and dominate the page's load; the same
+ * screens at WebP q88 are a tenth of that with no visible difference.
+ *
  * The paths are written out in full rather than built from the language code
  * because Vite resolves new URL(..., import.meta.url) at build time and only
  * fingerprints the asset when the path is a static literal.
@@ -19,21 +22,21 @@ export type Shot = 'smart' | 'annotations' | 'privacy'
  * hero.imageAlt and features.rows[].imageAlt.
  */
 const de: Record<Shot, string> = {
-  smart: new URL('../../assets/screenshots/de/phone-smart.png', import.meta.url).href,
-  annotations: new URL('../../assets/screenshots/de/phone-annotations.png', import.meta.url).href,
-  privacy: new URL('../../assets/screenshots/de/phone-privacy.png', import.meta.url).href,
+  smart: new URL('../../assets/screenshots/de/phone-smart.webp', import.meta.url).href,
+  annotations: new URL('../../assets/screenshots/de/phone-annotations.webp', import.meta.url).href,
+  privacy: new URL('../../assets/screenshots/de/phone-privacy.webp', import.meta.url).href,
 }
 
 const en: Record<Shot, string> = {
-  smart: new URL('../../assets/screenshots/en/phone-smart.png', import.meta.url).href,
-  annotations: new URL('../../assets/screenshots/en/phone-annotations.png', import.meta.url).href,
-  privacy: new URL('../../assets/screenshots/en/phone-privacy.png', import.meta.url).href,
+  smart: new URL('../../assets/screenshots/en/phone-smart.webp', import.meta.url).href,
+  annotations: new URL('../../assets/screenshots/en/phone-annotations.webp', import.meta.url).href,
+  privacy: new URL('../../assets/screenshots/en/phone-privacy.webp', import.meta.url).href,
 }
 
 const es: Record<Shot, string> = {
-  smart: new URL('../../assets/screenshots/es/phone-smart.png', import.meta.url).href,
-  annotations: new URL('../../assets/screenshots/es/phone-annotations.png', import.meta.url).href,
-  privacy: new URL('../../assets/screenshots/es/phone-privacy.png', import.meta.url).href,
+  smart: new URL('../../assets/screenshots/es/phone-smart.webp', import.meta.url).href,
+  annotations: new URL('../../assets/screenshots/es/phone-annotations.webp', import.meta.url).href,
+  privacy: new URL('../../assets/screenshots/es/phone-privacy.webp', import.meta.url).href,
 }
 
 const byLang: Partial<Record<Lang, Record<Shot, string>>> = { de, en, es }
