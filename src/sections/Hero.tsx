@@ -30,9 +30,16 @@ export default function Hero() {
       {/* desktop hero */}
       <div className="relative mx-auto hidden max-w-6xl grid-cols-1 items-center gap-14 px-5 pb-16 sm:px-8 md:grid lg:grid-cols-[1.15fr_0.85fr] lg:pb-24">
         <div>
-          <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#17130e]/15 bg-white/60 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-[#17130e]/70">
-            <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#e07b39]" />
-            <span>{t.hero.eyebrow}</span>
+          {/* items-start, not centre: the chip is two lines now, and centring
+              would float the dot between them instead of setting it against
+              the first line */}
+          <p className="mb-5 inline-flex items-start gap-2 rounded-full border border-[#17130e]/15 bg-white/60 px-4 py-2 text-xs font-semibold uppercase leading-relaxed tracking-[0.14em] text-[#17130e]/70">
+            <span className="mt-[0.5em] h-1.5 w-1.5 shrink-0 rounded-full bg-[#e07b39]" />
+            <span>
+              {t.hero.eyebrow}
+              <br />
+              {t.hero.eyebrowLine2}
+            </span>
           </p>
           <h1 className="font-display text-balance text-6xl font-semibold leading-[0.95] tracking-tight sm:text-7xl lg:text-[6.5rem]">
             {t.hero.h1Line1}

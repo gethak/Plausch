@@ -113,6 +113,7 @@ export const translations = {
     },
     hero: {
       eyebrow: 'Hol dir Zweitmeinungen zu deinen wichtigsten Fragen',
+      eyebrowLine2: '- Von den besten KI-Modellen aus aller Welt.',
       h1Line1: 'Deine KI.',
       h1Line2: 'Weltweit.',
       body: 'ChatGPT, Claude, Gemini, Kimi, Deepseek, Mistral, Falcon, Sarvam und viele mehr - All diese KI-Modelle in einer App - Plausch',
@@ -371,6 +372,7 @@ export const translations = {
     },
     hero: {
       eyebrow: 'Get Second opinions for your most important questions',
+      eyebrowLine2: '- From the best AI Models from around the world.',
       h1Line1: 'Your AI.',
       h1Line2: 'Worldwide.',
       body: 'ChatGPT, Claude, Gemini, Kimi, Deepseek, Mistral, Falcon, Sarvam, and many more - All these AI models in one app - Plausch',
@@ -629,6 +631,7 @@ export const translations = {
     },
     hero: {
       eyebrow: 'Obtén segundas opiniones para tus preguntas más importantes',
+      eyebrowLine2: '- De los mejores modelos de IA de todo el mundo.',
       h1Line1: 'Tu IA.',
       h1Line2: 'Mundial.',
       body: 'ChatGPT, Claude, Gemini, Kimi, Deepseek, Mistral, Falcon, Sarvam y muchos más - Todos estos modelos de IA en una sola app - Plausch',
