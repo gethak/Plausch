@@ -107,7 +107,7 @@ export default function Hero() {
       </div>
 
       {/* mobile hero: store buttons, then the swipeable poster carousel leads the page */}
-      <div className="relative w-[var(--poster-w)] shrink-0 self-center pb-3 md:hidden">
+      <div className="relative w-[var(--poster-w)] shrink-0 self-center pb-2 md:hidden">
         <div className="flex items-center gap-2">
           <a
             href="https://sidekick-llm.fly.dev/l/website?a=home&s=hero&p=ios"
@@ -136,10 +136,12 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* full-bleed so the next card peeks past the viewport edge; flex-1 takes
-          the slack left between the buttons and the marquee and centres the
-          poster in it, rather than pooling it all beneath the dots */}
-      <div className="relative flex min-h-0 flex-1 flex-col justify-center py-1 md:hidden">
+      {/* full-bleed so the next card peeks past the viewport edge. justify-start,
+          not centre: a language whose poster is held by its width cap cannot
+          use all the height, and centring split that leftover evenly, opening a
+          gap above the poster. Starting at the top keeps the poster tight under
+          the buttons and drops the leftover below the dots instead. */}
+      <div className="relative flex min-h-0 flex-1 flex-col justify-start py-1 md:hidden">
         <PosterCarousel />
       </div>
 

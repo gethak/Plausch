@@ -28,7 +28,7 @@ const FALLBACK_SHAPE = { wh: 2 / 3, cap: '92%' }
 // (pagination dots, model marquee) is a fixed height on mobile. Subtracting it
 // from the viewport leaves the room the poster may occupy, and the aspect ratio
 // turns that height into a width.
-const HERO_CHROME_PX = 236
+const HERO_CHROME_PX = 208
 
 /**
  * The poster's width for a language, as a CSS expression.
