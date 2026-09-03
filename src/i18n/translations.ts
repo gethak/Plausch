@@ -112,7 +112,7 @@ export const translations = {
       iconAlt: 'Plausch App-Icon',
     },
     hero: {
-      eyebrow: 'Vergleiche Antworten auf deine Fragen - von den besten KI-Modellen der Welt!',
+      eyebrow: 'Hol dir Zweitmeinungen zu deinen wichtigsten Fragen',
       h1Line1: 'Deine KI.',
       h1Line2: 'Weltweit.',
       body: 'ChatGPT, Claude, Gemini, Kimi, Deepseek, Mistral, Falcon, Sarvam und viele mehr - All diese KI-Modelle in einer App - Plausch',
@@ -370,7 +370,7 @@ export const translations = {
       iconAlt: 'Plausch app icon',
     },
     hero: {
-      eyebrow: 'Compare answers for your questions - from the best AI Models around the world!',
+      eyebrow: 'Get Second opinions for your most important questions',
       h1Line1: 'Your AI.',
       h1Line2: 'Worldwide.',
       body: 'ChatGPT, Claude, Gemini, Kimi, Deepseek, Mistral, Falcon, Sarvam, and many more - All these AI models in one app - Plausch',
@@ -628,7 +628,7 @@ export const translations = {
       iconAlt: 'Icono de la app Plausch',
     },
     hero: {
-      eyebrow: '¡Compara respuestas a tus preguntas - de los mejores modelos de IA del mundo!',
+      eyebrow: 'Obtén segundas opiniones para tus preguntas más importantes',
       h1Line1: 'Tu IA.',
       h1Line2: 'Mundial.',
       body: 'ChatGPT, Claude, Gemini, Kimi, Deepseek, Mistral, Falcon, Sarvam y muchos más - Todos estos modelos de IA en una sola app - Plausch',
