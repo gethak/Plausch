@@ -22,13 +22,13 @@ type Artwork = {
 // still leaves all five cards identical within any one language. These must
 // stay whole literal class strings so Tailwind's scanner emits them.
 const FALLBACK_RATIO = 'aspect-[2/3]'
-const FALLBACK_SHAPE = { wh: 2 / 3, cap: '88%' }
+const FALLBACK_SHAPE = { wh: 2 / 3, cap: '92%' }
 
 // Everything above the poster (nav clearance, store buttons) and below it
 // (pagination dots, model marquee) is a fixed height on mobile. Subtracting it
 // from the viewport leaves the room the poster may occupy, and the aspect ratio
 // turns that height into a width.
-const HERO_CHROME_PX = 268
+const HERO_CHROME_PX = 236
 
 /**
  * The poster's width for a language, as a CSS expression.
@@ -58,7 +58,7 @@ const posterArtwork: Partial<Record<Lang, Artwork>> = {
   de: {
     ratio: 'aspect-[2/3]',
     wh: 2 / 3,
-    cap: '88%',
+    cap: '92%',
     src: {
       hallucinate: new URL('../../assets/posters/de/hallucinate.jpg', import.meta.url).href,
       noclutter: new URL('../../assets/posters/de/noclutter.jpg', import.meta.url).href,
@@ -82,7 +82,7 @@ const posterArtwork: Partial<Record<Lang, Artwork>> = {
   en: {
     ratio: 'aspect-[2/3]',
     wh: 2 / 3,
-    cap: '88%',
+    cap: '92%',
     src: {
       hallucinate: new URL('../../assets/posters/en/hallucinate.jpg', import.meta.url).href,
       noclutter: new URL('../../assets/posters/en/noclutter.jpg', import.meta.url).href,
@@ -106,7 +106,7 @@ const posterArtwork: Partial<Record<Lang, Artwork>> = {
   es: {
     ratio: 'aspect-[4/5]',
     wh: 4 / 5,
-    cap: '92%',
+    cap: '95%',
     src: {
       hallucinate: new URL('../../assets/posters/es/hallucinate.jpg', import.meta.url).href,
       noclutter: new URL('../../assets/posters/es/noclutter.jpg', import.meta.url).href,
@@ -214,7 +214,7 @@ export default function PosterCarousel() {
         <div aria-hidden className="w-[calc((100%-var(--poster-w))/2-1rem)] shrink-0" />
       </div>
 
-      <div className="mt-4 flex items-center justify-center gap-2">
+      <div className="mt-2 flex items-center justify-center gap-2">
         {posterKeys.map((key, i) => (
           <button
             key={key}

@@ -19,7 +19,7 @@ export default function Hero() {
     <section
       id="top"
       style={{ '--poster-w': posterWidth(lang) } as React.CSSProperties}
-      className="paper-grain relative flex min-h-[100svh] flex-col overflow-hidden pt-16 sm:pt-40 md:block md:min-h-0"
+      className="paper-grain relative flex min-h-[100svh] flex-col overflow-hidden pt-14 sm:pt-40 md:block md:min-h-0"
     >
       {/* soft warm glow */}
       <div
@@ -107,7 +107,7 @@ export default function Hero() {
       </div>
 
       {/* mobile hero: store buttons, then the swipeable poster carousel leads the page */}
-      <div className="relative w-[var(--poster-w)] shrink-0 self-center pb-5 md:hidden">
+      <div className="relative w-[var(--poster-w)] shrink-0 self-center pb-3 md:hidden">
         <div className="flex items-center gap-2">
           <a
             href="https://sidekick-llm.fly.dev/l/website?a=home&s=hero&p=ios"
@@ -139,7 +139,7 @@ export default function Hero() {
       {/* full-bleed so the next card peeks past the viewport edge; flex-1 takes
           the slack left between the buttons and the marquee and centres the
           poster in it, rather than pooling it all beneath the dots */}
-      <div className="relative flex min-h-0 flex-1 flex-col justify-center py-2 md:hidden">
+      <div className="relative flex min-h-0 flex-1 flex-col justify-center py-1 md:hidden">
         <PosterCarousel />
       </div>
 
