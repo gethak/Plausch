@@ -5,7 +5,15 @@ import PosterCard, { type PosterKey } from './PosterCard'
 
 const posterKeys = ['hallucinate', 'noclutter', 'private', 'notes', 'humanitarian'] as const
 
-type Artwork = { ratio: string; src: Record<PosterKey, string>; alt: Record<PosterKey, string> }
+type Artwork = {
+  ratio: string
+  /** width / height of the artwork, used to size the card from the space available */
+  wh: number
+  /** width the card never exceeds, however tall the screen is */
+  cap: string
+  src: Record<PosterKey, string>
+  alt: Record<PosterKey, string>
+}
 
 // Aspect ratio travels with each artwork set rather than being shared across
 // the carousel: the German posters are 2:3 and the Spanish ones 4:5, so a
@@ -14,6 +22,31 @@ type Artwork = { ratio: string; src: Record<PosterKey, string>; alt: Record<Post
 // still leaves all five cards identical within any one language. These must
 // stay whole literal class strings so Tailwind's scanner emits them.
 const FALLBACK_RATIO = 'aspect-[2/3]'
+const FALLBACK_SHAPE = { wh: 2 / 3, cap: '88%' }
+
+// Everything above the poster (nav clearance, store buttons) and below it
+// (pagination dots, model marquee) is a fixed height on mobile. Subtracting it
+// from the viewport leaves the room the poster may occupy, and the aspect ratio
+// turns that height into a width.
+const HERO_CHROME_PX = 268
+
+/**
+ * The poster's width for a language, as a CSS expression.
+ *
+ * The carousel cards, the track spacers and the store buttons in the hero all
+ * size themselves from this one value (via the --poster-w custom property), so
+ * they stay aligned with each other. It is width-driven rather than
+ * height-driven precisely so the buttons can share it: a height-driven card
+ * has a width only the browser knows.
+ *
+ * Deriving it from 100svh keeps the whole hero — buttons, poster and marquee —
+ * inside the viewport in every language, and svh rather than dvh means it fits
+ * while the browser's URL bar is showing instead of reflowing as it hides.
+ */
+export function posterWidth(lang: Lang): string {
+  const { wh, cap } = posterArtwork[lang] ?? FALLBACK_SHAPE
+  return `min(${cap}, calc((100svh - ${HERO_CHROME_PX}px) * ${wh}))`
+}
 
 // Real poster artwork, per language. Every language the site ships today has
 // its own designed posters; a language without artwork falls back to the HTML
@@ -24,6 +57,8 @@ const FALLBACK_RATIO = 'aspect-[2/3]'
 const posterArtwork: Partial<Record<Lang, Artwork>> = {
   de: {
     ratio: 'aspect-[2/3]',
+    wh: 2 / 3,
+    cap: '88%',
     src: {
       hallucinate: new URL('../../assets/posters/de/hallucinate.jpg', import.meta.url).href,
       noclutter: new URL('../../assets/posters/de/noclutter.jpg', import.meta.url).href,
@@ -46,6 +81,8 @@ const posterArtwork: Partial<Record<Lang, Artwork>> = {
   },
   en: {
     ratio: 'aspect-[2/3]',
+    wh: 2 / 3,
+    cap: '88%',
     src: {
       hallucinate: new URL('../../assets/posters/en/hallucinate.jpg', import.meta.url).href,
       noclutter: new URL('../../assets/posters/en/noclutter.jpg', import.meta.url).href,
@@ -68,6 +105,8 @@ const posterArtwork: Partial<Record<Lang, Artwork>> = {
   },
   es: {
     ratio: 'aspect-[4/5]',
+    wh: 4 / 5,
+    cap: '92%',
     src: {
       hallucinate: new URL('../../assets/posters/es/hallucinate.jpg', import.meta.url).href,
       noclutter: new URL('../../assets/posters/es/noclutter.jpg', import.meta.url).href,
@@ -145,12 +184,15 @@ export default function PosterCarousel() {
         ref={trackRef}
         className="flex snap-x snap-mandatory gap-4 overflow-x-auto py-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
-        <div aria-hidden className="w-2 shrink-0 sm:w-[9vw]" />
+        {/* Spacer = the card's side inset minus the gap, so the first and last
+            cards come to rest exactly where the middle ones snap to, and in
+            line with the store buttons above. */}
+        <div aria-hidden className="w-[calc((100%-var(--poster-w))/2-1rem)] shrink-0" />
         {posterKeys.map((key, i) => (
           <div
             key={key}
             data-poster-card
-            className={`${artwork?.ratio ?? FALLBACK_RATIO} w-[84%] shrink-0 snap-center overflow-hidden rounded-3xl bg-[#f3ede2] shadow-sm ring-1 ring-[#17130e]/10 sm:w-[420px]`}
+            className={`${artwork?.ratio ?? FALLBACK_RATIO} w-[var(--poster-w)] shrink-0 snap-center overflow-hidden rounded-3xl bg-[#f3ede2] shadow-sm ring-1 ring-[#17130e]/10`}
           >
             {artwork ? (
               <img
@@ -166,7 +208,10 @@ export default function PosterCarousel() {
             )}
           </div>
         ))}
-        <div aria-hidden className="w-2 shrink-0 sm:w-[9vw]" />
+        {/* Spacer = the card's side inset minus the gap, so the first and last
+            cards come to rest exactly where the middle ones snap to, and in
+            line with the store buttons above. */}
+        <div aria-hidden className="w-[calc((100%-var(--poster-w))/2-1rem)] shrink-0" />
       </div>
 
       <div className="mt-4 flex items-center justify-center gap-2">

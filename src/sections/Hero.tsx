@@ -1,16 +1,26 @@
 import { ChevronDown } from 'lucide-react'
-import { useTranslations } from '../i18n/LanguageContext'
+import { useLang, useTranslations } from '../i18n/LanguageContext'
 import { AppleLogo, GooglePlayLogo } from '../components/brand-icons'
-import PalestineBanner from './PalestineBanner'
-import PosterCarousel from './PosterCarousel'
+import PalestineBanner, { PalestineBannerMobile } from './PalestineBanner'
+import PosterCarousel, { posterWidth } from './PosterCarousel'
 
 const phoneSmart = new URL('../../assets/phone-smart.png', import.meta.url).href
 
 export default function Hero() {
   const t = useTranslations()
+  const lang = useLang()
 
   return (
-    <section id="top" className="paper-grain relative overflow-hidden pt-16 sm:pt-40">
+    <>
+    {/* On mobile the hero is exactly one viewport tall and lays its three rows
+        out as a column, so the marquee finishes at the bottom edge of the screen
+        instead of leaving a stray band of paper below it. --poster-w is read by
+        the store buttons, the carousel cards and the track spacers alike. */}
+    <section
+      id="top"
+      style={{ '--poster-w': posterWidth(lang) } as React.CSSProperties}
+      className="paper-grain relative flex min-h-[100svh] flex-col overflow-hidden pt-16 sm:pt-40 md:block md:min-h-0"
+    >
       {/* soft warm glow */}
       <div
         aria-hidden
@@ -97,37 +107,39 @@ export default function Hero() {
       </div>
 
       {/* mobile hero: store buttons, then the swipeable poster carousel leads the page */}
-      <div className="relative mx-auto max-w-6xl px-5 pb-6 md:hidden">
-        <div className="flex flex-wrap items-center justify-center gap-3">
+      <div className="relative w-[var(--poster-w)] shrink-0 self-center pb-5 md:hidden">
+        <div className="flex items-center gap-2">
           <a
             href="https://sidekick-llm.fly.dev/l/website?a=home&s=hero&p=ios"
             target="_blank"
             rel="noreferrer"
-            className="flex items-center gap-2.5 rounded-full bg-[#17130e] px-4 py-2.5 text-[#faf5ec] transition-transform active:scale-95"
+            className="flex flex-auto items-center justify-center gap-2 rounded-full bg-[#17130e] px-3 py-2.5 text-[#faf5ec] transition-transform active:scale-95"
           >
             <AppleLogo className="h-6 w-6" />
             <span className="text-left leading-tight">
               <span className="block text-[8px] uppercase tracking-wider opacity-70">{t.hero.downloadEyebrow}</span>
-              <span className="block text-sm font-semibold">{t.hero.downloadTitle}</span>
+              <span className="block whitespace-nowrap text-sm font-semibold">{t.hero.downloadTitle}</span>
             </span>
           </a>
           <a
             href="https://sidekick-llm.fly.dev/l/website?a=home&s=hero&p=android"
             target="_blank"
             rel="noreferrer"
-            className="flex items-center gap-2.5 rounded-full bg-[#17130e] px-4 py-2.5 text-[#faf5ec] transition-transform active:scale-95"
+            className="flex flex-auto items-center justify-center gap-2 rounded-full bg-[#17130e] px-3 py-2.5 text-[#faf5ec] transition-transform active:scale-95"
           >
             <GooglePlayLogo className="h-6 w-6" />
             <span className="text-left leading-tight">
               <span className="block text-[8px] uppercase tracking-wider opacity-70">{t.hero.playStoreEyebrow}</span>
-              <span className="block text-sm font-semibold">{t.hero.playStoreTitle}</span>
+              <span className="block whitespace-nowrap text-sm font-semibold">{t.hero.playStoreTitle}</span>
             </span>
           </a>
         </div>
       </div>
 
-      {/* full-bleed so the next card peeks past the viewport edge */}
-      <div className="relative pb-10 md:hidden">
+      {/* full-bleed so the next card peeks past the viewport edge; flex-1 takes
+          the slack left between the buttons and the marquee and centres the
+          poster in it, rather than pooling it all beneath the dots */}
+      <div className="relative flex min-h-0 flex-1 flex-col justify-center py-2 md:hidden">
         <PosterCarousel />
       </div>
 
@@ -152,5 +164,15 @@ export default function Hero() {
         </div>
       </div>
     </section>
+
+    {/* Solidarity band on mobile. It sits outside the hero rather than in it:
+        the hero is pinned to exactly one viewport, so a fourth row inside would
+        push the marquee back off the bottom of the screen. Here it is the first
+        thing revealed on scrolling past the poster. Desktop keeps its own band
+        inside the hero, above the marquee. */}
+    <div className="px-5 pb-2 pt-8 md:hidden">
+      <PalestineBannerMobile />
+    </div>
+    </>
   )
 }
