@@ -628,7 +628,7 @@ export const translations = {
       iconAlt: 'Icono de la app Plausch',
     },
     hero: {
-      eyebrow: 'Obtén segundas opiniones sobre tus preguntas más importantes',
+      eyebrow: 'Obtén segundas opiniones sobre tus preguntas clave',
       eyebrowLine2: '- De los mejores modelos de IA.',
       h1Line1: 'Tu IA.',
       h1Line2: 'Global.',
