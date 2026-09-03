@@ -612,7 +612,7 @@ export const translations = {
   },
   es: {
     meta: {
-      title: 'Plausch - Tu IA. Mundial.',
+      title: 'Plausch - Tu IA. Global.',
       description:
         'Una charla con la IA más inteligente - sin importar cuál. Una app, todos los modelos de IA líderes. Gratis para empezar, privado desde el principio.',
     },
@@ -631,7 +631,7 @@ export const translations = {
       eyebrow: 'Obtén segundas opiniones sobre tus preguntas más importantes',
       eyebrowLine2: '- De los mejores modelos de IA.',
       h1Line1: 'Tu IA.',
-      h1Line2: 'Mundial.',
+      h1Line2: 'Global.',
       body: 'ChatGPT, Claude, Gemini, Kimi, Deepseek, Mistral y muchos más - Todos estos modelos de IA en una sola app - Plausch',
       builtByPrefix: 'Desarrollado por',
       builtBySuffix: '- porque la inteligencia es un bien común y pertenece a todos.',
