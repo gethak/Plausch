@@ -1,12 +1,10 @@
 import type { ReactNode } from 'react'
 import { Bookmark, Globe2, Lock, ShieldCheck, EyeOff, Scale, Mail, Bot, KeyRound, Check, X } from 'lucide-react'
-import { useTranslations } from '../i18n/LanguageContext'
+import { useLang, useTranslations } from '../i18n/LanguageContext'
+import { screenshot } from '../i18n/screenshots'
 import { brandSafe } from '../i18n/brand'
 
-const phoneAnnotations = new URL('../../assets/phone-annotations.png', import.meta.url).href
-const phonePrivacy = new URL('../../assets/phone-privacy.png', import.meta.url).href
 
-const rowImages = [phoneAnnotations, phonePrivacy]
 const rowFlips = [true, false]
 const rowBulletIcons = [
   [<Bookmark className="h-5 w-5 text-[#e07b39]" />, <Scale className="h-5 w-5 text-[#e07b39]" />],
@@ -85,6 +83,8 @@ function FeatureRow({
 
 export default function Features() {
   const t = useTranslations()
+  const lang = useLang()
+  const rowImages = [screenshot(lang, 'annotations'), screenshot(lang, 'privacy')]
 
   return (
     <section id="features" className="relative">

@@ -3,8 +3,7 @@ import { AppleLogo, GooglePlayLogo } from '../components/brand-icons'
 import PalestineBanner, { PalestineBannerMobile } from './PalestineBanner'
 import PosterCarousel, { posterWidth } from './PosterCarousel'
 import { brandSafe } from '../i18n/brand'
-
-const phoneSmart = new URL('../../assets/phone-smart.png', import.meta.url).href
+import { screenshot } from '../i18n/screenshots'
 
 export default function Hero() {
   const t = useTranslations()
@@ -97,7 +96,7 @@ export default function Hero() {
           <div className="animate-float relative" style={{ '--tilt': '0deg' } as React.CSSProperties}>
             <div className="relative aspect-[881/1420] overflow-hidden rounded-[2.5rem] drop-shadow-2xl [transform:translateZ(0)]">
               <img
-                src={phoneSmart}
+                src={screenshot(lang, 'smart')}
                 alt={t.hero.imageAlt}
                 className="absolute inset-0 h-full w-full rounded-[2.5rem] object-cover [transform:translateZ(0)]"
               />
