@@ -113,24 +113,24 @@ export default function Hero() {
             href="https://sidekick-llm.fly.dev/l/website?a=home&s=hero&p=ios"
             target="_blank"
             rel="noreferrer"
-            className="flex flex-auto items-center justify-center gap-2 rounded-full bg-[#17130e] px-3 py-2.5 text-[#faf5ec] transition-transform active:scale-95"
+            className="flex flex-auto items-center justify-center gap-2 rounded-full bg-[#17130e] px-3 py-2 text-[#faf5ec] transition-transform active:scale-95"
           >
-            <AppleLogo className="h-6 w-6" />
+            <AppleLogo className="h-5 w-5" />
             <span className="text-left leading-tight">
               <span className="block text-[8px] uppercase tracking-wider opacity-70">{t.hero.downloadEyebrow}</span>
-              <span className="block whitespace-nowrap text-sm font-semibold">{t.hero.downloadTitle}</span>
+              <span className="block whitespace-nowrap text-[13px] font-semibold">{t.hero.downloadTitle}</span>
             </span>
           </a>
           <a
             href="https://sidekick-llm.fly.dev/l/website?a=home&s=hero&p=android"
             target="_blank"
             rel="noreferrer"
-            className="flex flex-auto items-center justify-center gap-2 rounded-full bg-[#17130e] px-3 py-2.5 text-[#faf5ec] transition-transform active:scale-95"
+            className="flex flex-auto items-center justify-center gap-2 rounded-full bg-[#17130e] px-3 py-2 text-[#faf5ec] transition-transform active:scale-95"
           >
-            <GooglePlayLogo className="h-6 w-6" />
+            <GooglePlayLogo className="h-5 w-5" />
             <span className="text-left leading-tight">
               <span className="block text-[8px] uppercase tracking-wider opacity-70">{t.hero.playStoreEyebrow}</span>
-              <span className="block whitespace-nowrap text-sm font-semibold">{t.hero.playStoreTitle}</span>
+              <span className="block whitespace-nowrap text-[13px] font-semibold">{t.hero.playStoreTitle}</span>
             </span>
           </a>
         </div>

@@ -47,7 +47,7 @@ export default function Nav() {
           <img src={icon} alt={t.nav.iconAlt} className="h-10 w-10 object-contain drop-shadow-sm" style={{ background: 'transparent' }} />
           {/* Inter bold, matching the Plausch wordmark on the posters, rather
               than the Fraunces serif used for editorial headings */}
-          <span translate="no" className="text-2xl font-bold tracking-tight">Plausch</span>
+          <span translate="no" className="text-3xl font-bold tracking-tight md:text-2xl">Plausch</span>
         </a>
 
         <div className="hidden flex-1 items-center justify-between md:ml-12 md:flex">
