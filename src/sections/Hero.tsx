@@ -1,7 +1,7 @@
 import { ChevronDown } from 'lucide-react'
 import { useLang, useTranslations } from '../i18n/LanguageContext'
 import { AppleLogo, GooglePlayLogo } from '../components/brand-icons'
-import PalestineBanner from './PalestineBanner'
+import PalestineBanner, { PalestineBannerMobile } from './PalestineBanner'
 import PosterCarousel, { posterWidth } from './PosterCarousel'
 
 const phoneSmart = new URL('../../assets/phone-smart.png', import.meta.url).href
@@ -11,10 +11,11 @@ export default function Hero() {
   const lang = useLang()
 
   return (
-    // On mobile the hero is exactly one viewport tall and lays its three rows
-    // out as a column, so the marquee finishes at the bottom edge of the screen
-    // instead of leaving a stray band of paper below it. --poster-w is read by
-    // the store buttons, the carousel cards and the track spacers alike.
+    <>
+    {/* On mobile the hero is exactly one viewport tall and lays its three rows
+        out as a column, so the marquee finishes at the bottom edge of the screen
+        instead of leaving a stray band of paper below it. --poster-w is read by
+        the store buttons, the carousel cards and the track spacers alike. */}
     <section
       id="top"
       style={{ '--poster-w': posterWidth(lang) } as React.CSSProperties}
@@ -163,5 +164,15 @@ export default function Hero() {
         </div>
       </div>
     </section>
+
+    {/* Solidarity band on mobile. It sits outside the hero rather than in it:
+        the hero is pinned to exactly one viewport, so a fourth row inside would
+        push the marquee back off the bottom of the screen. Here it is the first
+        thing revealed on scrolling past the poster. Desktop keeps its own band
+        inside the hero, above the marquee. */}
+    <div className="px-5 pb-2 pt-8 md:hidden">
+      <PalestineBannerMobile />
+    </div>
+    </>
   )
 }
