@@ -1,16 +1,25 @@
 import { ChevronDown } from 'lucide-react'
-import { useTranslations } from '../i18n/LanguageContext'
+import { useLang, useTranslations } from '../i18n/LanguageContext'
 import { AppleLogo, GooglePlayLogo } from '../components/brand-icons'
 import PalestineBanner from './PalestineBanner'
-import PosterCarousel from './PosterCarousel'
+import PosterCarousel, { posterWidth } from './PosterCarousel'
 
 const phoneSmart = new URL('../../assets/phone-smart.png', import.meta.url).href
 
 export default function Hero() {
   const t = useTranslations()
+  const lang = useLang()
 
   return (
-    <section id="top" className="paper-grain relative overflow-hidden pt-16 sm:pt-40">
+    // On mobile the hero is exactly one viewport tall and lays its three rows
+    // out as a column, so the marquee finishes at the bottom edge of the screen
+    // instead of leaving a stray band of paper below it. --poster-w is read by
+    // the store buttons, the carousel cards and the track spacers alike.
+    <section
+      id="top"
+      style={{ '--poster-w': posterWidth(lang) } as React.CSSProperties}
+      className="paper-grain relative flex min-h-[100svh] flex-col overflow-hidden pt-16 sm:pt-40 md:block md:min-h-0"
+    >
       {/* soft warm glow */}
       <div
         aria-hidden
@@ -97,9 +106,7 @@ export default function Hero() {
       </div>
 
       {/* mobile hero: store buttons, then the swipeable poster carousel leads the page */}
-      {/* px-[8%] lines the button row up with the poster carousel below it: the
-          cards are w-[84%] and snap centred, which leaves exactly 8% either side. */}
-      <div className="relative mx-auto max-w-6xl px-[8%] pb-6 md:hidden">
+      <div className="relative w-[var(--poster-w)] shrink-0 self-center pb-5 md:hidden">
         <div className="flex items-center gap-2">
           <a
             href="https://sidekick-llm.fly.dev/l/website?a=home&s=hero&p=ios"
@@ -128,8 +135,10 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* full-bleed so the next card peeks past the viewport edge */}
-      <div className="relative pb-10 md:hidden">
+      {/* full-bleed so the next card peeks past the viewport edge; flex-1 takes
+          the slack left between the buttons and the marquee and centres the
+          poster in it, rather than pooling it all beneath the dots */}
+      <div className="relative flex min-h-0 flex-1 flex-col justify-center py-2 md:hidden">
         <PosterCarousel />
       </div>
 
