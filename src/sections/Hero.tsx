@@ -19,7 +19,7 @@ export default function Hero() {
     <section
       id="top"
       style={{ '--poster-w': posterWidth(lang) } as React.CSSProperties}
-      className="paper-grain relative flex min-h-[100svh] flex-col overflow-hidden pt-14 sm:pt-40 md:block md:min-h-0"
+      className="paper-grain relative flex min-h-[100svh] flex-col overflow-hidden pt-24 sm:pt-40 md:block md:min-h-0"
     >
       {/* soft warm glow */}
       <div
