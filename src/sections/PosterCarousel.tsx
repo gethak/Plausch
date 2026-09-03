@@ -28,7 +28,7 @@ const FALLBACK_SHAPE = { wh: 2 / 3, cap: '88%' }
 // (pagination dots, model marquee) is a fixed height on mobile. Subtracting it
 // from the viewport leaves the room the poster may occupy, and the aspect ratio
 // turns that height into a width.
-const HERO_CHROME_PX = 268
+const HERO_CHROME_PX = 260
 
 /**
  * The poster's width for a language, as a CSS expression.
@@ -68,7 +68,7 @@ const posterArtwork: Partial<Record<Lang, Artwork>> = {
     },
     alt: {
       hallucinate:
-        'KIs halluzinieren. Gut für Surrealismus, weniger gut für Antworten. Vier KI-Antworten zur Frage, ob Leitungswasser in Spanien trinkbar ist — drei falsch, eine richtig. Einmal fragen: Wir vergleichen Antworten von mehreren KIs und finden die beste für dich.',
+        'KIs halluzinieren. Gut für Surrealismus, weniger gut für Antworten. Vier KI-Antworten zur Frage, ob Leitungswasser in Spanien trinkbar ist - drei falsch, eine richtig. Einmal fragen: Wir vergleichen Antworten von mehreren KIs und finden die beste für dich.',
       noclutter:
         'Kein App-Chaos. Ein Universum an KI-Modellen in nur einer App. ChatGPT, Claude, Gemini, Mistral, Kimi, Qwen und mehr an einem Ort. Einmal downloaden.',
       private:
@@ -92,7 +92,7 @@ const posterArtwork: Partial<Record<Lang, Artwork>> = {
     },
     alt: {
       hallucinate:
-        'AIs hallucinate. Good for surrealism, less good for answers. Four AI answers on whether tap water in Spain is drinkable — three wrong, one right. Ask once: we compare answers from multiple AIs and find the best one for you.',
+        'AIs hallucinate. Good for surrealism, less good for answers. Four AI answers on whether tap water in Spain is drinkable - three wrong, one right. Ask once: we compare answers from multiple AIs and find the best one for you.',
       noclutter:
         'No app-chaos. A universe of AI models in just one app. ChatGPT, Claude, Gemini, Mistral, Kimi, Qwen and more in one place. Download once.',
       private:
@@ -106,7 +106,7 @@ const posterArtwork: Partial<Record<Lang, Artwork>> = {
   es: {
     ratio: 'aspect-[4/5]',
     wh: 4 / 5,
-    cap: '92%',
+    cap: '90%',
     src: {
       hallucinate: new URL('../../assets/posters/es/hallucinate.jpg', import.meta.url).href,
       noclutter: new URL('../../assets/posters/es/noclutter.jpg', import.meta.url).href,
@@ -116,7 +116,7 @@ const posterArtwork: Partial<Record<Lang, Artwork>> = {
     },
     alt: {
       hallucinate:
-        'Las IA alucinan. Genial para el surrealismo, menos genial para las respuestas. Cuatro respuestas de IA sobre si el casero puede subir el alquiler — tres incorrectas, una correcta. Pregunta una vez: comparamos respuestas de varias IA y encontramos la mejor para ti.',
+        'Las IA alucinan. Genial para el surrealismo, menos genial para las respuestas. Cuatro respuestas de IA sobre si el casero puede subir el alquiler - tres incorrectas, una correcta. Pregunta una vez: comparamos respuestas de varias IA y encontramos la mejor para ti.',
       noclutter:
         'Sin caos de apps. Un universo de modelos de IA en una sola app. ChatGPT, Claude, Gemini, Mistral, Kimi, Qwen y más en un solo lugar. Descárgala una vez.',
       private:
@@ -214,7 +214,7 @@ export default function PosterCarousel() {
         <div aria-hidden className="w-[calc((100%-var(--poster-w))/2-1rem)] shrink-0" />
       </div>
 
-      <div className="mt-4 flex items-center justify-center gap-2">
+      <div className="mt-2 flex items-center justify-center gap-2">
         {posterKeys.map((key, i) => (
           <button
             key={key}

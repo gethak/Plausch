@@ -1,10 +1,9 @@
-import { ChevronDown } from 'lucide-react'
 import { useLang, useTranslations } from '../i18n/LanguageContext'
 import { AppleLogo, GooglePlayLogo } from '../components/brand-icons'
 import PalestineBanner, { PalestineBannerMobile } from './PalestineBanner'
 import PosterCarousel, { posterWidth } from './PosterCarousel'
-
-const phoneSmart = new URL('../../assets/phone-smart.png', import.meta.url).href
+import { brandSafe } from '../i18n/brand'
+import { screenshot } from '../i18n/screenshots'
 
 export default function Hero() {
   const t = useTranslations()
@@ -19,7 +18,7 @@ export default function Hero() {
     <section
       id="top"
       style={{ '--poster-w': posterWidth(lang) } as React.CSSProperties}
-      className="paper-grain relative flex min-h-[100svh] flex-col overflow-hidden pt-16 sm:pt-40 md:block md:min-h-0"
+      className="paper-grain relative flex min-h-[100svh] flex-col overflow-hidden pt-24 sm:pt-40 md:block md:min-h-0"
     >
       {/* soft warm glow */}
       <div
@@ -30,16 +29,23 @@ export default function Hero() {
       {/* desktop hero */}
       <div className="relative mx-auto hidden max-w-6xl grid-cols-1 items-center gap-14 px-5 pb-16 sm:px-8 md:grid lg:grid-cols-[1.15fr_0.85fr] lg:pb-24">
         <div>
-          <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#17130e]/15 bg-white/60 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-[#17130e]/70">
-            <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#e07b39]" />
-            <span>{t.hero.eyebrow}</span>
+          {/* items-start, not centre: the chip is two lines now, and centring
+              would float the dot between them instead of setting it against
+              the first line */}
+          <p className="mb-5 inline-flex items-start gap-2 rounded-full border border-[#17130e]/15 bg-white/60 px-4 py-2 text-xs font-semibold uppercase leading-relaxed tracking-[0.14em] text-[#17130e]/70">
+            <span className="mt-[0.5em] h-1.5 w-1.5 shrink-0 rounded-full bg-[#e07b39]" />
+            <span>
+              {t.hero.eyebrow}
+              <br />
+              {t.hero.eyebrowLine2}
+            </span>
           </p>
           <h1 className="font-display text-balance text-6xl font-semibold leading-[0.95] tracking-tight sm:text-7xl lg:text-[6.5rem]">
             {t.hero.h1Line1}
             <br />
             <em className="font-light italic text-[#e07b39]">{t.hero.h1Line2}</em>
           </h1>
-          <p className="mt-7 max-w-xl text-lg leading-relaxed text-[#17130e]/70">{t.hero.body}</p>
+          <p className="mt-7 max-w-xl text-lg leading-relaxed text-[#17130e]/70">{brandSafe(t.hero.body)}</p>
           <p className="mt-4 max-w-xl text-sm font-medium text-[#17130e]/55">
             {t.hero.builtByPrefix}{' '}
             <a href="#socialist-ai" className="underline decoration-[#e07b39] decoration-2 underline-offset-4 hover:text-[#17130e]">
@@ -73,13 +79,6 @@ export default function Hero() {
                 <span className="block text-lg font-semibold">{t.hero.playStoreTitle}</span>
               </span>
             </a>
-            <a
-              href="#features"
-              className="flex items-center gap-2 rounded-2xl border border-[#17130e]/20 bg-white/60 px-6 py-4 text-sm font-semibold transition-colors hover:bg-white"
-            >
-              {t.hero.seeWhatItDoes}
-              <ChevronDown className="h-4 w-4" />
-            </a>
           </div>
 
           <div className="mt-9 flex flex-wrap gap-x-6 gap-y-2 text-xs font-medium text-[#17130e]/50">
@@ -97,7 +96,7 @@ export default function Hero() {
           <div className="animate-float relative" style={{ '--tilt': '0deg' } as React.CSSProperties}>
             <div className="relative aspect-[881/1420] overflow-hidden rounded-[2.5rem] drop-shadow-2xl [transform:translateZ(0)]">
               <img
-                src={phoneSmart}
+                src={screenshot(lang, 'smart')}
                 alt={t.hero.imageAlt}
                 className="absolute inset-0 h-full w-full rounded-[2.5rem] object-cover [transform:translateZ(0)]"
               />
@@ -107,39 +106,41 @@ export default function Hero() {
       </div>
 
       {/* mobile hero: store buttons, then the swipeable poster carousel leads the page */}
-      <div className="relative w-[var(--poster-w)] shrink-0 self-center pb-5 md:hidden">
+      <div className="relative w-[var(--poster-w)] shrink-0 self-center pb-2 md:hidden">
         <div className="flex items-center gap-2">
           <a
             href="https://sidekick-llm.fly.dev/l/website?a=home&s=hero&p=ios"
             target="_blank"
             rel="noreferrer"
-            className="flex flex-auto items-center justify-center gap-2 rounded-full bg-[#17130e] px-3 py-2.5 text-[#faf5ec] transition-transform active:scale-95"
+            className="flex flex-auto items-center justify-center gap-2 rounded-full bg-[#17130e] px-3 py-2 text-[#faf5ec] transition-transform active:scale-95"
           >
-            <AppleLogo className="h-6 w-6" />
+            <AppleLogo className="h-5 w-5" />
             <span className="text-left leading-tight">
               <span className="block text-[8px] uppercase tracking-wider opacity-70">{t.hero.downloadEyebrow}</span>
-              <span className="block whitespace-nowrap text-sm font-semibold">{t.hero.downloadTitle}</span>
+              <span className="block whitespace-nowrap text-[13px] font-semibold">{t.hero.downloadTitle}</span>
             </span>
           </a>
           <a
             href="https://sidekick-llm.fly.dev/l/website?a=home&s=hero&p=android"
             target="_blank"
             rel="noreferrer"
-            className="flex flex-auto items-center justify-center gap-2 rounded-full bg-[#17130e] px-3 py-2.5 text-[#faf5ec] transition-transform active:scale-95"
+            className="flex flex-auto items-center justify-center gap-2 rounded-full bg-[#17130e] px-3 py-2 text-[#faf5ec] transition-transform active:scale-95"
           >
-            <GooglePlayLogo className="h-6 w-6" />
+            <GooglePlayLogo className="h-5 w-5" />
             <span className="text-left leading-tight">
               <span className="block text-[8px] uppercase tracking-wider opacity-70">{t.hero.playStoreEyebrow}</span>
-              <span className="block whitespace-nowrap text-sm font-semibold">{t.hero.playStoreTitle}</span>
+              <span className="block whitespace-nowrap text-[13px] font-semibold">{t.hero.playStoreTitle}</span>
             </span>
           </a>
         </div>
       </div>
 
-      {/* full-bleed so the next card peeks past the viewport edge; flex-1 takes
-          the slack left between the buttons and the marquee and centres the
-          poster in it, rather than pooling it all beneath the dots */}
-      <div className="relative flex min-h-0 flex-1 flex-col justify-center py-2 md:hidden">
+      {/* full-bleed so the next card peeks past the viewport edge. justify-start,
+          not centre: a language whose poster is held by its width cap cannot
+          use all the height, and centring split that leftover evenly, opening a
+          gap above the poster. Starting at the top keeps the poster tight under
+          the buttons and drops the leftover below the dots instead. */}
+      <div className="relative flex min-h-0 flex-1 flex-col justify-start py-1 md:hidden">
         <PosterCarousel />
       </div>
 
@@ -149,12 +150,12 @@ export default function Hero() {
       </div>
 
       {/* model marquee */}
-      <div className="relative border-y border-[#17130e]/10 bg-[#17130e] py-4">
+      <div className="relative border-y border-[#17130e]/10 bg-[#17130e] py-2.5 md:py-4">
         <div className="marquee-mask overflow-hidden">
           <div className="animate-marquee flex w-max items-center gap-10 pr-10">
             {[...t.hero.marqueeModels, ...t.hero.marqueeModels].map((m, i) => (
               <span key={i} className="flex items-center gap-2.5 whitespace-nowrap text-sm font-medium text-[#faf5ec]/85">
-                <span className="text-lg">{m.flag}</span>
+                <span className="text-base md:text-lg">{m.flag}</span>
                 {m.name}
                 <span className="text-[#faf5ec]/40">· {m.country}</span>
                 <span className="text-[#e07b39]">★</span>

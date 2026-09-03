@@ -45,7 +45,9 @@ export default function Nav() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-2.5 sm:px-8 md:py-4">
         <a href="#top" className="flex items-center gap-3">
           <img src={icon} alt={t.nav.iconAlt} className="h-10 w-10 object-contain drop-shadow-sm" style={{ background: 'transparent' }} />
-          <span className="font-display text-2xl font-semibold tracking-tight">Plausch</span>
+          {/* Inter bold, matching the Plausch wordmark on the posters, rather
+              than the Fraunces serif used for editorial headings */}
+          <span translate="no" className="text-3xl font-bold tracking-tight md:text-2xl">Plausch</span>
         </a>
 
         <div className="hidden flex-1 items-center justify-between md:ml-12 md:flex">

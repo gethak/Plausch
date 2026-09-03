@@ -1,5 +1,6 @@
 import { Sparkles } from 'lucide-react'
 import { useTranslations } from '../i18n/LanguageContext'
+import { brandSafe } from '../i18n/brand'
 
 export default function Models() {
   const t = useTranslations()
@@ -20,7 +21,7 @@ export default function Models() {
           <h2 className="font-display mt-3 text-4xl font-semibold leading-tight tracking-tight sm:text-6xl">
             {t.models.titlePrefix} <em className="font-light italic text-[#faf5ec]/60">{t.models.titleAccent}</em>
           </h2>
-          <p className="mt-5 text-lg leading-relaxed text-[#faf5ec]/65">{t.models.body}</p>
+          <p className="mt-5 text-lg leading-relaxed text-[#faf5ec]/65">{brandSafe(t.models.body)}</p>
         </div>
 
         <div className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -36,7 +37,7 @@ export default function Models() {
                 </span>
               </div>
               <h3 className="font-display mt-3 text-xl font-semibold">{m.name}</h3>
-              <p className="mt-1 text-sm text-[#faf5ec]/55">{m.note}</p>
+              <p className="mt-1 text-sm text-[#faf5ec]/55">{brandSafe(m.note)}</p>
             </div>
           ))}
         </div>

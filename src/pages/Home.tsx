@@ -22,8 +22,8 @@ export default function Home({ lang }: { lang: Lang }) {
         <Nav />
         <main>
           <Hero />
-          <Features />
           <Models />
+          <Features />
           <Socialist />
         </main>
         <Footer />

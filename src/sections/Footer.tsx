@@ -1,6 +1,7 @@
 import { ArrowUpRight } from 'lucide-react'
 import { useTranslations } from '../i18n/LanguageContext'
 import { AppleLogo, GooglePlayLogo } from '../components/brand-icons'
+import { brandSafe } from '../i18n/brand'
 
 const icon = new URL('../../assets/icon.png', import.meta.url).href
 
@@ -14,9 +15,9 @@ export default function Footer() {
         <div className="flex flex-col items-center text-center">
           <img src={icon} alt={t.footer.iconAlt} className="h-24 w-24 object-contain drop-shadow-lg" style={{ background: 'transparent' }} />
           <h2 className="font-display mt-8 text-balance text-4xl font-semibold tracking-tight sm:text-6xl">
-            {t.footer.readyPrefix} <em className="font-light italic text-[#e07b39]">{t.footer.readyAccent}</em>
+            {t.footer.readyPrefix} <em className="font-light italic text-[#e07b39]">{brandSafe(t.footer.readyAccent)}</em>
           </h2>
-          <p className="mt-4 max-w-md text-lg text-[#17130e]/65">{t.footer.body}</p>
+          <p className="mt-4 max-w-md text-lg text-[#17130e]/65">{brandSafe(t.footer.body)}</p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <a
               href="https://sidekick-llm.fly.dev/l/website?a=home&s=footer&p=ios"
@@ -57,12 +58,12 @@ export default function Footer() {
           <div className="flex items-center gap-3">
             <img src={icon} alt="" className="h-8 w-8 object-contain drop-shadow-sm" style={{ background: 'transparent' }} />
             <div className="leading-tight">
-              <p className="font-display font-semibold">Plausch</p>
+              <p translate="no" className="font-display font-semibold">Plausch</p>
               <p className="text-xs text-[#17130e]/50">by Socalist AI</p>
             </div>
           </div>
 
-          <p className="max-w-sm text-center text-xs leading-relaxed text-[#17130e]/50 md:text-left">{t.footer.tagline}</p>
+          <p className="max-w-sm text-center text-xs leading-relaxed text-[#17130e]/50 md:text-left">{brandSafe(t.footer.tagline)}</p>
 
           <div className="flex items-center gap-5 text-sm font-medium text-[#17130e]/70">
             {t.footer.links.map((l) => (
@@ -82,7 +83,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mx-auto max-w-6xl px-5 pb-8 sm:px-8">
-          <p className="text-center text-xs text-[#17130e]/40 md:text-left">{t.footer.copyright}</p>
+          <p className="text-center text-xs text-[#17130e]/40 md:text-left">{brandSafe(t.footer.copyright)}</p>
         </div>
       </div>
     </footer>

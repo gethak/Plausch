@@ -21,7 +21,12 @@ export default defineConfig({
       ]
     },
     workbox: {
-      globPatterns: ['**/*.{js,css,html,png,svg}']
+      globPatterns: ['**/*.{js,css,html,png,svg}'],
+      // The phone mockups exist once per language and are several megabytes
+      // together, so precaching them all would make every visitor download the
+      // two languages they are not reading. They are ordinary lazy images and
+      // load on demand, same as the posters (excluded above by being .jpg).
+      globIgnores: ['**/phone-*.png']
     }
   })],
   server: {
