@@ -1,4 +1,3 @@
-import { ChevronDown } from 'lucide-react'
 import { useLang, useTranslations } from '../i18n/LanguageContext'
 import { AppleLogo, GooglePlayLogo } from '../components/brand-icons'
 import PalestineBanner, { PalestineBannerMobile } from './PalestineBanner'
@@ -79,13 +78,6 @@ export default function Hero() {
                 <span className="block text-[10px] uppercase tracking-wider opacity-70">{t.hero.playStoreEyebrow}</span>
                 <span className="block text-lg font-semibold">{t.hero.playStoreTitle}</span>
               </span>
-            </a>
-            <a
-              href="#features"
-              className="flex items-center gap-2 rounded-2xl border border-[#17130e]/20 bg-white/60 px-6 py-4 text-sm font-semibold transition-colors hover:bg-white"
-            >
-              {t.hero.seeWhatItDoes}
-              <ChevronDown className="h-4 w-4" />
             </a>
           </div>
 
