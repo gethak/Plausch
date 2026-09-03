@@ -151,12 +151,12 @@ export default function Hero() {
       </div>
 
       {/* model marquee */}
-      <div className="relative border-y border-[#17130e]/10 bg-[#17130e] py-4">
+      <div className="relative border-y border-[#17130e]/10 bg-[#17130e] py-2.5 md:py-4">
         <div className="marquee-mask overflow-hidden">
           <div className="animate-marquee flex w-max items-center gap-10 pr-10">
             {[...t.hero.marqueeModels, ...t.hero.marqueeModels].map((m, i) => (
               <span key={i} className="flex items-center gap-2.5 whitespace-nowrap text-sm font-medium text-[#faf5ec]/85">
-                <span className="text-lg">{m.flag}</span>
+                <span className="text-base md:text-lg">{m.flag}</span>
                 {m.name}
                 <span className="text-[#faf5ec]/40">· {m.country}</span>
                 <span className="text-[#e07b39]">★</span>
