@@ -373,7 +373,7 @@ export const translations = {
       eyebrow: 'Compare answers from many AIs',
       h1Line1: 'Your AI.',
       h1Line2: 'Worldwide.',
-      body: 'ChatGPT, Claude, Gemini, DeepSeek, Kimi — all these AI models and more in one app — Plausch',
+      body: 'ChatGPT, Claude, Gemini, Kimi, Deepseek, Mistral, Falcon, Sarvam, and many more - All these AI models and more in one app - Plausch',
       builtByPrefix: 'Built by',
       builtBySuffix: '— because intelligence is a commons, and it belongs to everyone.',
       socialistAiLabel: 'Socialist AI',
