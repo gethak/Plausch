@@ -370,7 +370,7 @@ export const translations = {
       iconAlt: 'Plausch app icon',
     },
     hero: {
-      eyebrow: 'Compare answers from many AIs',
+      eyebrow: 'Compare answers for your questions - from the best AI Models around the world!',
       h1Line1: 'Your AI.',
       h1Line2: 'Worldwide.',
       body: 'ChatGPT, Claude, Gemini, Kimi, Deepseek, Mistral, Falcon, Sarvam, and many more - All these AI models and more in one app - Plausch',
