@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
 import { Bookmark, Globe2, Lock, ShieldCheck, EyeOff, Scale, Mail, Bot, KeyRound, Check, X } from 'lucide-react'
 import { useTranslations } from '../i18n/LanguageContext'
+import { brandSafe } from '../i18n/brand'
 
 const phoneAnnotations = new URL('../../assets/phone-annotations.png', import.meta.url).href
 const phonePrivacy = new URL('../../assets/phone-privacy.png', import.meta.url).href
@@ -50,7 +51,7 @@ function FeatureRow({
           <h2 className="font-display mt-3 text-3xl font-semibold leading-tight tracking-tight sm:text-4xl md:text-5xl">
             {title} <em className="font-light italic text-[#17130e]/50">{accent}</em>
           </h2>
-          <p className="mt-4 max-w-lg text-base leading-relaxed text-[#17130e]/70 md:mt-5 md:text-lg">{body}</p>
+          <p className="mt-4 max-w-lg text-base leading-relaxed text-[#17130e]/70 md:mt-5 md:text-lg">{brandSafe(body)}</p>
           <ul className="mt-6 space-y-4 md:mt-8">
             {bullets.map((b, i) => (
               <li key={i} className="flex items-center gap-4">
@@ -124,7 +125,7 @@ export default function Features() {
               {t.features.collect.titlePrefix}{' '}
               <em className="font-light italic text-[#17130e]/50">{t.features.collect.titleAccent}</em>
             </h2>
-            <p className="mt-5 text-lg leading-relaxed text-[#17130e]/70">{t.features.collect.intro}</p>
+            <p className="mt-5 text-lg leading-relaxed text-[#17130e]/70">{brandSafe(t.features.collect.intro)}</p>
           </div>
 
           <div className="mt-12 grid gap-6 lg:grid-cols-3">
@@ -133,7 +134,7 @@ export default function Features() {
                 <Mail className="h-5 w-5 text-[#e07b39]" />
               </span>
               <h3 className="font-display mt-4 text-2xl font-semibold">{t.features.collect.cards[0].title}</h3>
-              <p className="mt-2 leading-relaxed text-[#17130e]/70">{t.features.collect.cards[0].body}</p>
+              <p className="mt-2 leading-relaxed text-[#17130e]/70">{brandSafe(t.features.collect.cards[0].body)}</p>
             </div>
 
             <div className="rounded-2xl bg-white/70 p-7 shadow-sm ring-1 ring-[#17130e]/10">
@@ -141,7 +142,7 @@ export default function Features() {
                 <Bot className="h-5 w-5 text-[#e07b39]" />
               </span>
               <h3 className="font-display mt-4 text-2xl font-semibold">{t.features.collect.cards[1].title}</h3>
-              <p className="mt-2 leading-relaxed text-[#17130e]/70">{t.features.collect.cards[1].body}</p>
+              <p className="mt-2 leading-relaxed text-[#17130e]/70">{brandSafe(t.features.collect.cards[1].body)}</p>
             </div>
 
             <div className="rounded-2xl bg-white/70 p-7 shadow-sm ring-1 ring-[#17130e]/10">
@@ -149,7 +150,7 @@ export default function Features() {
                 <KeyRound className="h-5 w-5 text-[#e07b39]" />
               </span>
               <h3 className="font-display mt-4 text-2xl font-semibold">{t.features.collect.cards[2].title}</h3>
-              <p className="mt-2 leading-relaxed text-[#17130e]/70">{t.features.collect.cards[2].body}</p>
+              <p className="mt-2 leading-relaxed text-[#17130e]/70">{brandSafe(t.features.collect.cards[2].body)}</p>
             </div>
           </div>
 

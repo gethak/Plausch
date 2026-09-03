@@ -2,6 +2,7 @@ import { useLang, useTranslations } from '../i18n/LanguageContext'
 import { AppleLogo, GooglePlayLogo } from '../components/brand-icons'
 import PalestineBanner, { PalestineBannerMobile } from './PalestineBanner'
 import PosterCarousel, { posterWidth } from './PosterCarousel'
+import { brandSafe } from '../i18n/brand'
 
 const phoneSmart = new URL('../../assets/phone-smart.png', import.meta.url).href
 
@@ -45,7 +46,7 @@ export default function Hero() {
             <br />
             <em className="font-light italic text-[#e07b39]">{t.hero.h1Line2}</em>
           </h1>
-          <p className="mt-7 max-w-xl text-lg leading-relaxed text-[#17130e]/70">{t.hero.body}</p>
+          <p className="mt-7 max-w-xl text-lg leading-relaxed text-[#17130e]/70">{brandSafe(t.hero.body)}</p>
           <p className="mt-4 max-w-xl text-sm font-medium text-[#17130e]/55">
             {t.hero.builtByPrefix}{' '}
             <a href="#socialist-ai" className="underline decoration-[#e07b39] decoration-2 underline-offset-4 hover:text-[#17130e]">

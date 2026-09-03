@@ -1,5 +1,6 @@
 import { BookOpen, Globe2, KeyRound, Users, ArrowUpRight } from 'lucide-react'
 import { useTranslations } from '../i18n/LanguageContext'
+import { brandSafe } from '../i18n/brand'
 
 const principleIcons = [
   <BookOpen className="h-5 w-5" />,
@@ -24,11 +25,11 @@ export default function Socialist() {
       />
       <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
         <div className="max-w-3xl">
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#fdf3e3]/70">{t.socialist.tagline}</p>
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#fdf3e3]/70">{brandSafe(t.socialist.tagline)}</p>
           <h2 className="font-display mt-4 text-balance text-4xl font-semibold leading-[1.05] tracking-tight sm:text-6xl">
             {t.socialist.titlePrefix} <em className="font-light italic text-[#f5b73f]">{t.socialist.titleAccent}</em>
           </h2>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#fdf3e3]/75">{t.socialist.body}</p>
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#fdf3e3]/75">{brandSafe(t.socialist.body)}</p>
         </div>
 
         <div className="mt-14 grid gap-6 sm:grid-cols-2">
@@ -44,7 +45,7 @@ export default function Socialist() {
                 <span className="font-display text-3xl font-light text-[#fdf3e3]/30">{String(i + 1).padStart(2, '0')}</span>
               </div>
               <h3 className="font-display mt-4 text-2xl font-semibold">{p.title}</h3>
-              <p className="mt-2 leading-relaxed text-[#fdf3e3]/70">{p.body}</p>
+              <p className="mt-2 leading-relaxed text-[#fdf3e3]/70">{brandSafe(p.body)}</p>
             </div>
           ))}
         </div>
