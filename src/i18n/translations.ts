@@ -370,10 +370,10 @@ export const translations = {
       iconAlt: 'Plausch app icon',
     },
     hero: {
-      eyebrow: 'A chat with the smartest AI — no matter which one',
+      eyebrow: 'Compare answers from many AIs',
       h1Line1: 'Your AI.',
       h1Line2: 'Worldwide.',
-      body: 'One app. Every world-class AI model — GPT-4o, Claude, Gemini, Mistral, DeepSeek, Llama, Qwen, Falcon and more. Find the model that truly fits you.',
+      body: 'ChatGPT, Claude, Gemini, DeepSeek, Kimi — all these AI models and more in one app — Plausch',
       builtByPrefix: 'Built by',
       builtBySuffix: '— because intelligence is a commons, and it belongs to everyone.',
       socialistAiLabel: 'Socialist AI',
